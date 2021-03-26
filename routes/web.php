@@ -16,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/inicio', function () {
+    return view('principal');
+});
+
+Route::get('/actualiza', function () {
+    return view('formcontrib');
+});
+
 
 Auth::routes();
 
