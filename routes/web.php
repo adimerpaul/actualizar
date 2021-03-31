@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 Route::get('/inicio', function () {
-    return view('principal');
+    return view('layouts/principal');
 });
 
 Route::get('/actualiza', function () {
@@ -28,3 +28,8 @@ Route::get('/actualiza', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/logeo', [App\Http\Controllers\user::class, 'consulta']);
+Route::get('/codham', [App\Http\Controllers\ContribController::class, 'codham'])->name('home');
+Route::get('/datoscontrib/{comun}', [App\Http\Controllers\ContribController::class, 'buscarcont']);
+Route::post('/modificar/{comun}', [App\Http\Controllers\ContribController::class, 'update']);
+

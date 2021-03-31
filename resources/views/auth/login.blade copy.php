@@ -1,41 +1,18 @@
-<!DOCTYPE html>
-<html dir="ltr">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
-    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
-    <!-- Custom CSS -->
-    <link href="dist/css/style.min.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-</head>
-<div class="main-wrapper ">
-<div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
-            <div class="auth-box bg-dark border-top border-secondary">
-                <div id="loginform">
-                    <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img src="assets/images/logo.png" alt="logo" /></span>
-                    </div>
-    <div class="row ">
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
             <div class="card">
+                <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md- col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -88,15 +65,9 @@
                             </div>
                         </div>
                     </form>
+                </div>
             </div>
         </div>
     </div>
-</div></div></div></div>
-<script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    </body>
-
-</html>
+</div>
+@endsection

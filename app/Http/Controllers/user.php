@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use Redirect;
 
 class user extends Controller
 {
@@ -60,4 +62,26 @@ class user extends Controller
     {
         //
     }
+
+    public function consulta(Request $request){
+        $email=$request->$email;
+        $password=$request->password;
+        $credenciales=array('email'=>$email,'password'=>$password);
+
+
+		if (Auth::attempt($credenciales,true))
+		{
+			return Redirect::to('/inicio');
+		}
+		else
+			return Redirect::to('/welcome');	
+	
+    }
+    public function getLogout(){
+        if(Auth::check()){
+           Auth::logout();
+        }
+        return Redirect::to('/welcome');
+     }
+
 }
