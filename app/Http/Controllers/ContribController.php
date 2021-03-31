@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\contrib;
 use Illuminate\Http\Request;
+use DB;
 
 class ContribController extends Controller
 {
@@ -69,7 +70,7 @@ class ContribController extends Controller
         DB::table('pm01cont')
         ->where('comun',$comun)
         ->update($cont);
-        echo'Registro modificado';
+        return redirect('/actualiza');
     }
 
     /**

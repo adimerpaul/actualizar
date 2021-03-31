@@ -19,6 +19,8 @@
 </form>
 
                         <form method='POST' action='/modificar' id='mod1'>
+                        @method('POST') 
+                        @csrf
                             <div class="form-row">
                                 <div class="form-group col-md-2">
                                     <label for="tipodocumento">Tipo documento</label>
@@ -84,7 +86,12 @@
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="tipocalle">tipocalle</label>
-                                    <input type="text" class="form-control" id="tipocalle" name="tipocalle" placeholder="tipocalle" >
+                                    <select class="form-control" id="tipocalle" name="tipocalle" required>
+                                        <option value="CA">CALLE</option>
+                                        <option value="AV">AVENIDA</option>
+                                        <option value="PL">PLAZA</option>
+                                        <option value="PJ">PASAJE</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="nombrecall">nombrecall</label>
@@ -117,8 +124,7 @@
             var row=response[0];
             $('#tipodocumento').val(row['tipodocum']);
             $('#ci').val(row['comun']);
-            $('#mod1').attr('action','/modificar/'+row['comun']);
-
+            $('#mod1').attr('action',"/modificar/"+row['comun']);
             $('#expedido').val(row['expedido']);
             $('#paterno').val(row['paterno']);
             $('#materno').val(row['materno']);
