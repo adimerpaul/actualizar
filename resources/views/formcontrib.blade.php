@@ -19,7 +19,6 @@
 </form>
 
                         <form method='POST' action='/modificar' id='mod1'>
-                        @method('POST') 
                         @csrf
                             <div class="form-row">
                                 <div class="form-group col-md-2">
@@ -27,11 +26,12 @@
                                     <!--                                    <input type="text" class="form-control" id="tipodocumento" placeholder="Tipo Documento">-->
                                     <select name="tipodocumento" id="tipodocumento" name="tipodocumento" class="form-control" required disabled>
                                         <option value="1">Carnet identidad</option>
+                                        <option value="2">Passaporte</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="ci">Carnet de identidad</label>
-                                    <input type="text" class="form-control" id="ci" name="ci" placeholder="Carnet de identidad" required readonly>
+                                    <input type="text" class="form-control" id="ci" name="ci" placeholder="Carnet de identidad" required readonly >
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="expedido">Expedido</label>
@@ -121,6 +121,7 @@
         url: "/datoscontrib/"+$('#comun1').val(),
         success: function (response) {
             console.log(response);
+            if(response!=''){
             var row=response[0];
             $('#tipodocumento').val(row['tipodocum']);
             $('#ci').val(row['comun']);
@@ -136,7 +137,7 @@
             $('#nombrecall').val(row['nombrecall']);
             $('#numcasa').val(row['numcasa']);
             $('#descrip').val(row['descrip']);
-            $('#nacimient').val(row['nacimient'].substr(0,10));
+            $('#nacimient').val(row['nacimient'].substr(0,10));}
            // You will get response from your PHP page (what you echo or print)
         },
         error: function(jqXHR, textStatus, errorThrown) {

@@ -50,6 +50,7 @@ class ContribController extends Controller
     public function update(Request $request, contrib $contrib)
     {
         //
+        $request()->validate(['ci'=>'required']);
         $comun=$request->ci;
         //$cont=Cont::where('comun',$comun)->where('tipodocum',$tipodocum)->get();  
 
@@ -85,7 +86,7 @@ class ContribController extends Controller
     }
     
     public function buscarcont($comun){
-        return Contrib::where('comun',$comun)->get(); 
+        return Contrib::where('comun',$comun)->where('tipodocum','1')->get(); 
 
     }
 
