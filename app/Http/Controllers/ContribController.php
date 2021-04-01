@@ -50,7 +50,7 @@ class ContribController extends Controller
     public function update(Request $request, contrib $contrib)
     {
         //
-        $request()->validate(['ci'=>'required']);
+        //$request()->validate(['ci'=>'required']);
         $comun=$request->ci;
         //$cont=Cont::where('comun',$comun)->where('tipodocum',$tipodocum)->get();  
 

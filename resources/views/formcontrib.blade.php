@@ -18,8 +18,9 @@
   </div>
 </form>
 
-                        <form method='POST' action='/modificar' id='mod1'>
+                        <form method='POST' action='/modificar/' id='mod1'>
                         @csrf
+                        @method('PUT')
                             <div class="form-row">
                                 <div class="form-group col-md-2">
                                     <label for="tipodocumento">Tipo documento</label>
@@ -31,7 +32,7 @@
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="ci">Carnet de identidad</label>
-                                    <input type="text" class="form-control" id="ci" name="ci" placeholder="Carnet de identidad" required readonly >
+                                    <input type="text" class="form-control" id="ci" name="ci" placeholder="Carnet de identidad" required >
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="expedido">Expedido</label>
