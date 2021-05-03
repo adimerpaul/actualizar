@@ -122,7 +122,7 @@
         url: "/datoscontrib/"+$('#comun1').val(),
         success: function (response) {
             console.log(response);
-            if(response!=''){
+            if(response.length!=0){
             var row=response[0];
             $('#tipodocumento').val(row['tipodocum']);
             $('#ci').val(row['comun']);
@@ -139,6 +139,22 @@
             $('#numcasa').val(row['numcasa']);
             $('#descrip').val(row['descrip']);
             $('#nacimient').val(row['nacimient'].substr(0,10));}
+            else{
+            $('#tipodocumento').val('');
+            $('#ci').val('');
+            $('#mod1').attr('action',"");
+            $('#expedido').val('');
+            $('#paterno').val('');
+            $('#materno').val('');
+            $('#nombre').val('');
+            $('#telefono').val('');
+            $('#cod_ham').val('');
+            $('#cod_barrio').val('');
+            $('#tipocalle').val('');
+            $('#nombrecall').val('');
+            $('#numcasa').val('');
+            $('#descrip').val('');
+            $('#nacimient').val('');}
            // You will get response from your PHP page (what you echo or print)
         },
         error: function(jqXHR, textStatus, errorThrown) {
