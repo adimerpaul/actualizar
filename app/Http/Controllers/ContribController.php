@@ -17,6 +17,24 @@ class ContribController extends Controller
     {
         //
     }
+    public function limpiar(Request $request)
+    {
+        $b=substr($request->gest,2,2);
+//        echo substr($request->gest,2,2);
+        $cont=array(
+            'fecha'=>null,
+            'oper'=>'',
+            'pagado_en'=>null,
+            'hora'=>''
+        );
+//
+        DB::connection('tasas')->table('archi'.$b)
+            ->where('comun',$request->comun)
+            ->where('cantidad',$request->cantidad)
+            ->where('gest',$request->gest)
+            ->update($cont);
+        return 1;
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -52,10 +70,10 @@ class ContribController extends Controller
         //
         //$request()->validate(['ci'=>'required']);
         $comun=$request->ci;
-        //$cont=Cont::where('comun',$comun)->where('tipodocum',$tipodocum)->get();  
+        //$cont=Cont::where('comun',$comun)->where('tipodocum',$tipodocum)->get();
 
         $cont=array(
-       
+
         'expedido'=>$request->expedido,
         'paterno'=>$request->paterno,
         'materno'=>$request->materno,
@@ -84,23 +102,41 @@ class ContribController extends Controller
     {
         //
     }
-    
-    public function buscarcont($comun){
-        return Contrib::where('comun',$comun)->where('tipodocum','1')->get(); 
 
+    public function buscarcont($comun){
+        return Contrib::where('comun',$comun)->where('tipodocum','1')->get();
+
+    }
+    public function gestiones($comun){
+        $month = strtotime("1992-01-01");
+        $end = strtotime(date('Y-m-d', strtotime("-1 year")));
+        $gestiones=array();
+        while($month <= $end)
+        {
+//            echo date('y', $month)."----- <br>";
+            $query=DB::connection('tasas')->table('archi'.date('y', $month))->where('comun',$comun);
+            if ($query->count()>0){
+//                echo date('y',$month)."---<br>";
+//                array_push($gestiones,['gestion'=>date('Y',$month)]);
+                array_push($gestiones,$query->get());
+            }
+            $month = strtotime("+1 year", $month);
+        }
+        return $gestiones;
+//        return DB::connection('tasas')->table('archi92')->where('comun',$comun)->get();
     }
 
     public function codbarrio(){
         return DB::table('pmbarrio')->select('barrio','codigo')->get();
     }
-    
+
     public function codham(){
         return DB::table('pmcodham')->select('codigo','alcaldia')->orderByDesc('alcaldia')->get();
-        
+
     }
-    
+
     public function codzona(){
         return DB::table('pmzona')->select('zona','descrip')->get();
-        
+
     }
 }
