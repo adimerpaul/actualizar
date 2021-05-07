@@ -44,7 +44,7 @@
 {{--                        <option value="C">SUCRE</option>--}}
 {{--                    </select>--}}
 {{--                </div>--}}
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                     <label for="nombre">Nombre Completo</label>
                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Completo" >
                 </div>
@@ -55,7 +55,6 @@
                 <div class="form-group col-md-2">
                     <label for="inmuebles">Imuebles</label>
                     <select name="inmuebles" id="inmuebles" name="inmuebles" class="form-control" required >
-
                     </select>
                 </div>
                 <div class="form-group col-md-2">
@@ -65,6 +64,10 @@
                 <div class="form-group col-md-1">
                     <label for="cambiar">Cambiar</label>
                     <button id="cambio" type="button" class="btn btn-success"><i class="fa fa-edit"></i></button>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="descrip">Direccion</label>
+                    <p id="descrip" name="descrip" >
                 </div>
                 <div class="form-group col-12">
                     <h2>Gestiones acumuladas</h2>
@@ -170,6 +173,7 @@
             }
             $('#inmuebles').change(function (){
                 $('#gestion').val('');
+                $('#descrip').html('');
                 mostrar($('#comun1').val(),$(this).val());
 
                 $.ajax({
@@ -177,6 +181,7 @@
                     success:function (re){
                         // console.log(re);
                         $('#gestion').val(re[0].gestion);
+                        $('#descrip').html(re[0].descrip);
                     }
                 });
             })
