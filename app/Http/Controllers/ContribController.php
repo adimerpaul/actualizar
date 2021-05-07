@@ -17,12 +17,19 @@ class ContribController extends Controller
     {
         //
     }
+    public function cambioges($cantidad,$gestion){
+
+        DB::table('pm01inmu')
+            ->where('cantidad',$cantidad)
+            ->update(['gestion'=>$gestion]);
+        return 1;
+    }
     public function limpiar(Request $request)
     {
         $b=substr($request->gest,2,2);
 //        echo substr($request->gest,2,2);
         $cont=array(
-            'fecha'=>null,
+//            'fecha'=>null,
             'oper'=>'',
             'pagado_en'=>null,
             'hora'=>''
@@ -105,16 +112,19 @@ class ContribController extends Controller
 
     public function buscarcont($comun){
         return Contrib::where('comun',$comun)->where('tipodocum','1')->get();
-
     }
-    public function gestiones($comun){
+    public function ultimages($comun){
+        return DB::table('pm01inmu')->where('cantidad',$comun)->get();
+    }
+
+    public function gestiones($comun,$cantidad){
         $month = strtotime("1992-01-01");
         $end = strtotime(date('Y-m-d', strtotime("-1 year")));
         $gestiones=array();
         while($month <= $end)
         {
 //            echo date('y', $month)."----- <br>";
-            $query=DB::connection('tasas')->table('archi'.date('y', $month))->where('comun',$comun);
+            $query=DB::connection('tasas')->table('archi'.date('y', $month))->where('comun',$comun)->where('cantidad',$cantidad);
             if ($query->count()>0){
 //                echo date('y',$month)."---<br>";
 //                array_push($gestiones,['gestion'=>date('Y',$month)]);
@@ -124,6 +134,9 @@ class ContribController extends Controller
         }
         return $gestiones;
 //        return DB::connection('tasas')->table('archi92')->where('comun',$comun)->get();
+    }
+    public function inmuebles($comun){
+        return DB::table('pm01inmu')->where('comun',$comun)->get();
     }
 
     public function codbarrio(){

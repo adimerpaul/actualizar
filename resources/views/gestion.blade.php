@@ -19,33 +19,31 @@
             @csrf
             @method('PUT')
             <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="tipodocumento">Tipo documento</label>
-                    <!--                                    <input type="text" class="form-control" id="tipodocumento" placeholder="Tipo Documento">-->
-                    <select name="tipodocumento" id="tipodocumento" name="tipodocumento" class="form-control" required disabled>
-                        <option value="1">Carnet identidad</option>
-                        <option value="2">Passaporte</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="ci">Carnet de identidad</label>
-                    <input type="text" class="form-control" id="ci" name="ci" placeholder="Carnet de identidad" required >
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="expedido">Expedido</label>
-                    <!--                                    <input type="text" class="form-control" id="expedido" placeholder="Tipo Documento">-->
-                    <select name="expedido" id="expedido" name="expedido" class="form-control" required >
-                        <option value="O">ORURO</option>
-                        <option value="L">LA PAZ</option>
-                        <option value="P">POTOSI</option>
-                        <option value="A">PANDO</option>
-                        <option value="B">BENI</option>
-                        <option value="T">SANTA CRUZ</option>
-                        <option value="J">TARIJA</option>
-                        <option value="H">COCHABAMBA</option>
-                        <option value="C">SUCRE</option>
-                    </select>
-                </div>
+{{--                <div class="form-group col-md-2">--}}
+{{--                    <label for="tipodocumento">Tipo documento</label>--}}
+{{--                    <select name="tipodocumento" id="tipodocumento" name="tipodocumento" class="form-control" required disabled>--}}
+{{--                        <option value="1">Carnet identidad</option>--}}
+{{--                        <option value="2">Passaporte</option>--}}
+{{--                    </select>--}}
+{{--                </div>--}}
+{{--                <div class="form-group col-md-2">--}}
+{{--                    <label for="ci">Carnet de identidad</label>--}}
+{{--                    <input type="text" class="form-control" id="ci" name="ci" placeholder="Carnet de identidad" required >--}}
+{{--                </div>--}}
+{{--                <div class="form-group col-md-2">--}}
+{{--                    <label for="expedido">Expedido</label>--}}
+{{--                    <select name="expedido" id="expedido" name="expedido" class="form-control" required >--}}
+{{--                        <option value="O">ORURO</option>--}}
+{{--                        <option value="L">LA PAZ</option>--}}
+{{--                        <option value="P">POTOSI</option>--}}
+{{--                        <option value="A">PANDO</option>--}}
+{{--                        <option value="B">BENI</option>--}}
+{{--                        <option value="T">SANTA CRUZ</option>--}}
+{{--                        <option value="J">TARIJA</option>--}}
+{{--                        <option value="H">COCHABAMBA</option>--}}
+{{--                        <option value="C">SUCRE</option>--}}
+{{--                    </select>--}}
+{{--                </div>--}}
                 <div class="form-group col-md-4">
                     <label for="nombre">Nombre Completo</label>
                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Completo" >
@@ -53,6 +51,20 @@
                 <div class="form-group col-md-2">
                     <label for="telefono">Celular</label>
                     <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Celular" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inmuebles">Imuebles</label>
+                    <select name="inmuebles" id="inmuebles" name="inmuebles" class="form-control" required >
+
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="gestion">Ultima Gestion</label>
+                    <input type="text" class="form-control" id="gestion" name="gestion" placeholder="Ultima Gestion" >
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="cambiar">Cambiar</label>
+                    <button id="cambio" type="button" class="btn btn-success"><i class="fa fa-edit"></i></button>
                 </div>
                 <div class="form-group col-12">
                     <h2>Gestiones acumuladas</h2>
@@ -77,51 +89,7 @@
 
                     </table>
                 </div>
-{{--                <div class="form-group col-md-2">--}}
-{{--                    <label for="cod_ham">cod_ham</label>--}}
-{{--                    <select  class="form-control"  name="cod_ham" id="cod_ham" required>--}}
-{{--                        <?php--}}
-{{--                        $re=DB::select('select codigo, alcaldia from pmcodham order By alcaldia desc');--}}
-{{--                        foreach($re as $row){--}}
-{{--                            echo '<option value="'.$row->codigo.'">'.$row->alcaldia.'</option>';}--}}
-{{--                        ?>--}}
-{{--                    </select>--}}
-{{--                </div>--}}
-{{--                <div class="form-group col-md-2">--}}
-{{--                    <label for="cod_barrio">cod_barrio</label>--}}
-{{--                    <select  class="form-control"   name="cod_barrio" id="cod_barrio" required>--}}
-{{--                        <?php--}}
-{{--                        $re=DB::table('pmbarrio')->select('barrio','codigo')->get();--}}
-{{--                        foreach($re as $row){--}}
-{{--                            echo '<option value="'.$row->codigo.'">'.$row->barrio.'</option>';}--}}
-{{--                        ?>--}}
-{{--                    </select>--}}
-{{--                </div>--}}
-{{--                <div class="form-group col-md-2">--}}
-{{--                    <label for="tipocalle">tipocalle</label>--}}
-{{--                    <select class="form-control" id="tipocalle" name="tipocalle" required>--}}
-{{--                        <option value="CA">CALLE</option>--}}
-{{--                        <option value="AV">AVENIDA</option>--}}
-{{--                        <option value="PL">PLAZA</option>--}}
-{{--                        <option value="PJ">PASAJE</option>--}}
-{{--                    </select>--}}
-{{--                </div>--}}
-{{--                <div class="form-group col-md-2">--}}
-{{--                    <label for="nombrecall">nombrecall</label>--}}
-{{--                    <input type="text" class="form-control" id="nombrecall" name="nombrecall" placeholder="nombrecall" >--}}
-{{--                </div>--}}
-{{--                <div class="form-group col-md-2">--}}
-{{--                    <label for="numcasa">numcasa</label>--}}
-{{--                    <input type="text" class="form-control" id="numcasa" name="numcasa" placeholder="numcasa" >--}}
-{{--                </div>--}}
-{{--                <div class="form-group col-md-6">--}}
-{{--                    <label for="descrip">descrip</label>--}}
-{{--                    <input type="text" class="form-control" id="descrip" name="descrip" placeholder="descrip" >--}}
-{{--                </div>--}}
-{{--                <div class="form-group col-md-3">--}}
-{{--                    <label for="nacimient">nacimient</label>--}}
-{{--                    <input type="date" class="form-control" id="nacimient" name="nacimient" placeholder="nacimient">--}}
-{{--                </div>--}}
+
             </div>
 {{--            <button type="submit" class="btn btn-success btn-block"  ><i class="fa fa-user-plus"></i>Modificar</button>--}}
         </form>
@@ -129,6 +97,25 @@
     </div>
     <script>
         window.onload=function (){
+            $('#cambio').click(function (){
+                if ($('#inmuebles').val()==undefined || $('#inmuebles').val()==''){
+                    alert('debes seleccionar inmuebles')
+                }else{
+                    $.ajax({
+                        url: "/cambioges/"+$('#inmuebles').val()+'/'+$('#gestion').val(),
+                        success:function (re){
+                            if (parseInt(re)==1){
+                                alert('Se actualizo correctamente');
+                            }else{
+                                alert('Algo salio mal');
+                            }
+                            // console.log(re);
+                            // $('#gestion').val(re[0].gestion);
+                        }
+                    });
+                }
+
+            });
             $("#contenido").on("click", ".limpiar", function(){
                 // console.log($(this).attr('id-gest'));
                 // if (confirm('Se guro de limpiar?')){
@@ -144,20 +131,16 @@
                         data:data,
                         success:function (r){
                             // console.log(r);
-                            mostrar($('#comun1').val());
+                            mostrar($('#comun1').val(),$('#inmuebles').val());
                         }
                     });
                 // }
             });
-
-            function limpiar(ci,cantidad){
-                console.log(ci,cantidad);
-            }
-            function mostrar(comun){
+            function mostrar(comun,cantidad){
                 $('#contenido').html('');
                 // console.log($('#comun1').val());
                 $.ajax({
-                    url: "/gestiones/"+comun,
+                    url: "/gestiones/"+comun+'/'+cantidad,
                     success: function (res) {
                         let t='';
                         let c=0;
@@ -185,8 +168,34 @@
                     }
                 });
             }
+            $('#inmuebles').change(function (){
+                $('#gestion').val('');
+                mostrar($('#comun1').val(),$(this).val());
+
+                $.ajax({
+                    url: "/ultimages/"+$('#inmuebles').val(),
+                    success:function (re){
+                        // console.log(re);
+                        $('#gestion').val(re[0].gestion);
+                    }
+                });
+            })
             $('#formulario').submit(function(e){
-                mostrar($('#comun1').val());
+                // mostrar($('#comun1').val());
+                $('#inmuebles').html('');
+                $('#gestion').val('');
+                $.ajax({
+                    url: "/inmuebles/"+$('#comun1').val(),
+                    success:function (re){
+                        // console.log(r);
+                        let t='<option value="" id-gestion="">Seleccionar</option>';
+                        re.forEach(r=>{
+                            // console.log(r);
+                            t+='<option value="'+r.cantidad+'" >'+r.cantidad+'</option>';
+                        })
+                        $('#inmuebles').html(t);
+                    }
+                });
                 $.ajax({
                     url: "/datoscontrib/"+$('#comun1').val(),
                     success: function (response) {
