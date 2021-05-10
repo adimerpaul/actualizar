@@ -193,7 +193,7 @@
                     url: "/inmuebles/"+$('#comun1').val(),
                     success:function (re){
                         // console.log(r);
-                        let t='<option value="" id-gestion="">Seleccionar</option>';
+                        let t='<option value="">Seleccionar</option>';
                         re.forEach(r=>{
                             // console.log(r);
                             t+='<option value="'+r.cantidad+'" >'+r.cantidad+'</option>';
@@ -204,9 +204,10 @@
                 $.ajax({
                     url: "/datoscontrib/"+$('#comun1').val(),
                     success: function (response) {
-                        // console.log(response);
+                        console.log(response);
                         if(response.length!=0){
                             var row=response[0];
+                            // console.log(row);
                             // $('#tipodocumento').val(row['tipodocum']);
                             $('#ci').val(row['comun']);
                             // $('#mod1').attr('action',"/modificar/"+row['comun']);

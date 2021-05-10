@@ -111,7 +111,7 @@ class ContribController extends Controller
     }
 
     public function buscarcont($comun){
-        return Contrib::where('comun',$comun)->where('tipodocum','1')->get();
+        return Contrib::where('comun',$comun)->get();
     }
     public function ultimages($comun){
         return DB::table('pm01inmu')->where('cantidad',$comun)->get();
