@@ -2,7 +2,7 @@
 @extends('layouts.principal')
 @section('content')
     <div class="container">
-        <h1>Buscar y/ o actualizar contribuyente</h1>
+        <h1>Rectificaciones</h1>
         <form class="row g-3" id="formulario">
             <div class="col-md-6">
                 <label for="comun1" class="form-label">N documento</label>
@@ -49,10 +49,6 @@
                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Completo" >
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="telefono">Celular</label>
-                    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Celular" >
-                </div>
-                <div class="form-group col-md-2">
                     <label for="inmuebles">Imuebles</label>
                     <select name="inmuebles" id="inmuebles" name="inmuebles" class="form-control" required >
                     </select>
@@ -61,13 +57,22 @@
                     <label for="gestion">Ultima Gestion</label>
                     <input type="text" class="form-control" id="gestion" name="gestion" placeholder="Ultima Gestion" >
                 </div>
+
+                <div class="form-group col-md-2">
+                    <label for="gestion">Superficie</label>
+                    <input type="text" class="form-control" id="superficie" name="superficie" placeholder="Superficie" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="gestion">Supe_const</label>
+                    <input type="text" class="form-control" id="sup_const" name="sup_const" placeholder="Superficie Construcion" >
+                </div>
                 <div class="form-group col-md-1">
                     <label for="cambiar">Cambiar</label>
                     <button id="cambio" type="button" class="btn btn-success"><i class="fa fa-edit"></i></button>
                 </div>
-                <div class="form-group col-md-2">
-                    <label for="descrip">Direccion</label>
-                    <p id="descrip" name="descrip" >
+                <div class="form-group col-md-12">
+                    <label for="gestion">Doc ex</label>
+                    <input type="text" class="form-control" id="docex" name="docex" placeholder="Superficie Construcion" >
                 </div>
                 <div class="form-group col-12">
                     <h2>Gestiones acumuladas</h2>
@@ -75,13 +80,12 @@
                 <div class="form-group col-12">
                     <table class="table">
                         <thead>
-                        <tr class="thead-dark">
+                        <tr class="thead-light">
                             <th>#</th>
-                            <th>Cantidad</th>
                             <th>Pagado</th>
                             <th>Gestion</th>
-                            <th>Fecha</th>
-                            <th>Oper</th>
+                            <th>Comun</th>
+                            <th>Cantidad</th>
                             <th>Pagando en</th>
                             <th>Hora</th>
                             <th>Opciones</th>
@@ -103,17 +107,26 @@
             $('#cambio').click(function (){
                 if ($('#inmuebles').val()==undefined || $('#inmuebles').val()==''){
                     alert('debes seleccionar inmuebles')
+                    return false;
                 }else{
+                    var data={
+                        "_token": "{{ csrf_token() }}",
+                        "cantidad":$('#inmuebles').val(),
+                        "comun":$('#comun1').val(),
+                        "superficie":$('#superficie').val(),
+                        "sup_const":$('#sup_const').val(),
+                        "docex":$('#docex').val(),
+                    }
+                    // console.log(data);
+                    // return  false;
                     $.ajax({
-                        url: "/cambioges/"+$('#inmuebles').val()+'/'+$('#gestion').val(),
-                        success:function (re){
-                            if (parseInt(re)==1){
-                                alert('Se actualizo correctamente');
-                            }else{
-                                alert('Algo salio mal');
-                            }
-                            // console.log(re);
-                            // $('#gestion').val(re[0].gestion);
+                        url: "/cambiorec",
+                        type:'POST',
+                        data:data,
+                        success:function (r){
+                            // console.log(r);
+                            alert('Modificado correctamente!');
+                            // mostrar($('#comun1').val(),$('#inmuebles').val());
                         }
                     });
                 }
@@ -121,15 +134,17 @@
             });
             $("#contenido").on("click", ".limpiar", function(){
                 // console.log($(this).attr('id-gest'));
-                if (confirm('Seguro de limpiar?')){
+                if (confirm('Seguro de rectificar?')){
+                // console.log('a');
                     var data={
                         "_token": "{{ csrf_token() }}",
                         "gest":$(this).attr('id-gest'),
                         "cantidad":$(this).attr('id-cantidad'),
                         "comun":$('#comun1').val(),
+
                     }
                     $.ajax({
-                        url: "/limpiar",
+                        url: "/actualizarrec",
                         type:'POST',
                         data:data,
                         success:function (r){
@@ -154,18 +169,26 @@
                                 c++;
                                 t+='<tr>' +
                                     '<td>'+c+'</td>' +
-                                    '<td>'+r.cantidad+'</td>' +
                                     '<td>'+r.Pagado+'</td>' +
                                     '<td>'+r.gest+'</td>' +
-                                    '<td>'+r.fecha+'</td>' +
-                                    '<td>'+r.oper+'</td>' +
+                                    '<td>'+r.comun+'</td>' +
+                                    '<td>'+r.cantidad+'</td>' +
                                     '<td>'+r.pagado_en+'</td>' +
                                     '<td>'+r.hora+'</td>' +
                                     '<td>' +
-                                    '<button  class=" limpiar btn btn-danger btn-sm" type="button" id-cantidad="'+r.cantidad+'" id-gest="'+r.gest+'"><i class="fa fa-trash"></i> Limpiar</button>' +
+                                    '<button  class=" limpiar btn btn-success btn-sm" type="button" id-cantidad="'+r.cantidad+'" id-gest="'+r.gest+'"><i class="fa fa-cog"></i> Rectificar</button>' +
                                     '</td>' +
                                     '</tr>';
                             })
+                        //     th>#</th>
+                        // <th>Cantidad</th>
+                        // <th>Pagado</th>
+                        // <th>Gestion</th>
+                        // <th>Comun</th>
+                        // <th>Cantidad</th>
+                        // <th>Pagando en</th>
+                        // <th>Hora</th>
+                        // <th>Opciones</th>
                         });
                         $('#contenido').html(t);
                     }
@@ -181,7 +204,10 @@
                     success:function (re){
                         // console.log(re);
                         $('#gestion').val(re[0].gestion);
-                        $('#descrip').html(re[0].descrip);
+                        $('#superficie').val(re[0].superficie);
+                        $('#sup_const').val(re[0].sup_const);
+                        $('#docex').val(re[0].docex);
+                        // $('#descrip').html(re[0].descrip);
                     }
                 });
             })
@@ -204,7 +230,7 @@
                 $.ajax({
                     url: "/datoscontrib/"+$('#comun1').val(),
                     success: function (response) {
-                        console.log(response);
+                        // console.log(response);
                         if(response.length!=0){
                             var row=response[0];
                             // console.log(row);

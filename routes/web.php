@@ -27,6 +27,9 @@ Route::get('/actualiza', function () {
 Route::get('/gestion', function () {
     return view('gestion');
 })->middleware('auth');
+Route::get('/rec', function () {
+    return view('rec');
+})->middleware('auth');
 
 
 Auth::routes();
@@ -39,6 +42,8 @@ Route::get('/gestiones/{comun}/{cantidad}', [App\Http\Controllers\ContribControl
 Route::get('/cambioges/{comun}/{gestion}', [App\Http\Controllers\ContribController::class, 'cambioges'])->middleware('auth');
 Route::get('/inmuebles/{comun}', [App\Http\Controllers\ContribController::class, 'inmuebles'])->middleware('auth');
 Route::get('/ultimages/{comun}', [App\Http\Controllers\ContribController::class, 'ultimages'])->middleware('auth');
+Route::post('/actualizarrec', [App\Http\Controllers\ContribController::class, 'actualizarrec'])->middleware('auth');
 Route::post('/limpiar', [App\Http\Controllers\ContribController::class, 'limpiar'])->middleware('auth');
+Route::post('/cambiorec', [App\Http\Controllers\ContribController::class, 'cambiorec'])->middleware('auth');
 Route::put('/modificar/{comun}', [App\Http\Controllers\ContribController::class, 'update'])->middleware('auth');
 

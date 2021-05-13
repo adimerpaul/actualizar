@@ -17,6 +17,14 @@ class ContribController extends Controller
     {
         //
     }
+    public function cambiorec(Request $request){
+
+        DB::table('pm01inmu')
+            ->where('cantidad',$request->cantidad)
+            ->where('comun',$request->comun)
+            ->update(['superficie'=>$request->superficie,'docex'=>$request->docex,'sup_const'=>$request->sup_const]);
+        return 1;
+    }
     public function cambioges($cantidad,$gestion){
 
         DB::table('pm01inmu')
@@ -24,17 +32,27 @@ class ContribController extends Controller
             ->update(['gestion'=>$gestion]);
         return 1;
     }
+    public function actualizarrec(Request $request)
+    {
+        $b=substr($request->gest,2,2);
+        $cont=array(
+            'comun'=>$request->comun.'R',
+            'cantidad'=>$request->cantidad.'R'
+        );
+        DB::connection('tasas')->table('archi'.$b)
+            ->where('comun',$request->comun)
+            ->where('cantidad',$request->cantidad)
+            ->update($cont);
+        return 1;
+    }
     public function limpiar(Request $request)
     {
         $b=substr($request->gest,2,2);
-//        echo substr($request->gest,2,2);
         $cont=array(
-//            'fecha'=>null,
             'oper'=>'',
             'pagado_en'=>null,
             'hora'=>''
         );
-//
         DB::connection('tasas')->table('archi'.$b)
             ->where('comun',$request->comun)
             ->where('cantidad',$request->cantidad)
@@ -124,7 +142,7 @@ class ContribController extends Controller
         while($month <= $end)
         {
 //            echo date('y', $month)."----- <br>";
-            $query=DB::connection('tasas')->table('archi'.date('y', $month))->where('comun',$comun)->where('cantidad',$cantidad);
+            $query=DB::connection('tasas')->table('archi'.date('y', $month))->where('comun','like','%'.$comun.'%')->where('cantidad','like','%'.$cantidad.'%');
             if ($query->count()>0){
 //                echo date('y',$month)."---<br>";
 //                array_push($gestiones,['gestion'=>date('Y',$month)]);
