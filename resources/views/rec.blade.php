@@ -4,12 +4,12 @@
     <div class="container">
         <h1>Rectificaciones</h1>
         <form class="row g-3" id="formulario">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label for="comun1" class="form-label">N documento</label>
                 <input type="text" class="form-control" id="comun1" required >
 
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label for="comun1" class="form-label">Buscar</label> <br>
                 <button class="btn btn-primary" type="submit" id='buscarcont'><i class="fa fa-search"></i> Buscar</button>
             </div>
@@ -70,9 +70,17 @@
                     <label for="cambiar">Cambiar</label>
                     <button id="cambio" type="button" class="btn btn-success"><i class="fa fa-edit"></i></button>
                 </div>
-                <div class="form-group col-md-12">
-                    <label for="gestion">Doc ex</label>
+                <div class="form-group col-md-8">
+                    <label for="docex">Doc ex</label>
                     <input type="text" class="form-control" id="docex" name="docex" placeholder="Superficie Construcion" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="cantidadactualizar">Cant. Sup_con</label>
+                    <input type="number" class="form-control" id="cantidadactualizar" name="Ayuda" placeholder="Cantidad" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="resta">Resta</label>
+                    <input type="number" class="form-control" id="resta" name="Ayuda" placeholder="Resta" >
                 </div>
                 <div class="form-group col-12">
                     <h2>Gestiones acumuladas</h2>
@@ -104,6 +112,11 @@
     </div>
     <script>
         window.onload=function (){
+            $('#cantidadactualizar').keyup(function (){
+                let resta=parseFloat($(this).val())-parseFloat($('#sup_const').val());
+                // console.log(resta)
+                $('#resta').val(resta);
+            });
             $('#cambio').click(function (){
                 if ($('#inmuebles').val()==undefined || $('#inmuebles').val()==''){
                     alert('debes seleccionar inmuebles')
