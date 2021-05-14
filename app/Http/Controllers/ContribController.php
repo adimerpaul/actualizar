@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\contrib;
+use App\Models\Log;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class ContribController extends Controller
 {
@@ -22,7 +25,7 @@ class ContribController extends Controller
         DB::table('pm01inmu')
             ->where('cantidad',$request->cantidad)
             ->where('comun',$request->comun)
-            ->update(['superficie'=>$request->superficie,'docex'=>$request->docex,'sup_const'=>$request->sup_const]);
+            ->update(['superficie'=>$request->superficie,'gestion'=>$request->gestion,'docex'=>$request->docex,'sup_const'=>$request->sup_const]);
         return 1;
     }
     public function cambioges($cantidad,$gestion){
@@ -114,6 +117,13 @@ class ContribController extends Controller
         DB::table('pm01cont')
         ->where('comun',$comun)
         ->update($cont);
+
+        $log=new Log();
+        $log->actividad='Contribuyenta modificado '.$comun;
+        $log->iduser=Auth::user()->id;
+        $log->nombre=Auth::user()->username;
+        $log->save();
+
         return redirect('/actualiza');
     }
 

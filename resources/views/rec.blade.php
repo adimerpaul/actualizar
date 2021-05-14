@@ -126,6 +126,7 @@
                         "_token": "{{ csrf_token() }}",
                         "cantidad":$('#inmuebles').val(),
                         "comun":$('#comun1').val(),
+                        "gestion":$('#gestion').val(),
                         "superficie":$('#superficie').val(),
                         "sup_const":$('#sup_const').val(),
                         "docex":$('#docex').val(),
