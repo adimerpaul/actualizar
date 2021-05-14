@@ -26,6 +26,11 @@ class ContribController extends Controller
             ->where('cantidad',$request->cantidad)
             ->where('comun',$request->comun)
             ->update(['superficie'=>$request->superficie,'gestion'=>$request->gestion,'docex'=>$request->docex,'sup_const'=>$request->sup_const]);
+                $log=new Log();
+                $log->actividad='Contribuyente rectificado  '.$request->comun;
+                $log->iduser=Auth::user()->id;
+                $log->nombre=Auth::user()->username;
+                $log->save();
         return 1;
     }
     public function cambioges($cantidad,$gestion){
@@ -33,6 +38,11 @@ class ContribController extends Controller
         DB::table('pm01inmu')
             ->where('cantidad',$cantidad)
             ->update(['gestion'=>$gestion]);
+        $log=new Log();
+        $log->actividad='Inmueble actualizado gestion  '.$cantidad;
+        $log->iduser=Auth::user()->id;
+        $log->nombre=Auth::user()->username;
+        $log->save();
         return 1;
     }
     public function actualizarrec(Request $request)
@@ -61,6 +71,11 @@ class ContribController extends Controller
             ->where('cantidad',$request->cantidad)
             ->where('gest',$request->gest)
             ->update($cont);
+        $log=new Log();
+        $log->actividad='Contribuyente Dado de baja la gestion '.$request->gest.' del  '.$request->comun;
+        $log->iduser=Auth::user()->id;
+        $log->nombre=Auth::user()->username;
+        $log->save();
         return 1;
     }
 
@@ -119,7 +134,7 @@ class ContribController extends Controller
         ->update($cont);
 
         $log=new Log();
-        $log->actividad='Contribuyenta modificado '.$comun;
+        $log->actividad='Contribuyente modificado '.$comun;
         $log->iduser=Auth::user()->id;
         $log->nombre=Auth::user()->username;
         $log->save();
@@ -164,7 +179,7 @@ class ContribController extends Controller
 //        return DB::connection('tasas')->table('archi92')->where('comun',$comun)->get();
     }
     public function inmuebles($comun){
-        return DB::table('pm01inmu')->where('comun',$comun)->get();
+        return DB::table('pm01inmu')->where('bandera','1')->where('comun',$comun)->get();
     }
 
     public function codbarrio(){
