@@ -20,9 +20,12 @@
             <div class="col-md-2">
                 <label for="control" class="form-label bg-danger text-white">Control</label>
                 <input type="text" class="form-control" id="control" placeholder="Control">
-
             </div>
-            <div class="col-md-2">
+            <div class="col-md-1">
+                <label for="control" class="form-label bg-danger text-white">Var</label>
+                <input type="text" class="form-control" id="var1" placeholder="Var">
+            </div>
+            <div class="col-md-1">
                 <label for="buscarcont" class="form-label">Cambiar</label> <br>
                 <button class="btn btn-danger" type="button" id='cambiar'><i class="fa fa-upload"></i> Cambiar</button>
             </div>
@@ -142,7 +145,8 @@
                             "cantidad":$('#inmuebles').val(),
                             "comun":$('#comun1').val(),
                             "bandera":$('#bandera').val(),
-                            "control":$('#control').val()
+                            "control":$('#control').val(),
+                            "var1":$('#var1').val(),
                         }
                         $.ajax({
                             url: "/bandera",
@@ -269,6 +273,7 @@
                         $('#docex').val(re[0].docex);
                         $('#bandera').val(re[0].bandera);
                         $('#control').val(re[0].control);
+                        $('#var1').val(re[0].var1);
                         // $('#descrip').html(re[0].descrip);
                     }
                 });

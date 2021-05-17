@@ -25,7 +25,7 @@ class ContribController extends Controller
         DB::table('pm01inmu')
             ->where('cantidad',$request->cantidad)
             ->where('comun',$request->comun)
-            ->update(['bandera'=>$request->bandera,'control'=>$request->control]);
+            ->update(['bandera'=>$request->bandera,'control'=>$request->control,'var1'=>$request->var1]);
         echo 1;
     }
     public function cambiorec(Request $request){
