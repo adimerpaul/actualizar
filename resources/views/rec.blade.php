@@ -92,10 +92,11 @@
                             <th>#</th>
                             <th>Pagado</th>
                             <th>Gestion</th>
-                            <th>Comun</th>
+                            <th>Codigo</th>
                             <th>Cantidad</th>
                             <th>Pagando en</th>
                             <th>Hora</th>
+                            <th>Cajero</th>
                             <th>Opciones</th>
                         </tr>
                         </thead>
@@ -180,15 +181,24 @@
                         res.forEach(re=>{
                             re.forEach(r=>{
                                 // console.log(r);
+                                let cantidad;
+                                if (r.comun.includes('R')){
+                                    // console.log(r.cantidad);
+                                    cantidad='<span class="badge badge-danger">'+r.cantidad+'</span>';
+                                }else{
+                                    cantidad=r.cantidad;
+                                }
+
                                 c++;
                                 t+='<tr>' +
                                     '<td>'+c+'</td>' +
                                     '<td>'+r.Pagado+'</td>' +
                                     '<td>'+r.gest+'</td>' +
-                                    '<td>'+r.comun+'</td>' +
-                                    '<td>'+r.cantidad+'</td>' +
-                                    '<td>'+r.pagado_en+'</td>' +
+                                    '<td>'+r.codigo+'</td>' +
+                                    '<td>'+cantidad+'</td>' +
+                                    '<td>'+r.pagado_en.substring(0,10)+'</td>' +
                                     '<td>'+r.hora+'</td>' +
+                                    '<td>'+r.oper+'</td>' +
                                     '<td>' +
                                     '<button  class=" limpiar btn btn-success btn-sm" type="button" id-cantidad="'+r.cantidad+'" id-gest="'+r.gest+'"><i class="fa fa-cog"></i> Rectificar</button>' +
                                     '</td>' +
@@ -229,6 +239,10 @@
                 // mostrar($('#comun1').val());
                 $('#inmuebles').html('');
                 $('#gestion').val('');
+                $('#superficie').val('');
+                $('#sup_const').val('');
+                $('#docex').val('');
+                $('#contenido').html('');
                 $.ajax({
                     url: "/inmuebles/"+$('#comun1').val(),
                     success:function (re){
