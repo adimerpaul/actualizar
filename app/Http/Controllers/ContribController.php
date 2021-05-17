@@ -187,7 +187,7 @@ class ContribController extends Controller
 //        return DB::connection('tasas')->table('archi92')->where('comun',$comun)->get();
     }
     public function inmuebles($comun){
-        return DB::table('pm01inmu')->where('bandera','1')->where('comun',$comun)->get();
+        return DB::table('pm01inmu')->where('comun',$comun)->get();
     }
 
     public function codbarrio(){
