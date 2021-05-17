@@ -20,6 +20,14 @@ class ContribController extends Controller
     {
         //
     }
+    public function bandera(Request $request)
+    {
+        DB::table('pm01inmu')
+            ->where('cantidad',$request->cantidad)
+            ->where('comun',$request->comun)
+            ->update(['bandera'=>$request->bandera,'control'=>$request->control]);
+        echo 1;
+    }
     public function cambiorec(Request $request){
 
         DB::table('pm01inmu')

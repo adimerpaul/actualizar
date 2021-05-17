@@ -45,5 +45,6 @@ Route::get('/ultimages/{comun}', [App\Http\Controllers\ContribController::class,
 Route::post('/actualizarrec', [App\Http\Controllers\ContribController::class, 'actualizarrec'])->middleware('auth');
 Route::post('/limpiar', [App\Http\Controllers\ContribController::class, 'limpiar'])->middleware('auth');
 Route::post('/cambiorec', [App\Http\Controllers\ContribController::class, 'cambiorec'])->middleware('auth');
+Route::post('/bandera', [App\Http\Controllers\ContribController::class, 'bandera'])->middleware('auth');
 Route::put('/modificar/{comun}', [App\Http\Controllers\ContribController::class, 'update'])->middleware('auth');
 

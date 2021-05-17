@@ -2,23 +2,36 @@
 @extends('layouts.principal')
 @section('content')
     <div class="container">
-        <h1>Rectificaciones</h1>
+        <h1 class="bg-warning text-center">Rectificaciones</h1>
         <form class="row g-3" id="formulario">
             <div class="col-md-4">
                 <label for="comun1" class="form-label">N documento</label>
                 <input type="text" class="form-control" id="comun1" required >
 
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <label for="comun1" class="form-label">Buscar</label> <br>
                 <button class="btn btn-primary" type="submit" id='buscarcont'><i class="fa fa-search"></i> Buscar</button>
+            </div>
+            <div class="col-md-2">
+                <label for="bandera" class="form-label bg-danger text-white">Bandera</label>
+                <input type="text" class="form-control" id="bandera" placeholder="Bandera">
+            </div>
+            <div class="col-md-2">
+                <label for="control" class="form-label bg-danger text-white">Control</label>
+                <input type="text" class="form-control" id="control" placeholder="Control">
+
+            </div>
+            <div class="col-md-2">
+                <label for="buscarcont" class="form-label">Cambiar</label> <br>
+                <button class="btn btn-danger" type="button" id='cambiar'><i class="fa fa-upload"></i> Cambiar</button>
             </div>
         </form>
 
         <form method='POST' action='/modificar/' id='mod1'>
             @csrf
             @method('PUT')
-            <div class="form-row">
+            <div class="form-row row">
 {{--                <div class="form-group col-md-2">--}}
 {{--                    <label for="tipodocumento">Tipo documento</label>--}}
 {{--                    <select name="tipodocumento" id="tipodocumento" name="tipodocumento" class="form-control" required disabled>--}}
@@ -54,24 +67,24 @@
                     </select>
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="gestion">Ultima Gestion</label>
+                    <label for="gestion" class="bg-warning">Ultima Gestion</label>
                     <input type="text" class="form-control" id="gestion" name="gestion" placeholder="Ultima Gestion" >
                 </div>
 
                 <div class="form-group col-md-2">
-                    <label for="gestion">Superficie</label>
+                    <label for="gestion" class="bg-warning">Superficie</label>
                     <input type="text" class="form-control" id="superficie" name="superficie" placeholder="Superficie" >
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="gestion">Supe_const</label>
+                    <label for="gestion" class="bg-warning">Supe_const</label>
                     <input type="text" class="form-control" id="sup_const" name="sup_const" placeholder="Superficie Construcion" >
                 </div>
                 <div class="form-group col-md-1">
                     <label for="cambiar">Cambiar</label>
-                    <button id="cambio" type="button" class="btn btn-success"><i class="fa fa-edit"></i></button>
+                    <button id="cambio" type="button" class="btn btn-warning"><i class="fa fa-edit"></i> Actualizar</button>
                 </div>
                 <div class="form-group col-md-8">
-                    <label for="docex">Doc ex</label>
+                    <label for="docex" class="badge-warning">Doc ex</label>
                     <input type="text" class="form-control" id="docex" name="docex" placeholder="Superficie Construcion" >
                 </div>
                 <div class="form-group col-md-2">
@@ -118,6 +131,30 @@
                 // console.log(resta)
                 $('#resta').val(resta);
             });
+            $('#cambiar').click(function (e){
+                if (confirm('Seguro de cambiar bandera y control?')){
+                    if ($('#inmuebles').val()==undefined || $('#inmuebles').val()==''){
+                        alert('debes seleccionar inmuebles')
+                        return false;
+                    }else{
+                        var data={
+                            "_token": "{{ csrf_token() }}",
+                            "cantidad":$('#inmuebles').val(),
+                            "comun":$('#comun1').val(),
+                            "bandera":$('#bandera').val(),
+                            "control":$('#control').val()
+                        }
+                        $.ajax({
+                            url: "/bandera",
+                            type:'POST',
+                            data:data,
+                            success:function (r){
+                                alert('Modificado correctamente!');
+                            }
+                        });
+                    }
+                }
+            });
             $('#cambio').click(function (){
                 if ($('#inmuebles').val()==undefined || $('#inmuebles').val()==''){
                     alert('debes seleccionar inmuebles')
@@ -132,20 +169,15 @@
                         "sup_const":$('#sup_const').val(),
                         "docex":$('#docex').val(),
                     }
-                    // console.log(data);
-                    // return  false;
                     $.ajax({
                         url: "/cambiorec",
                         type:'POST',
                         data:data,
                         success:function (r){
-                            // console.log(r);
                             alert('Modificado correctamente!');
-                            // mostrar($('#comun1').val(),$('#inmuebles').val());
                         }
                     });
                 }
-
             });
             $("#contenido").on("click", ".limpiar", function(){
                 // console.log($(this).attr('id-gest'));
@@ -221,6 +253,10 @@
             $('#inmuebles').change(function (){
                 $('#gestion').val('');
                 $('#descrip').html('');
+                $('#bandera').html('');
+                $('#control').html('');
+                $('#superficie').html('');
+                $('#sup_const').html('');
                 mostrar($('#comun1').val(),$(this).val());
 
                 $.ajax({
@@ -231,6 +267,8 @@
                         $('#superficie').val(re[0].superficie);
                         $('#sup_const').val(re[0].sup_const);
                         $('#docex').val(re[0].docex);
+                        $('#bandera').val(re[0].bandera);
+                        $('#control').val(re[0].control);
                         // $('#descrip').html(re[0].descrip);
                     }
                 });
