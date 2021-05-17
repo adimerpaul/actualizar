@@ -228,7 +228,7 @@
                                     '<td>'+r.gest+'</td>' +
                                     '<td>'+r.codigo+'</td>' +
                                     '<td>'+cantidad+'</td>' +
-                                    '<td>'+r.pagado_en.substring(0,10)+'</td>' +
+                                    '<td>'+r.pagado_en+'</td>' +
                                     '<td>'+r.hora+'</td>' +
                                     '<td>'+r.oper+'</td>' +
                                     '<td>' +
