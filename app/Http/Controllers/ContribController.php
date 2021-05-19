@@ -56,10 +56,30 @@ class ContribController extends Controller
     public function actualizarrec(Request $request)
     {
         $b=substr($request->gest,2,2);
-        $cont=array(
-            'comun'=>$request->comun.'R',
-            'cantidad'=>$request->cantidad.'R'
-        );
+
+        //$b=substr($request->comun, 0, -1);
+        $r=DB::connection('tasas')->table('archi'.$b)
+            ->where('comun',$request->comun)
+            ->where('cantidad',$request->cantidad)
+            ->get();
+//        return $r[0]->comun;
+//        exit;
+        if (strpos($r[0]->comun, 'R') !== false) {
+            $comun=substr($request->comun, 0, -1);
+            $cantidad=substr($request->cantidad, 0, -1);
+            $cont=array(
+                'comun'=>$comun,
+                'cantidad'=>$cantidad
+            );
+        }else{
+            $cont=array(
+                'comun'=>$request->comun.'R',
+                'cantidad'=>$request->cantidad.'R'
+            );
+        }
+
+
+
         DB::connection('tasas')->table('archi'.$b)
             ->where('comun',$request->comun)
             ->where('cantidad',$request->cantidad)

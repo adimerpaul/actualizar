@@ -86,9 +86,25 @@
                     <label for="cambiar">Cambiar</label>
                     <button id="cambio" type="button" class="btn btn-warning"><i class="fa fa-edit"></i> Actualizar</button>
                 </div>
-                <div class="form-group col-md-8">
+                <style>
+                    pre {
+                        height: auto;
+                        max-height: 200px;
+                        overflow: auto;
+                        background-color: #eeeeee;
+                        word-break: normal !important;
+                        word-wrap: normal !important;
+                        white-space: pre !important;
+                    }
+                </style>
+                <div class="form-group col-md-4">
+                    <pre id="pre" >
+
+                    </pre>
+                </div>
+                <div class="form-group col-md-4">
                     <label for="docex" class="badge-warning">Doc ex</label>
-                    <input type="text" class="form-control" id="docex" name="docex" placeholder="Superficie Construcion" >
+                    <input type="text" class="form-control" id="docex" name="docex" placeholder="Doc ex" >
                 </div>
                 <div class="form-group col-md-2">
                     <label for="cantidadactualizar">Cant. Sup_con</label>
@@ -118,10 +134,8 @@
                         </thead>
                         <tbody id="contenido">
                         </tbody>
-
                     </table>
                 </div>
-
             </div>
 {{--            <button type="submit" class="btn btn-success btn-block"  ><i class="fa fa-user-plus"></i>Modificar</button>--}}
         </form>
@@ -191,7 +205,7 @@
                         "_token": "{{ csrf_token() }}",
                         "gest":$(this).attr('id-gest'),
                         "cantidad":$(this).attr('id-cantidad'),
-                        "comun":$('#comun1').val(),
+                        "comun":$(this).attr('id-comun'),
 
                     }
                     $.ajax({
@@ -199,7 +213,7 @@
                         type:'POST',
                         data:data,
                         success:function (r){
-                            // console.log(r);
+                            console.log(r);
                             mostrar($('#comun1').val(),$('#inmuebles').val());
                         }
                     });
@@ -236,7 +250,7 @@
                                     '<td>'+r.hora+'</td>' +
                                     '<td>'+r.oper+'</td>' +
                                     '<td>' +
-                                    '<button  class=" limpiar btn btn-success btn-sm" type="button" id-cantidad="'+r.cantidad+'" id-gest="'+r.gest+'"><i class="fa fa-cog"></i> Rectificar</button>' +
+                                    '<button  class=" limpiar btn btn-success btn-sm" type="button" id-comun="'+r.comun+'" id-cantidad="'+r.cantidad+'" id-gest="'+r.gest+'"><i class="fa fa-cog"></i> Rectificar</button>' +
                                     '</td>' +
                                     '</tr>';
                             })
@@ -261,11 +275,15 @@
                 $('#control').html('');
                 $('#superficie').html('');
                 $('#sup_const').html('');
+
+                document.getElementById("pre").textContent="";
+
                 mostrar($('#comun1').val(),$(this).val());
 
                 $.ajax({
                     url: "/ultimages/"+$('#inmuebles').val(),
                     success:function (re){
+                        document.getElementById("pre").textContent = JSON.stringify(re[0], undefined, 2);
                         // console.log(re);
                         $('#gestion').val(re[0].gestion);
                         $('#superficie').val(re[0].superficie);
@@ -275,6 +293,7 @@
                         $('#control').val(re[0].control);
                         $('#var1').val(re[0].var1);
                         // $('#descrip').html(re[0].descrip);
+
                     }
                 });
             })
