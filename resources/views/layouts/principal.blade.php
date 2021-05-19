@@ -235,8 +235,8 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/actualiza" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Act. Contribu</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/gestion" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Anulaciones</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/rec" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Rectificaciones</span></a></li>
-{{--                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="grid.html" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Full Width</span></a></li>--}}
-{{--                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Forms </span></a>--}}
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/indcom" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Indcom Natutal</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/indcomj" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Indcom juridico </span></a>
 {{--                            <ul aria-expanded="false" class="collapse  first-level">--}}
 {{--                                <li class="sidebar-item"><a href="form-basic.html" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Form Basic </span></a></li>--}}
 {{--                                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Form Wizard </span></a></li>--}}
