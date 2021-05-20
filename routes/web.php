@@ -27,6 +27,9 @@ Route::get('/actualiza', function () {
 Route::get('/gestion', function () {
     return view('gestion');
 })->middleware('auth');
+Route::get('/anulacion', function () {
+    return view('anulacion');
+})->middleware('auth');
 Route::get('/rec', function () {
     return view('rec');
 })->middleware('auth');
@@ -44,6 +47,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/logeo', [App\Http\Controllers\user::class, 'consulta']);
 Route::get('/codham', [App\Http\Controllers\ContribController::class, 'codham'])->name('home');
 Route::get('/datoscontrib/{comun}', [App\Http\Controllers\ContribController::class, 'buscarcont'])->middleware('auth');
+Route::get('/dpadron/{comun}', [App\Http\Controllers\IndcomController::class, 'dpadron'])->middleware('auth');
 
 Route::get('/datosindustria/{comun}', [App\Http\Controllers\IndcomController::class, 'index'])->middleware('auth');
 Route::get('/datosindustriaj/{comun}', [App\Http\Controllers\IndcomController::class, 'indexj'])->middleware('auth');
@@ -51,7 +55,10 @@ Route::get('/datosindustriaj/{comun}', [App\Http\Controllers\IndcomController::c
 Route::get('/datosrec/{comun}', [App\Http\Controllers\ContribController::class, 'datosrec'])->middleware('auth');
 
 Route::get('/gestiones/{comun}/{cantidad}', [App\Http\Controllers\ContribController::class, 'gestiones'])->middleware('auth');
-Route::get('/cambioges/{comun}/{gestion}', [App\Http\Controllers\ContribController::class, 'cambioges'])->middleware('auth');
+
+Route::get('/gestiones/{comun}/{cantidad}', [App\Http\Controllers\ContribController::class, 'gestiones'])->middleware('auth');
+
+Route::get('/pagosinmu/{comun}', [App\Http\Controllers\IndcomController::class, 'pagosinmu'])->middleware('auth');
 Route::get('/inmuebles/{comun}', [App\Http\Controllers\ContribController::class, 'inmuebles'])->middleware('auth');
 Route::get('/ultimages/{comun}', [App\Http\Controllers\ContribController::class, 'ultimages'])->middleware('auth');
 Route::post('/actualizarrec', [App\Http\Controllers\ContribController::class, 'actualizarrec'])->middleware('auth');

@@ -4,8 +4,8 @@
         <h1 class="bg-info text-center text-white">Industria y comercio natural</h1>
         <form class="row g-3" id="formulario">
             <div class="col-md-4">
-                <label for="comun1" class="form-label">Padron</label>
-                <input type="text" class="form-control" id="comun1" required placeholder="Padron">
+                <label for="padron" class="form-label">Padron</label>
+                <input type="text" class="form-control" id="padron" required placeholder="Padron">
             </div>
             <div class="col-md-2">
                 <label for="comun1" class="form-label">Buscar</label> <br>
@@ -65,6 +65,14 @@
                     <label for="gest">Gestion</label>
                     <input type="text" class="form-control" id="gest" name="gest" placeholder="Gestion" >
                 </div>
+                <div class="form-group col-md-2">
+                    <label for="nactdescri">Descrip</label>
+                    <input type="text" class="form-control" id="nactdescri" name="nactdescri" placeholder="Descrip" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="nfechainic">Fecha Inicio</label>
+                    <input type="text" class="form-control" id="nfechainic" name="nfechainic" placeholder="Fecha Inicio" >
+                </div>
                 <style>
                     pre {
                         height: auto;
@@ -76,7 +84,7 @@
                         white-space: pre !important;
                     }
                 </style>
-                <div class="form-group col-md-10">
+                <div class="form-group col-md-6">
                     <pre id="pre" >
 
                     </pre>
@@ -317,9 +325,11 @@
                 $('#nmts2').val('');
                 $('#ndiract').val('');
                 $('#gest').val('');
+                $('#nactdescri').val('');
+                $('#nfechainic').val('');
                 document.getElementById("pre").textContent = "";
                 $.ajax({
-                    url: "/datosindustria/"+$('#comun1').val(),
+                    url: "/datosindustria/"+$('#padron').val(),
                     success:function (re){
                         // console.log(re.length);
                         if (re.length>0){
@@ -336,6 +346,8 @@
                             $('#nmts2').val(re[0].nmts2);
                             $('#ndiract').val(re[0].ndiract);
                             $('#gest').val(re[0].gest);
+                            $('#nfechainic').val(re[0].nfechainic);
+                            $('#nactdescri').val(re[0].nactdescri);
                             document.getElementById("pre").textContent = JSON.stringify(re[0], undefined, 2);
                         }
                         // let t='<option value="">Seleccionar</option>';

@@ -28,6 +28,20 @@ class IndcomController extends Controller
 //            exit;
 //        }
     }
+    public function pagosinmu($padron){
+        $year = strtotime("1995-01-01");
+        $end = strtotime(date('Y-m-d', strtotime("-1 year")));
+        $lidgme=array();
+        while($year <= $end)
+        {
+            $query=DB::connection('bases')->table('lidgic'.date('y', $year))->where('padron','like','%'.$padron.'%');
+            if ($query->count()>0){
+                array_push($lidgme,$query->get());
+            }
+            $year = strtotime("+1 year", $year);
+        }
+        return $lidgme;
+    }
     public function indexj($npadron)
     {
 //        $query=DB::connection('indcom')->table('natur')->where('npadron',$npadron)->get();
@@ -86,7 +100,10 @@ class IndcomController extends Controller
             'apeesposo'=>$request->apeesposo,
             'nmts2'=>$request->nmts2,
             'ndiract'=>$request->ndiract,
-            'gest'=>$request->gest);
+            'gest'=>$request->gest,
+            'nactdescri'=>$request->nactdescri,
+            'nfechainic'=>$request->nfechainic
+        );
         DB::connection('indcom')
             ->table('natur')
             ->where('npadron',$npadron)
@@ -135,5 +152,24 @@ class IndcomController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function dpadron($padron){
+//        echo "a";
+//        exit;
+        $query=DB::connection('indcom')->table('natur')->where('npadron',$padron)->get();
+    //        return $query[0];
+    //        exit;
+        if ($query->count()>0){
+//            return $query->first();
+            $q=$query->first();
+            return $q->paterno.' '.$q->materno.' '.$q->nombre.' '.$q->ndireccion.'<span class=" badge badge-success">Natural</span>';
+//            $q=DB::table('pmjucont')->where('comun',$comun)->first();
+//            return $q->paterno.' '.$q->materno.' '.$q->nombre.' <span class="badge badge-warning">J</span>';
+        }else{
+            $q=DB::connection('indcom')->table('jurid')->where('jpadron',$padron)->get()->first();
+            return $q->razon.' '.$q->jdireccion.' '.$q->nomreplega.'<span class=" badge badge-warning">Juridico</span>';
+//            $q = DB::table('pm01cont')->where('comun',$comun)->first();
+//            return $q->paterno.' '.$q->materno.' '.$q->nombre.' <span class="badge badge-success">N</span>';
+        }
     }
 }

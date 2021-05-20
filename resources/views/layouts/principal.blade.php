@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -236,13 +236,13 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/gestion" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Anulaciones</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/rec" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Rectificaciones</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/indcom" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Indcom Natutal</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/indcomj" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Indcom juridico </span></a>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/indcomj" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Indcom juridico </span></a></li>
 {{--                            <ul aria-expanded="false" class="collapse  first-level">--}}
 {{--                                <li class="sidebar-item"><a href="form-basic.html" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Form Basic </span></a></li>--}}
 {{--                                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Form Wizard </span></a></li>--}}
 {{--                            </ul>--}}
 {{--                        </li>--}}
-{{--                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-buttons.html" aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span class="hide-menu">Buttons</span></a></li>--}}
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/anulacion" aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span class="hide-menu">Indcom anulacion</span></a></li>
 {{--                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Icons </span></a>--}}
 {{--                            <ul aria-expanded="false" class="collapse  first-level">--}}
 {{--                                <li class="sidebar-item"><a href="icon-material.html" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu"> Material Icons </span></a></li>--}}
