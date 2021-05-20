@@ -62,7 +62,7 @@
 {{--                </div>--}}
                 <div class="form-group col-md-3">
                     <label for="nombre">Nombre Completo</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Completo" >
+                    <label type="text" id="nombre" name="nombre" placeholder="Nombre Completo" ></label>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inmuebles">Imuebles</label>
@@ -318,21 +318,24 @@
                     }
                 });
                 $.ajax({
-                    url: "/datoscontrib/"+$('#comun1').val(),
+                    url: "/datosrec/"+$('#comun1').val(),
                     success: function (response) {
                         // console.log(response);
                         if(response.length!=0){
-                            var row=response[0];
+                            $('#nombre').html(response);
+                            // var row=response[0];
+                            // console.log(row);
+                            // $('#nombre').html(row['paterno']+' '+row['materno']+' '+row['nombre']);
                             // console.log(row);
                             // $('#tipodocumento').val(row['tipodocum']);
-                            $('#ci').val(row['comun']);
-                            // $('#mod1').attr('action',"/modificar/"+row['comun']);
-                            $('#expedido').val(row['expedido']);
-                            // $('#paterno').val(row['paterno']);
-                            // $('#materno').val(row['materno']);
-                            // $('#nombre').val(row['nombre']);
-                            $('#nombre').val(row['paterno'].trim()+' '+row['materno'].trim()+' '+row['nombre'].trim())
-                            $('#telefono').val(row['telefono']);
+                            // $('#ci').val(row['comun']);
+                            // // $('#mod1').attr('action',"/modificar/"+row['comun']);
+                            // $('#expedido').val(row['expedido']);
+                            // // $('#paterno').val(row['paterno']);
+                            // // $('#materno').val(row['materno']);
+                            // // $('#nombre').val(row['nombre']);
+                            // $('#nombre').val(row['paterno'].trim()+' '+row['materno'].trim()+' '+row['nombre'].trim())
+                            // $('#telefono').val(row['telefono']);
 
                             // $('#cod_ham').val(row['cod_ham']);
                             // $('#cod_barrio').val(row['cod_barrio']);

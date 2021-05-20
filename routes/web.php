@@ -48,6 +48,8 @@ Route::get('/datoscontrib/{comun}', [App\Http\Controllers\ContribController::cla
 Route::get('/datosindustria/{comun}', [App\Http\Controllers\IndcomController::class, 'index'])->middleware('auth');
 Route::get('/datosindustriaj/{comun}', [App\Http\Controllers\IndcomController::class, 'indexj'])->middleware('auth');
 
+Route::get('/datosrec/{comun}', [App\Http\Controllers\ContribController::class, 'datosrec'])->middleware('auth');
+
 Route::get('/gestiones/{comun}/{cantidad}', [App\Http\Controllers\ContribController::class, 'gestiones'])->middleware('auth');
 Route::get('/cambioges/{comun}/{gestion}', [App\Http\Controllers\ContribController::class, 'cambioges'])->middleware('auth');
 Route::get('/inmuebles/{comun}', [App\Http\Controllers\ContribController::class, 'inmuebles'])->middleware('auth');

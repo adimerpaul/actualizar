@@ -53,6 +53,19 @@ class ContribController extends Controller
         $log->save();
         return 1;
     }
+    public function datosrec($comun){
+        $query=DB::table('pm01inmu')->where('comun',$comun)->get();
+//        return $query[0]->flag_inmu;
+//        exit;
+        if ($query[0]->flag_inmu=='J'){
+            $q=DB::table('pmjucont')->where('comun',$comun)->first();
+            return $q->paterno.' '.$q->materno.' '.$q->nombre.' <span class="badge badge-warning">J</span>';
+        }else{
+            $q = DB::table('pm01cont')->where('comun',$comun)->first();
+            return $q->paterno.' '.$q->materno.' '.$q->nombre.' <span class="badge badge-success">N</span>';
+        }
+    }
+
     public function actualizarrec(Request $request)
     {
         $b=substr($request->gest,2,2);
