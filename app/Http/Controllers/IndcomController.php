@@ -15,6 +15,40 @@ class IndcomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function limpiarp(Request $request){
+        $b=substr($request->gest,2,2);
+        $cont=array(
+            'cod_caja'=>'',
+            'fech_pago'=>null,
+            'hora'=>''
+        );
+        DB::connection('bases')->table('lidgic'.$b)
+            ->where('padron',$request->padron)
+//            ->where('cantidad',$request->cantidad)
+            ->where('gestion',$request->gest)
+            ->update($cont);
+        $log=new Log();
+        $log->actividad='Padron Dado de baja la gestion '.$request->gest.' del  '.$request->padron;
+        $log->iduser=Auth::user()->id;
+        $log->nombre=Auth::user()->username;
+        $log->save();
+        return 1;
+    }
+    public function cambiogesind(Request $request)
+    {
+        if ($request->tipo=='natur'){
+            DB::connection('indcom')
+                ->table('natur')
+                ->where('npadron',$request->padron)
+                ->update(['gest'=>$request->gest]);
+        }else{
+            DB::connection('indcom')
+                ->table('jurid')
+                ->where('jpadron',$request->padron)
+                ->update(['gest'=>$request->gest]);
+        }
+        echo 1;
+    }
     public function index($npadron)
     {
         $query=DB::connection('indcom')->table('natur')->where('npadron',$npadron)->get();
@@ -162,12 +196,21 @@ class IndcomController extends Controller
         if ($query->count()>0){
 //            return $query->first();
             $q=$query->first();
-            return $q->paterno.' '.$q->materno.' '.$q->nombre.' '.$q->ndireccion.'<span class=" badge badge-success">Natural</span>';
+            $nombre=$q->paterno.' '.$q->materno.' '.$q->nombre.' '.$q->ndireccion.'<span class=" badge badge-success">Natural</span>';
+            $re['nombre']=$nombre;
+            $re['tipo']='natur';
+            $re['gest']=$q->gest;
+            return $re;
 //            $q=DB::table('pmjucont')->where('comun',$comun)->first();
 //            return $q->paterno.' '.$q->materno.' '.$q->nombre.' <span class="badge badge-warning">J</span>';
         }else{
             $q=DB::connection('indcom')->table('jurid')->where('jpadron',$padron)->get()->first();
-            return $q->razon.' '.$q->jdireccion.' '.$q->nomreplega.'<span class=" badge badge-warning">Juridico</span>';
+            $nombre=$q->razon.' '.$q->jdireccion.' '.$q->nomreplega.'<span class=" badge badge-warning">Juridico</span>';
+//            $nombre=$q->paterno.' '.$q->materno.' '.$q->nombre.' '.$q->ndireccion.'<span class=" badge badge-success">Natural</span>';
+            $re['nombre']=$nombre;
+            $re['tipo']='jurid';
+            $re['gest']=$q->gest;
+            return $re;
 //            $q = DB::table('pm01cont')->where('comun',$comun)->first();
 //            return $q->paterno.' '.$q->materno.' '.$q->nombre.' <span class="badge badge-success">N</span>';
         }

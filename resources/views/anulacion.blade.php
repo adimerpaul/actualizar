@@ -42,13 +42,14 @@
 {{--                        <option value="C">SUCRE</option>--}}
 {{--                    </select>--}}
 {{--                </div>--}}
-                <div class="form-group col-md-12">
-                    <b for="nombre">Nombre Completo</b>: <label type="text" class="" id="nombre" name="nombre" placeholder="Nombre Completo" ></label>
+                <div class="form-group col-md-8">
+                    <b for="nombre">Nombre Completo</b>: <br>
+                    <label type="text" class="" id="nombre" name="nombre" placeholder="Nombre Completo" ></label>
                 </div>
-{{--                <div class="form-group col-md-2">--}}
-{{--                    <label for="telefono">Celular</label>--}}
-{{--                    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Celular" >--}}
-{{--                </div>--}}
+                <div class="form-group col-md-2">
+                    <label for="gest">Gestion</label>
+                    <input type="text" class="form-control" id="gest" name="gest" placeholder="Gestion" >
+                </div>
 {{--                <div class="form-group col-md-2">--}}
 {{--                    <label for="inmuebles">Imuebles</label>--}}
 {{--                    <select name="inmuebles" id="inmuebles" name="inmuebles" class="form-control" required >--}}
@@ -58,10 +59,10 @@
 {{--                    <label for="gestion">Ultima Gestion</label>--}}
 {{--                    <input type="text" class="form-control" id="gestion" name="gestion" placeholder="Ultima Gestion" >--}}
 {{--                </div>--}}
-{{--                <div class="form-group col-md-1">--}}
-{{--                    <label for="cambiar">Cambiar</label>--}}
-{{--                    <button id="cambio" type="button" class="btn btn-success"><i class="fa fa-edit"></i></button>--}}
-{{--                </div>--}}
+                <div class="form-group col-md-1">
+                    <label for="cambiar">Cambiar</label>
+                    <button id="cambio" type="button" class="btn btn-success"><i class="fa fa-edit"></i></button>
+                </div>
 {{--                <div class="form-group col-md-2">--}}
 {{--                    <label for="descrip">Direccion</label>--}}
 {{--                    <p id="descrip" name="descrip" >--}}
@@ -100,11 +101,21 @@
     <script>
         window.onload=function (){
             $('#cambio').click(function (){
-                if ($('#inmuebles').val()==undefined || $('#inmuebles').val()==''){
-                    alert('debes seleccionar inmuebles')
+                if ($('#gest').val()==undefined || $('#gest').val()==''){
+                    alert('debes seleccionar gestion')
                 }else{
+                    var data={
+                        "_token": "{{ csrf_token() }}",
+                        "gest":$('#gest').val(),
+                        "tipo":tipo,
+                        "padron":$('#padron').val(),
+                    }
+                    // console.log(data);
+                    // return false;
                     $.ajax({
-                        url: "/cambioges/"+$('#inmuebles').val()+'/'+$('#gestion').val(),
+                        type:'POST',
+                        data:data,
+                        url: "/cambiogesind",
                         success:function (re){
                             if (parseInt(re)==1){
                                 alert('Se actualizo correctamente');
@@ -121,22 +132,22 @@
             $("#contenido").on("click", ".limpiar", function(){
                 // console.log($(this).attr('id-gest'));
                 if (confirm('Seguro de limpiar?')){
-                    alert('aun no');
-                    {{--var data={--}}
-                    {{--    "_token": "{{ csrf_token() }}",--}}
-                    {{--    "gest":$(this).attr('id-gest'),--}}
-                    {{--    "cantidad":$(this).attr('id-cantidad'),--}}
-                    {{--    "comun":$('#comun1').val(),--}}
-                    {{--}--}}
-                    {{--$.ajax({--}}
-                    {{--    url: "/limpiar",--}}
-                    {{--    type:'POST',--}}
-                    {{--    data:data,--}}
-                    {{--    success:function (r){--}}
-                    {{--        // console.log(r);--}}
-                    {{--        mostrar($('#comun1').val(),$('#inmuebles').val());--}}
-                    {{--    }--}}
-                    {{--});--}}
+                    // alert('aun no');
+                    var data={
+                        "_token": "{{ csrf_token() }}",
+                        "gest":$(this).attr('id-gest'),
+                        "padron":$(this).attr('id-padron'),
+                        // "comun":$('#padron').val(),
+                    }
+                    $.ajax({
+                        url: "/limpiarp",
+                        type:'POST',
+                        data:data,
+                        success:function (r){
+                            // console.log(r);
+                            mostrar($('#padron').val());
+                        }
+                    });
                 }
             });
             function mostrar(padron){
@@ -161,10 +172,10 @@
                                     '<td>'+r.patente+'</td>' +
                                     '<td>'+r.control+'</td>' +
                                     '<td>'+r.cod_caja+'</td>' +
-                                    '<td>'+r.fech_emis+'</td>' +
+                                    '<td>'+r.fech_pago+'</td>' +
                                     '<td>'+r.hora+'</td>' +
                                     '<td>' +
-                                    '<button  class=" limpiar btn btn-danger btn-sm" type="button" id-padron="'+r.padron+'" id-gestion="'+r.gestion+'"><i class="fa fa-eye-slash"></i> Anular</button>' +
+                                    '<button  class=" limpiar btn btn-danger btn-sm" type="button" id-padron="'+r.padron+'" id-gest="'+r.gestion+'"><i class="fa fa-eye-slash"></i> Anular</button>' +
                                     '</td>' +
                                     '</tr>';
                             })
@@ -187,15 +198,21 @@
                     }
                 });
             })
+            var tipo;
+            // var gest;
             $('#formulario').submit(function(e){
                 mostrar($('#padron').val());
                 $('#nombre').html('');
+                $('#gest').val('');
                 $('#contenido').html('');
                 $.ajax({
                     url: "/dpadron/"+$('#padron').val(),
                     success:function (re){
                         // console.log(re);
-                        $('#nombre').html(re);
+                        $('#nombre').html(re.nombre);
+                        tipo=re.tipo;
+                        $('#gest').val(re.gest);
+                        // tipo=re.gest;
                         // let t='<option value="">Seleccionar</option>';
                         // re.forEach(r=>{
                         //     // console.log(r);

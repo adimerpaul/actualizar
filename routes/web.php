@@ -63,8 +63,11 @@ Route::get('/inmuebles/{comun}', [App\Http\Controllers\ContribController::class,
 Route::get('/ultimages/{comun}', [App\Http\Controllers\ContribController::class, 'ultimages'])->middleware('auth');
 Route::post('/actualizarrec', [App\Http\Controllers\ContribController::class, 'actualizarrec'])->middleware('auth');
 Route::post('/limpiar', [App\Http\Controllers\ContribController::class, 'limpiar'])->middleware('auth');
+
+Route::post('/limpiarp', [App\Http\Controllers\IndcomController::class, 'limpiarp'])->middleware('auth');
 Route::post('/cambiorec', [App\Http\Controllers\ContribController::class, 'cambiorec'])->middleware('auth');
 Route::post('/bandera', [App\Http\Controllers\ContribController::class, 'bandera'])->middleware('auth');
 Route::put('/modificar/{comun}', [App\Http\Controllers\ContribController::class, 'update'])->middleware('auth');
 Route::put('/modnatural/{comun}', [App\Http\Controllers\IndcomController::class, 'update'])->middleware('auth');
 Route::put('/modjuridico/{comun}', [App\Http\Controllers\IndcomController::class, 'updatej'])->middleware('auth');
+Route::post('/cambiogesind',[App\Http\Controllers\IndcomController::class, 'cambiogesind']);
