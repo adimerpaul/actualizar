@@ -104,8 +104,15 @@
                 if ($('#inmuebles').val()==undefined || $('#inmuebles').val()==''){
                     alert('debes seleccionar inmuebles')
                 }else{
+                    var data={
+                        '_token': "{{ csrf_token() }}",
+                        'gestion':$('#gestion').val(),
+                        'cantidad':$('#inmuebles').val(),
+                    }
                     $.ajax({
-                        url: "/cambioges/"+$('#inmuebles').val()+'/'+$('#gestion').val(),
+                        type:'POST',
+                        data:data,
+                        url: "/cambioges",
                         success:function (re){
                             if (parseInt(re)==1){
                                 alert('Se actualizo correctamente');

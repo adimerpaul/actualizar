@@ -69,6 +69,8 @@ Route::group(['middleware'=>'auth'],function (){
     Route::put('/modnatural/{comun}', [App\Http\Controllers\IndcomController::class, 'update']);
     Route::put('/modjuridico/{comun}', [App\Http\Controllers\IndcomController::class, 'updatej']);
     Route::post('/cambiogesind',[App\Http\Controllers\IndcomController::class, 'cambiogesind']);
+    Route::post('/cambioges',[App\Http\Controllers\ContribController::class, 'cambioges']);
+
     Route::post('/actualizararchi', [App\Http\Controllers\ContribController::class, 'actualizararchi']);
 
 });

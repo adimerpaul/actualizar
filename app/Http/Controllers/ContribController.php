@@ -62,13 +62,13 @@ class ContribController extends Controller
                 $log->save();
         return 1;
     }
-    public function cambioges($cantidad,$gestion){
+    public function cambioges(Request $request){
 
         DB::table('pm01inmu')
-            ->where('cantidad',$cantidad)
-            ->update(['gestion'=>$gestion]);
+            ->where('cantidad',$request->cantidad)
+            ->update(['gestion'=>$request->gestion]);
         $log=new Log();
-        $log->actividad='Inmueble actualizado gestion  '.$cantidad;
+        $log->actividad='Inmueble actualizado '.$request->cantidad.' en la gestion '.$request->gestion;
         $log->iduser=Auth::user()->id;
         $log->nombre=Auth::user()->username;
         $log->save();
