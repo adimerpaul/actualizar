@@ -13,7 +13,7 @@
             </div>
         </form>
 
-        <form method='POST' action='/modificarind/' id='mod1'>
+        <form method='POST' id='mod1'>
             @csrf
             @method('PUT')
             <div class="form-row row">
@@ -60,7 +60,11 @@
                         white-space: pre !important;
                     }
                 </style>
-                <div class="form-group col-md-10">
+                <div class="form-group col-md-2">
+                    <label for="l080">l080</label>
+                    <input type="text" class="form-control" id="l080" name="l080" placeholder="l080" >
+                </div>
+                <div class="form-group col-md-8">
                     <pre id="pre" >
 
                     </pre>
@@ -307,7 +311,7 @@
                     success:function (re){
                         // console.log(re.length);
                         if (re.length>0){
-                            $('#mod1').attr('action',"/modjuridico/"+re[0].npadron);
+                            $('#mod1').attr('action',"/modjuridico/"+re[0].jpadron);
                             $('#razon').val(re[0].razon);
                             $('#jdireccion').val(re[0].jdireccion);
                             $('#jtelefono').val(re[0].jtelefono);
@@ -320,6 +324,7 @@
                             $('#jmts2').val(re[0].jmts2);
                             // $('#ndiract').val(re[0].ndiract);
                             $('#gest').val(re[0].gest);
+                            $('#l080').val(re[0].l080);
                             document.getElementById("pre").textContent = JSON.stringify(re[0], undefined, 2);
                         }
                         // let t='<option value="">Seleccionar</option>';

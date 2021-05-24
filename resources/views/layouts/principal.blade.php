@@ -235,6 +235,7 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/actualiza" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Act. Contribu</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/gestion" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Anulaciones</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/rec" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Rectificaciones</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/updatearchi" aria-expanded="false"><i class="mdi mdi-radio"></i><span class="hide-menu">Actualizar archi</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/indcom" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Indcom Natutal</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/indcomj" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Indcom juridico </span></a></li>
 {{--                            <ul aria-expanded="false" class="collapse  first-level">--}}
@@ -302,7 +303,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+                All Rights Reserved by GAMO @ {{date('Y')}}.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

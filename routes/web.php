@@ -39,6 +39,10 @@ Route::get('/indcom', function () {
 Route::get('/indcomj', function () {
     return view('indcomj');
 })->middleware('auth');
+Route::get('/updatearchi', function () {
+    return view('updatearchi');
+})->middleware('auth');
+
 
 
 Auth::routes();
@@ -46,28 +50,26 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/logeo', [App\Http\Controllers\user::class, 'consulta']);
 Route::get('/codham', [App\Http\Controllers\ContribController::class, 'codham'])->name('home');
-Route::get('/datoscontrib/{comun}', [App\Http\Controllers\ContribController::class, 'buscarcont'])->middleware('auth');
-Route::get('/dpadron/{comun}', [App\Http\Controllers\IndcomController::class, 'dpadron'])->middleware('auth');
+Route::group(['middleware'=>'auth'],function (){
+    Route::get('/datoscontrib/{comun}', [App\Http\Controllers\ContribController::class, 'buscarcont']);
+    Route::get('/dpadron/{comun}', [App\Http\Controllers\IndcomController::class, 'dpadron']);
+    Route::get('/datosindustria/{comun}', [App\Http\Controllers\IndcomController::class, 'index']);
+    Route::get('/datosindustriaj/{comun}', [App\Http\Controllers\IndcomController::class, 'indexj']);
+    Route::get('/datosrec/{comun}', [App\Http\Controllers\ContribController::class, 'datosrec']);
+    Route::get('/gestiones/{comun}/{cantidad}', [App\Http\Controllers\ContribController::class, 'gestiones']);
+    Route::get('/pagosinmu/{comun}', [App\Http\Controllers\IndcomController::class, 'pagosinmu']);
+    Route::get('/inmuebles/{comun}', [App\Http\Controllers\ContribController::class, 'inmuebles']);
+    Route::get('/ultimages/{comun}', [App\Http\Controllers\ContribController::class, 'ultimages']);
+    Route::post('/actualizarrec', [App\Http\Controllers\ContribController::class, 'actualizarrec']);
+    Route::post('/limpiar', [App\Http\Controllers\ContribController::class, 'limpiar']);
+    Route::post('/limpiarp', [App\Http\Controllers\IndcomController::class, 'limpiarp']);
+    Route::post('/cambiorec', [App\Http\Controllers\ContribController::class, 'cambiorec']);
+    Route::post('/bandera', [App\Http\Controllers\ContribController::class, 'bandera']);
+    Route::put('/modificar/{comun}', [App\Http\Controllers\ContribController::class, 'update']);
+    Route::put('/modnatural/{comun}', [App\Http\Controllers\IndcomController::class, 'update']);
+    Route::put('/modjuridico/{comun}', [App\Http\Controllers\IndcomController::class, 'updatej']);
+    Route::post('/cambiogesind',[App\Http\Controllers\IndcomController::class, 'cambiogesind']);
+    Route::post('/actualizararchi', [App\Http\Controllers\ContribController::class, 'actualizararchi']);
 
-Route::get('/datosindustria/{comun}', [App\Http\Controllers\IndcomController::class, 'index'])->middleware('auth');
-Route::get('/datosindustriaj/{comun}', [App\Http\Controllers\IndcomController::class, 'indexj'])->middleware('auth');
+});
 
-Route::get('/datosrec/{comun}', [App\Http\Controllers\ContribController::class, 'datosrec'])->middleware('auth');
-
-Route::get('/gestiones/{comun}/{cantidad}', [App\Http\Controllers\ContribController::class, 'gestiones'])->middleware('auth');
-
-Route::get('/gestiones/{comun}/{cantidad}', [App\Http\Controllers\ContribController::class, 'gestiones'])->middleware('auth');
-
-Route::get('/pagosinmu/{comun}', [App\Http\Controllers\IndcomController::class, 'pagosinmu'])->middleware('auth');
-Route::get('/inmuebles/{comun}', [App\Http\Controllers\ContribController::class, 'inmuebles'])->middleware('auth');
-Route::get('/ultimages/{comun}', [App\Http\Controllers\ContribController::class, 'ultimages'])->middleware('auth');
-Route::post('/actualizarrec', [App\Http\Controllers\ContribController::class, 'actualizarrec'])->middleware('auth');
-Route::post('/limpiar', [App\Http\Controllers\ContribController::class, 'limpiar'])->middleware('auth');
-
-Route::post('/limpiarp', [App\Http\Controllers\IndcomController::class, 'limpiarp'])->middleware('auth');
-Route::post('/cambiorec', [App\Http\Controllers\ContribController::class, 'cambiorec'])->middleware('auth');
-Route::post('/bandera', [App\Http\Controllers\ContribController::class, 'bandera'])->middleware('auth');
-Route::put('/modificar/{comun}', [App\Http\Controllers\ContribController::class, 'update'])->middleware('auth');
-Route::put('/modnatural/{comun}', [App\Http\Controllers\IndcomController::class, 'update'])->middleware('auth');
-Route::put('/modjuridico/{comun}', [App\Http\Controllers\IndcomController::class, 'updatej'])->middleware('auth');
-Route::post('/cambiogesind',[App\Http\Controllers\IndcomController::class, 'cambiogesind']);

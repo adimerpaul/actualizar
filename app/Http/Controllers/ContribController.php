@@ -20,6 +20,27 @@ class ContribController extends Controller
     {
         //
     }
+    public function actualizararchi(Request $request){
+        $b=substr($request->gest,2,2);
+        $dat=[
+            'oper'=>$request->oper,
+            'pagado_en'=>$request->pagado_en,
+            'hora'=>$request->hora,
+        ];
+//        return $dat;
+        DB::connection('tasas')
+            ->table('archi'.$b)
+            ->where('cantidad',$request->cantidad)
+            ->where('comun',$request->comun)
+            ->update($dat);
+//        return 2;
+        $log=new Log();
+        $log->actividad='Archi modificado en'.$b.'  en comun'.$request->comun;
+        $log->iduser=Auth::user()->id;
+        $log->nombre=Auth::user()->username;
+        $log->save();
+        return 1;
+    }
     public function bandera(Request $request)
     {
         DB::table('pm01inmu')

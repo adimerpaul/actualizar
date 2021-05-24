@@ -136,6 +136,7 @@ class IndcomController extends Controller
             'ndiract'=>$request->ndiract,
             'gest'=>$request->gest,
             'nactdescri'=>$request->nactdescri,
+            'l080'=>$request->l080,
             'nfechainic'=>$request->nfechainic
         );
         DB::connection('indcom')
@@ -160,11 +161,13 @@ class IndcomController extends Controller
             'jdiractiv'=>$request->jdiractiv,
             'jmts2'=>$request->jmts2,
             'gest'=>$request->gest,
+            'l080'=>$request->l080,
 //            'apeesposo'=>$request->apeesposo,
 //            'nmts2'=>$request->nmts2,
 //            'ndiract'=>$request->ndiract,
 //            'gest'=>$request->gest
         );
+//        return $dat;
         DB::connection('indcom')
             ->table('jurid')
             ->where('jpadron',$npadron)

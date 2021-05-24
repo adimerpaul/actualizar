@@ -13,7 +13,7 @@
             </div>
         </form>
 
-        <form method='POST' action='/modificarind/' id='mod1'>
+        <form method='POST' id='mod1'>
             @csrf
             @method('PUT')
             <div class="form-row row">
@@ -73,6 +73,10 @@
                     <label for="nfechainic">Fecha Inicio</label>
                     <input type="text" class="form-control" id="nfechainic" name="nfechainic" placeholder="Fecha Inicio" >
                 </div>
+                <div class="form-group col-md-2">
+                    <label for="l080">l080</label>
+                    <input type="text" class="form-control" id="l080" name="l080" placeholder="l080" >
+                </div>
                 <style>
                     pre {
                         height: auto;
@@ -84,7 +88,7 @@
                         white-space: pre !important;
                     }
                 </style>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <pre id="pre" >
 
                     </pre>
@@ -346,6 +350,7 @@
                             $('#nmts2').val(re[0].nmts2);
                             $('#ndiract').val(re[0].ndiract);
                             $('#gest').val(re[0].gest);
+                            $('#l080').val(re[0].l080);
                             $('#nfechainic').val(re[0].nfechainic);
                             $('#nactdescri').val(re[0].nactdescri);
                             document.getElementById("pre").textContent = JSON.stringify(re[0], undefined, 2);

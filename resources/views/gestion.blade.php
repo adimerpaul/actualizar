@@ -141,7 +141,6 @@
             });
             function mostrar(comun,cantidad){
                 $('#contenido').html('');
-                // console.log($('#comun1').val());
                 $.ajax({
                     url: "/gestiones/"+comun+'/'+cantidad,
                     success: function (res) {
