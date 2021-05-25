@@ -13,6 +13,7 @@
     <title>Sistema de actualizacion</title>
     <!-- Custom CSS -->
     <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
+    <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
     <script src='https://code.jquery.com/jquery-3.6.0.js'></script>
@@ -244,7 +245,9 @@
 {{--                            </ul>--}}
 {{--                        </li>--}}
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/anulacion" aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span class="hide-menu">Indcom anulacion</span></a></li>
-{{--                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Icons </span></a>--}}
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/ufv" aria-expanded="false"><i class="mdi mdi-pencil"></i><span class="hide-menu">ufv</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/patente" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">Patentes</span></a></li>
+                        {{--                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Icons </span></a>--}}
 {{--                            <ul aria-expanded="false" class="collapse  first-level">--}}
 {{--                                <li class="sidebar-item"><a href="icon-material.html" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu"> Material Icons </span></a></li>--}}
 {{--                                <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Font Awesome Icons </span></a></li>--}}
@@ -342,7 +345,7 @@
     <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="dist/js/pages/chart/chart-page-init.js"></script>
-
+    <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
 </body>
 
 </html>

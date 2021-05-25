@@ -158,7 +158,7 @@
                     success: function (res) {
                         let t='';
                         let c=0;
-                        // console.log(res);
+                        console.log(res);
                         res.forEach(re=>{
                             re.forEach(r=>{
                                 // console.log(r);

@@ -80,7 +80,7 @@
     </div>
     <script>
         window.onload=function (){
-            var gestion;
+            var gestion,cantidad;
             $('#contenido').on("click",".cambiar",function (e){
                 // console.log('a');
                 $('#actualizar').modal('show');
@@ -88,6 +88,7 @@
                 $('#pagado_en').val($(this).attr('id-pagado_en'));
                 $('#hora').val($(this).attr('id-hora'));
                 gestion=$(this).attr('id-gest');
+                cantidad=$(this).attr('id-cantidad');
                 e.preventDefault();
             })
             $('#actualizararchi').submit(function (e){
@@ -96,7 +97,7 @@
                     "oper":$('#oper').val(),
                     "pagado_en":$('#pagado_en').val(),
                     "hora":$('#hora').val(),
-                    "cantidad":$('#cantidad').val(),
+                    "cantidad":cantidad,
                     "comun":$('#comun').val(),
                     "gest":gestion,
                 }
@@ -106,7 +107,7 @@
                     data:data,
                     url:'/actualizararchi',
                     success:function (e){
-                        console.log(e);
+                        // console.log(e);
                         mostrar($('#comun').val(),$('#cantidad').val());
                         $('#actualizar').modal('hide');
                     }
@@ -136,7 +137,7 @@
                                     '<td>'+r.pagado_en+'</td>' +
                                     '<td>'+r.hora+'</td>' +
                                     '<td>' +
-                                    '<button  class="cambiar btn btn-info btn-sm" type="button" id-gest="'+r.gest+'" id-oper="'+r.oper+'" id-hora="'+r.hora+'" id-pagado_en="'+r.pagado_en+'"><i class="fa fa-pencil-alt"></i> Actualizar</button>' +
+                                    '<button  class="cambiar btn btn-info btn-sm" type="button" id-cantidad="'+r.cantidad+'" id-gest="'+r.gest+'" id-oper="'+r.oper+'" id-hora="'+r.hora+'" id-pagado_en="'+r.pagado_en+'"><i class="fa fa-pencil-alt"></i> Actualizar</button>' +
                                     '</td>' +
                                     '</tr>';
                             })
