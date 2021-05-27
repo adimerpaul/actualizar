@@ -16,19 +16,19 @@
                     </div>
                 </form>
                 <form class="row" id="fomulario">
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <label for="a_esposo" class="form-label">Apellido esposo</label>
                         <input type="text" class="form-control" name="a_esposo" id="a_esposo" placeholder="Apellido esposo" >
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <label for="a_materno" class="form-label">Apellido materno</label>
                         <input type="text" class="form-control" name="a_materno" id="a_materno" required placeholder="Apellido materno" >
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <label for="a_paterno" class="form-label">Apellido paterno</label>
                         <input type="text" class="form-control" name="a_paterno" id="a_paterno" required placeholder="Apellido paterno" >
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <label for="nombres" class="form-label">Nombres</label>
                         <input type="text" class="form-control" name="nombres" id="nombres" required placeholder="Nombres" >
                     </div>
@@ -73,29 +73,29 @@
                         <label for="superficie" class="form-label">Superficie</label>
                         <input type="number" step='0.01' class="form-control" name="superficie" id="superficie" required placeholder="Superficie" >
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <label for="horario" class="form-label">Horario</label>
                         <input type="text"  class="form-control" name="horario" id="horario" required placeholder="Superficie" >
                     </div>
 
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <label for="act_zona" class="form-label">zona Activ</label>
                         <input type="text"  class="form-control" name="act_zona" id="act_zona" required placeholder="Superficie" >
                     </div>
 
 
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <label for="act_barrio" class="form-label">barrio Activ</label>
                         <input type="text"  class="form-control" name="act_barrio" id="act_barrio" required placeholder="Superficie" >
                     </div>
 
                     
-                    <div class="col-md-2">
+                    <div class="col-md-6">
                         <label for="act_c_av" class="form-label">Calle/AV</label>
                         <input type="text"  class="form-control" name="act_c_av" id="act_c_av" required placeholder="Superficie" >
                     </div>
                     
-                    <div class="col-md-2">
+                    <div class="col-md-6">
                         <label for="act_e_ca" class="form-label">Entre Calles</label>
                         <input type="text"  class="form-control" name="act_e_ca" id="act_e_ca" required placeholder="Superficie" >
                     </div>
