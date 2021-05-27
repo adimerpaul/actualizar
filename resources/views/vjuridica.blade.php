@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="bg-cyan text-white text-center">Vutrat Naturales</h1>
+                <h1 class="bg-cyan text-white text-center">Vutrat Juridica</h1>
                 <form class="row" id="fomulario">
 {{--                    @csrf--}}
                     <div class="col-md-4">
@@ -16,34 +16,34 @@
                     </div>
                 </form>
                 <br>
-                <form class="row" id="fomulario" method='POST' action='/modvnatur/'>
+                <form class="row" id="fomulario" method='POST' action='/modvjurd/'>
                 @csrf
                 @method('PUT')
                     <div class="col-md-3">
-                        <label for="a_esposo" class="form-label">Apellido esposo</label>
-                        <input type="text" class="form-control" name="a_esposo" id="a_esposo" placeholder="Apellido esposo" maxlength='15'>
+                        <label for="a_esposo_rl" class="form-label">Apellido esposo</label>
+                        <input type="text" class="form-control" name="a_esposo_rl" id="a_esposo_rl" placeholder="Apellido esposo" maxlength='15'>
                         <input type="hidden" name="codaut" id="codaut" required>
                     </div>
                     <div class="col-md-3">
-                        <label for="a_paterno" class="form-label">Apellido paterno</label>
-                        <input type="text" class="form-control" name="a_paterno" id="a_paterno" required placeholder="Apellido paterno" maxlength='15'>
+                        <label for="a_paterno_rl" class="form-label">Apellido paterno</label>
+                        <input type="text" class="form-control" name="a_paterno_rl" id="a_paterno_rl" required placeholder="Apellido paterno" maxlength='15'>
                     </div>
                     <div class="col-md-3">
-                        <label for="a_materno" class="form-label">Apellido materno</label>
-                        <input type="text" class="form-control" name="a_materno" id="a_materno" required placeholder="Apellido materno" maxlength='15'>
+                        <label for="a_materno_rl" class="form-label">Apellido materno</label>
+                        <input type="text" class="form-control" name="a_materno_rl" id="a_materno_rl" required placeholder="Apellido materno" maxlength='15'>
                     </div>
 
                     <div class="col-md-3">
-                        <label for="nombres" class="form-label">Nombres</label>
-                        <input type="text" class="form-control" name="nombres" id="nombres" required placeholder="Nombres" maxlength='20'>
+                        <label for="nombres_rl" class="form-label">Nombres</label>
+                        <input type="text" class="form-control" name="nombres_rl" id="nombres_rl" required placeholder="Nombres" maxlength='20'>
                     </div>
                     <div class="col-md-2">
-                        <label for="c_i" class="form-label">CI</label>
-                        <input type="number" class="form-control" name="c_i" id="c_i" required >
+                        <label for="c_i_rl" class="form-label">CI rl</label>
+                        <input type="number" class="form-control" name="c_i_rl" id="c_i_rl" required >
                     </div>
                     <div class="col-md-2">
-                        <label for="nit" class="form-label">NIT</label>
-                        <input type="number" class="form-control" name="nit" id="nit" required >
+                        <label for="nit_rl" class="form-label">NIT rl</label>
+                        <input type="number" class="form-control" name="nit_rl" id="nit_rl" required >
                     </div>
 
                     <div class="col-md-2">
@@ -71,25 +71,30 @@
                         <label for="cod_acti" class="form-label">Cod Actividad</label>
                         <input type='text' class="form-control" name="cod_acti" id="cod_acti" required>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
+                        <label for="razon_social" class="form-label">Razon Social</label>
+                        <input type='text' class="form-control" name="razon_social" id="razon_social" required>
+                     </div>
+                     <div class="col-md-4">
                         <label for="cod_sector" class="form-label">Cod Sector</label>
                         <input type='text' class="form-control" name="cod_sector" id="cod_sector" required>
                      </div>
-                    <div class="col-md-4">
-                        <label for="nom_acti" class="form-label">Actividad</label>
-                        <input type="text" class="form-control" name="nom_acti" id="nom_acti" required placeholder="Actividad" >
-                    </div>
                     <div class="col-md-4">
                         <label for="descrip" class="form-label">Descripcion</label>
                         <input type="text" class="form-control" name="descrip" id="descrip" required placeholder="Descripcion" >
                     </div>
                     <div class="col-md-2">
-                        <label for="superficie" class="form-label">Superficie</label>
-                        <input type="number" step='0.01' class="form-control" name="superficie" id="superficie" required placeholder="Superficie" >
+                        <label for="superfice" class="form-label">Superficie</label>
+                        <input type="number" step='0.01' class="form-control" name="superfice" id="superfice" required placeholder="Superficie" >
                     </div>
                     <div class="col-md-3">
                         <label for="horario" class="form-label">Horario</label>
                         <input type="text"  class="form-control" name="horario" id="horario" required placeholder="horario" >
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="nit" class="form-label">NIT</label>
+                        <input type="text"  class="form-control" name="nit" id="nit" required placeholder="horario" >
                     </div>
 
                     <div class="col-md-3">
@@ -102,6 +107,10 @@
                         <label for="act_barrio" class="form-label">barrio Activ</label>
                         <input type="text"  class="form-control" name="act_barrio" id="act_barrio" required placeholder="barrio" >
                     </div>
+                    <div class="col-md-3">
+                        <label for="act_fono" class="form-label">Act fono</label>
+                        <input type="text"  class="form-control" name="act_fono" id="act_fono" required placeholder="barrio" >
+                    </div>
 
                     
                     <div class="col-md-6">
@@ -112,10 +121,6 @@
                     <div class="col-md-6">
                         <label for="act_e_ca" class="form-label">Entre Calles</label>
                         <input type="text"  class="form-control" name="act_e_ca" id="act_e_ca" required placeholder="calles"  maxlength=40>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="act_fono" class="form-label">Act fono</label>
-                        <input type="text"  class="form-control" name="act_fono" id="act_fono" required placeholder="calles"  maxlength=40>
                     </div>
                     <div class="col-md-4">
                         <label for="n_medidor_a" class="form-label">Medidor A</label>
@@ -166,7 +171,7 @@
 
             $('#fomulario').submit(function (){
                 $.ajax({
-                    url:'/bvnatural',
+                    url:'/bvjuridica',
                     type:'POST',
                     data:{'_token': "{{ csrf_token() }}", 'tramite':$('#tramite').val()},
                     success:function (e){
@@ -174,20 +179,21 @@
                         r=e[0];
 
                         $('#codaut').val(r.CodAut);
-                        $('#a_esposo').val(r.a_esposo);
-                        $('#a_paterno').val(r.a_paterno);
-                        $('#a_materno').val(r.a_materno);
-                        $('#nombres').val(r.nombres);
-                        $('#c_i').val(r.c_i);
+                        $('#a_esposo_rl').val(r.a_esposo_rl);
+                        $('#a_paterno_rl').val(r.a_paterno_rl);
+                        $('#a_materno_rl').val(r.a_materno_rl);
+                        $('#nombres_rl').val(r.nombres_rl);
+                        $('#razon_social').val(r.razon_social);
+                        $('#c_i_rl').val(r.c_i_rl);
+                        $('#nit_rl').val(r.nit_rl);
                         $('#nit').val(r.nit);
                         $('#zona_dom').val(r.zona_dom);
                         $('#calle_dom').val(r.calle_dom);
                         $('#n_dom').val(r.n_dom);
                         $('#nit').val(r.nit);
                         $('#cod_acti').val(r.cod_acti);
-                        $('#nom_acti').val(r.nom_acti);
                         $('#descrip').val(r.descrip);
-                        $('#superficie').val(r.superficie);
+                        $('#superfice').val(r.superfice);
                         $('#horario').val(r.horario);
                         $('#cod_sector').val(r.cod_sector); 
                         $('#fono_dom').val(r.fono_dom);

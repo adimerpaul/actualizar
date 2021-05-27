@@ -74,7 +74,11 @@ Route::group(['middleware'=>'auth'],function (){
     Route::apiResource('/ufv', App\Http\Controllers\UfvController::class);
     Route::apiResource('/patente', App\Http\Controllers\PatenteController::class);
     Route::apiResource('/vnatural', App\Http\Controllers\VnaturalController::class,['except'=>'show']);
+    Route::apiResource('/vjuridica', App\Http\Controllers\VjuridicaController::class,['except'=>'show']);
     Route::post('/bvnatural',[\App\Http\Controllers\VnaturalController::class,'show']);
+    Route::post('/bvjuridica',[\App\Http\Controllers\VjuridicaController::class,'show']);
+    Route::put('/modvnatur',[\App\Http\Controllers\VnaturalController::class,'modvnatur']);
+    Route::put('/modvjurd',[\App\Http\Controllers\VjuridicaController::class,'modvjuridica']);
     Route::apiResource('/cjuridica', App\Http\Controllers\VjuridicaController::class);
 
 });
