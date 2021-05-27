@@ -23,7 +23,7 @@
                         </select>
                     </div>
                     <div class="col-md-2">
-                        <label for="comun1" class="form-label">Crearr</label> <br>
+                        <label for="comun1" class="form-label">Crear</label> <br>
                         <button class="btn btn-primary" type="submit" id='buscarcont'><i class="fa fa-upload"></i> Guardar</button>
                     </div>
                 </form>

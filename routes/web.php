@@ -72,8 +72,11 @@ Route::group(['middleware'=>'auth'],function (){
     Route::post('/cambioges',[App\Http\Controllers\ContribController::class, 'cambioges']);
     Route::post('/actualizararchi', [App\Http\Controllers\ContribController::class, 'actualizararchi']);
     Route::apiResource('/ufv', App\Http\Controllers\UfvController::class);
-
     Route::apiResource('/patente', App\Http\Controllers\PatenteController::class);
+    Route::apiResource('/vnatural', App\Http\Controllers\VnaturalController::class,['except'=>'show']);
+    Route::post('/bvnatural',[\App\Http\Controllers\VnaturalController::class,'show']);
+    Route::apiResource('/cjuridica', App\Http\Controllers\VjuridicaController::class);
 
 });
+
 
