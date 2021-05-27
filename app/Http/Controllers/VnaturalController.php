@@ -36,7 +36,8 @@ class VnaturalController extends Controller
      */
     public function show(Request $request)
     {
-        $query=DB::connection('vutrat')->table('v_naturales')->where('n_tramite',$request->tramite)->get();
+        $query=DB::connection('vutrat')->table('v_naturales')->where('n_tramite',$request->tramite)
+        ->orWhere('pmc',$request->tramite)->get();
         return $query;
     }
 
@@ -62,4 +63,17 @@ class VnaturalController extends Controller
     {
         //
     }
+
+    public function actividad(){
+        $query=DB::connection('vutrat')->table('actividad')->get();
+        return $query;
+    }
+
+    public function sector(){
+        $query=DB::connection('vutrat')->table('sectores')->get();
+        return $query;
+    }
+
+    
+
 }
