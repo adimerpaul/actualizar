@@ -23,8 +23,8 @@
                         <th>Nat/Jur</th>
                         <th>Tipo Tr</th>
                         <th>Fecha ini</th>
+                        <th>Operador</th>
                         <th>Estado</th>
-                        <th>Clave</th>
                         <th>Fecha Fin</th>
                         <th>U Destino</th>
                         <th>Fecha Des</th>
@@ -58,8 +58,8 @@
                             cadena+='<td></td>';
                         else
                         cadena+='<td>'+((r.fecha_ini).substr(0,10))+'</td>';
+                        cadena+='<td>'+r.operador+'</td>';
                         cadena+='<td>'+r.estado+'</td>';
-                        cadena+='<td>'+r.clave+'</td>';
                         if(r.fecha_fin== null)
                             cadena+='<td></td>';
                         else
