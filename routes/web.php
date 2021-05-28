@@ -85,6 +85,8 @@ Route::group(['middleware'=>'auth'],function (){
     Route::post('/vutrat',[\App\Http\Controllers\VutratController::class,'store']);
     Route::get('/tramiteic',[\App\Http\Controllers\TramitesController::class,'tramiteic']);
     Route::get('/tramites',[\App\Http\Controllers\TramitesController::class,'tramites']);
+    Route::apiResource('/ctramite', App\Http\Controllers\VtramiteController::class);
+    Route::post('/bustramite',[\App\Http\Controllers\VtramiteController::class,'show']);
 
 });
 
