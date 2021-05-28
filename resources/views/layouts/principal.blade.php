@@ -94,17 +94,15 @@
                         <!-- ============================================================== -->
                         <!-- create new -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                             <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
-                             <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/vutrat" id="" >
+                                <i class="mdi mdi-chart-bar"></i> Vutrat
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tramiteic" id="" >
+                                <i class="mdi mdi-move-resize"></i> Tramite_ic
+                            </a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- Search -->
