@@ -88,6 +88,7 @@ Route::group(['middleware'=>'auth'],function (){
     Route::post('/tramites',[\App\Http\Controllers\TramitesController::class,'store']);
     Route::apiResource('/ctramite', App\Http\Controllers\VtramiteController::class);
     Route::post('/bustramite',[\App\Http\Controllers\VtramiteController::class,'show']);
+    Route::apiResource('/vuincom', App\Http\Controllers\VuincomController::class);
 
 });
 

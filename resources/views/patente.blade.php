@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="bg-orange text-white text-center">Patentes</h1>
+                <h1 class="bg-orange text-white text-center">Tasa de Paridad</h1>
                 <form class="row" id="fomulario">
 {{--                    @csrf--}}
                     <div class="col-md-4">

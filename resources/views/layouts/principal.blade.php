@@ -104,10 +104,14 @@
                                 <i class="mdi mdi-move-resize"></i> Tramite_ic
                             </a>
                         </li>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/ctramite" id="" >
                                 <i class="mdi mdi-move-resize"></i> VTramites
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/vuincom" id="" >
+                                <i class="mdi mdi-pen"></i> Vutrar a incom
                             </a>
                         </li>
                         <!-- ============================================================== -->
