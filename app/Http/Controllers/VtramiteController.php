@@ -43,6 +43,9 @@ class VtramiteController extends Controller
         return DB::connection('vutrat')->table('v_tramites')->where('n_tramite','like',$request->tramite.'%')->get();
     }
 
+    public function bustram($id){
+        return DB::connection('vutrat')->table('v_tramites')->where('CodAut',$id)->get();
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -53,6 +56,18 @@ class VtramiteController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $tram =array('na_ju'=>$request->na_ju,
+                    'tipo_tram'=>$request->tipo_tram,
+                    'estado'=>$request->estado,
+                    'unid_dest'=>$request->unid_dest,
+                    'tramitador'=>$request->tramitador
+            );
+        return DB::connection('vutrat')->table('v_tramites')->where('CodAut',$id)->update($tram);
+         
+
+            
+        
     }
 
     /**
