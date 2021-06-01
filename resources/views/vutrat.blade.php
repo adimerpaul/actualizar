@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="bg-dark text-white text-center">Archivos vutrar</h1>
+                <h1 class="bg-dark text-white text-center">Archivos vutrat</h1>
             </div>
             <div class="col-sm-3">
                 <button class="btn btn-info btn-block" data-toggle="modal" data-target="#mactividades"><i class="fa fa-cog"></i> Actividades</button>
@@ -164,7 +164,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <h1 class="bg-dark pt-1 text-center text-white"> Funcionarios</h1>
+                <h1 class="bg-dark pt-1 text-center text-white"> Operadores</h1>
                 <div class="table-responsive">
                     <table id="funcionarios" class="table table-striped table-bordered">
                         <thead>

@@ -62,40 +62,40 @@
                     <input type="text" class="form-control" name="a_esposo" id="a_esposo" placeholder="a_esposo"  >
                 </div>
                 <div class="col-md-2">
-                    <label for="cod_acti" class="form-label">cod_acti</label>
-                    <input type="text" class="form-control" name="cod_acti" id="cod_acti" placeholder="cod_acti"  >
+                    <label for="nombres" class="form-label">nombres</label>
+                    <input type="text" class="form-control" name="nombres" id="nombres" placeholder="nombres"  >
                 </div>
                 <div class="col-md-2">
-                    <label for="cod_acti" class="form-label">cod_acti</label>
-                    <input type="text" class="form-control" name="cod_acti" id="cod_acti" placeholder="cod_acti"  >
+                    <label for="c_i" class="form-label">c_i</label>
+                    <input type="text" class="form-control" name="c_i" id="c_i" placeholder="c_i"  >
                 </div>
                 <div class="col-md-2">
-                    <label for="cod_acti" class="form-label">cod_acti</label>
-                    <input type="text" class="form-control" name="cod_acti" id="cod_acti" placeholder="cod_acti"  >
+                    <label for="nit" class="form-label">nit</label>
+                    <input type="text" class="form-control" name="nit" id="nit" placeholder="nit"  >
                 </div>
                 <div class="col-md-2">
-                    <label for="cod_acti" class="form-label">cod_acti</label>
-                    <input type="text" class="form-control" name="cod_acti" id="cod_acti" placeholder="cod_acti"  >
+                    <label for="pmc" class="form-label">pmc</label>
+                    <input type="text" class="form-control" name="pmc" id="pmc" placeholder="pmc"  >
                 </div>
                 <div class="col-md-2">
-                    <label for="cod_acti" class="form-label">cod_acti</label>
-                    <input type="text" class="form-control" name="cod_acti" id="cod_acti" placeholder="cod_acti"  >
+                    <label for="zona_dom" class="form-label">zona_dom</label>
+                    <input type="text" class="form-control" name="zona_dom" id="zona_dom" placeholder="zona_dom"  >
                 </div>
                 <div class="col-md-2">
-                    <label for="cod_acti" class="form-label">cod_acti</label>
-                    <input type="text" class="form-control" name="cod_acti" id="cod_acti" placeholder="cod_acti"  >
+                    <label for="n_dom" class="form-label">n_dom</label>
+                    <input type="text" class="form-control" name="n_dom" id="n_dom" placeholder="n_dom"  >
                 </div>
                 <div class="col-md-2">
-                    <label for="cod_acti" class="form-label">cod_acti</label>
-                    <input type="text" class="form-control" name="cod_acti" id="cod_acti" placeholder="cod_acti"  >
+                    <label for="fono_dom" class="form-label">fono_dom</label>
+                    <input type="text" class="form-control" name="fono_dom" id="fono_dom" placeholder="fono_dom"  >
                 </div>
                 <div class="col-md-2">
-                    <label for="cod_acti" class="form-label">cod_acti</label>
-                    <input type="text" class="form-control" name="cod_acti" id="cod_acti" placeholder="cod_acti"  >
+                    <label for="tono_of" class="form-label">tono_of</label>
+                    <input type="text" class="form-control" name="tono_of" id="tono_of" placeholder="tono_of"  >
                 </div>
                 <div class="col-md-2">
-                    <label for="cod_acti" class="form-label">cod_acti</label>
-                    <input type="text" class="form-control" name="cod_acti" id="cod_acti" placeholder="cod_acti"  >
+                    <label for="casilla" class="form-label">casilla</label>
+                    <input type="text" class="form-control" name="casilla" id="casilla" placeholder="casilla"  >
                 </div>
                 <div class="col-md-2">
                     <label for="cod_acti" class="form-label">cod_acti</label>
