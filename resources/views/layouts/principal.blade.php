@@ -111,7 +111,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/vuincom" id="" >
-                                <i class="mdi mdi-pen"></i> Vutrar a incom
+                                <i class="mdi mdi-pen"></i> Vutrat a Indcom
                             </a>
                         </li>
                         <!-- ============================================================== -->

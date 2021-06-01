@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="col-12">
-            <h1 class="bg-cyan text-white text-center">Vutrar a Indcom</h1>
+            <h1 class="bg-cyan text-white text-center">Vutrat a Indcom</h1>
             <form class="row" id="fomulario">
                 <div class="col-md-4">
                     <label for="pmc" class="form-label">Padron</label>
@@ -58,8 +58,8 @@
                     <input type="text" class="form-control" name="a_materno" id="a_materno" placeholder="a_materno"  >
                 </div>
                 <div class="col-md-2">
-                    <label for="cod_acti" class="form-label">cod_acti</label>
-                    <input type="text" class="form-control" name="cod_acti" id="cod_acti" placeholder="cod_acti"  >
+                    <label for="a_esposo" class="form-label">a_esposo</label>
+                    <input type="text" class="form-control" name="a_esposo" id="a_esposo" placeholder="a_esposo"  >
                 </div>
                 <div class="col-md-2">
                     <label for="cod_acti" class="form-label">cod_acti</label>
