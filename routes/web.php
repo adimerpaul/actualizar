@@ -92,7 +92,7 @@ Route::group(['middleware'=>'auth'],function (){
     Route::put('/modtram/{id}',[\App\Http\Controllers\VtramiteController::class,'update']);
     Route::get('/vertram/{ntram}/{aa}',[\App\Http\Controllers\VtramiteController::class,'verseguim']);
     Route::apiResource('/vuincom', App\Http\Controllers\VuincomController::class);
-
+    Route::apiResource('/utasas', App\Http\Controllers\UtasasController::class);
 });
 
 
