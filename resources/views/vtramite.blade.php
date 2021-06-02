@@ -152,8 +152,8 @@
                         else
                         cadena+='<td>'+((r.fech_dest).substr(0,10))+'</td>';
                         cadena+='<td>'+r.tramitador+'</td>';
-                        cadena+='<td><button type="button" class="btn btn-primary" data-id="'+r.CodAut+'" data-toggle="modal" data-target="#exampleModal">Modificar</button></td>';
-                        cadena+='<td><button type="button" class="btn btn-warning" data-ntram="'+r.n_tramite+'" data-toggle="modal" data-target="#seguiModal">Ver Seg</button></td>';
+                        cadena+='<><button type="button" class="btn btn-primary" data-id="'+r.CodAut+'" data-toggle="modal" data-target="#exampleModal">Modificar</button>';
+                        cadena+='<button type="button" class="btn btn-warning" data-ntram="'+r.n_tramite+'" data-toggle="modal" data-target="#seguiModal">Ver Seg</button></td>';
                         cadena+='</tr>';
                         });
                         $('#list').html(cadena);
