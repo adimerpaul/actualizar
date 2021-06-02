@@ -70,7 +70,7 @@ class VtramiteController extends Controller
 
     public function verseguim($ntramite,$aa){
         $tram=$ntramite.'/'.$aa;
-        return DB::connection('vutrat')->table('v_seguim')->where('n_tramite',$tram)->get();
+        return DB::connection('vutrat')->table('v_seguim')->where('n_tramite',$tram)->orderBy('c_proce','asc')->get();
     }
 
     /**

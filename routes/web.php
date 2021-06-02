@@ -90,7 +90,7 @@ Route::group(['middleware'=>'auth'],function (){
     Route::post('/bustramite',[\App\Http\Controllers\VtramiteController::class,'show']);
     Route::post('/btram/{id}',[\App\Http\Controllers\VtramiteController::class,'bustram']);
     Route::put('/modtram/{id}',[\App\Http\Controllers\VtramiteController::class,'update']);
-    Route::post('/vertram/{ntram}/{aa}',[\App\Http\Controllers\VtramiteController::class,'verseguim']);
+    Route::get('/vertram/{ntram}/{aa}',[\App\Http\Controllers\VtramiteController::class,'verseguim']);
     Route::apiResource('/vuincom', App\Http\Controllers\VuincomController::class);
 
 });

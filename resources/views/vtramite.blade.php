@@ -168,7 +168,7 @@
                 console.log(ntram);
                 $.ajax({
                     url:'/vertram/'+ntram,
-                    type:'POST',
+                    type:'GET',
                     data:{'_token': "{{ csrf_token() }}", 'ntramite':ntram},
                     success:function (t){
                         cadena2='';
