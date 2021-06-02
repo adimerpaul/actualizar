@@ -26,29 +26,29 @@
                     </div>
                     <div class="col-md-3">
                         <label for="a_paterno_rl" class="form-label">Apellido paterno</label>
-                        <input type="text" class="form-control" name="a_paterno_rl" id="a_paterno_rl" required placeholder="Apellido paterno" maxlength='15'>
+                        <input type="text" class="form-control" name="a_paterno_rl" id="a_paterno_rl"  placeholder="Apellido paterno" maxlength='15'>
                     </div>
                     <div class="col-md-3">
                         <label for="a_materno_rl" class="form-label">Apellido materno</label>
-                        <input type="text" class="form-control" name="a_materno_rl" id="a_materno_rl" required placeholder="Apellido materno" maxlength='15'>
+                        <input type="text" class="form-control" name="a_materno_rl" id="a_materno_rl"  placeholder="Apellido materno" maxlength='15'>
                     </div>
 
                     <div class="col-md-3">
                         <label for="nombres_rl" class="form-label">Nombres</label>
-                        <input type="text" class="form-control" name="nombres_rl" id="nombres_rl" required placeholder="Nombres" maxlength='20'>
+                        <input type="text" class="form-control" name="nombres_rl" id="nombres_rl"  placeholder="Nombres" maxlength='20'>
                     </div>
                     <div class="col-md-2">
                         <label for="c_i_rl" class="form-label">CI rl</label>
-                        <input type="number" class="form-control" name="c_i_rl" id="c_i_rl" required >
+                        <input type="number" class="form-control" name="c_i_rl" id="c_i_rl"  >
                     </div>
                     <div class="col-md-2">
                         <label for="nit_rl" class="form-label">NIT rl</label>
-                        <input type="number" class="form-control" name="nit_rl" id="nit_rl" required >
+                        <input type="number" class="form-control" name="nit_rl" id="nit_rl"  >
                     </div>
 
                     <div class="col-md-2">
                         <label for="fono_dom" class="form-label">Telefono dom</label>
-                        <input type="number" class="form-control" name="fono_dom" id="fono_dom" required placeholder="Telefono" >
+                        <input type="number" class="form-control" name="fono_dom" id="fono_dom"  placeholder="Telefono" >
                     </div>
                     <div class="col-md-2">
                         <label for="fono_ofi" class="form-label">Telefono ofi</label>
@@ -56,105 +56,105 @@
                     </div>
                     <div class="col-md-3">
                         <label for="zona_dom" class="form-label">Zona Dom</label>
-                        <input type='text' class="form-control" name="zona_dom" id="zona_dom" required>
+                        <input type='text' class="form-control" name="zona_dom" id="zona_dom" >
                     </div>
                     <div class="col-md-4">
                         <label for="calle_dom" class="form-label">calle Dom</label>
-                        <input type='text' class="form-control" name="calle_dom" id="calle_dom" required>
+                        <input type='text' class="form-control" name="calle_dom" id="calle_dom" >
                     </div>
 
                     <div class="col-md-2">
                         <label for="n_dom" class="form-label">Num Dom</label>
-                        <input type='text' class="form-control" name="n_dom" id="n_dom" required>
+                        <input type='text' class="form-control" name="n_dom" id="n_dom" >
                     </div>
                     <div class="col-md-3">
                         <label for="cod_acti" class="form-label">Cod Actividad</label>
-                        <input type='text' class="form-control" name="cod_acti" id="cod_acti" required>
+                        <input type='text' class="form-control" name="cod_acti" id="cod_acti" >
                     </div>
                     <div class="col-md-6">
                         <label for="razon_social" class="form-label">Razon Social</label>
-                        <input type='text' class="form-control" name="razon_social" id="razon_social" required>
+                        <input type='text' class="form-control" name="razon_social" id="razon_social" >
                      </div>
                      <div class="col-md-4">
                         <label for="cod_sector" class="form-label">Cod Sector</label>
-                        <input type='text' class="form-control" name="cod_sector" id="cod_sector" required>
+                        <input type='text' class="form-control" name="cod_sector" id="cod_sector" >
                      </div>
                     <div class="col-md-4">
                         <label for="descrip" class="form-label">Descripcion</label>
-                        <input type="text" class="form-control" name="descrip" id="descrip" required placeholder="Descripcion" >
+                        <input type="text" class="form-control" name="descrip" id="descrip"  placeholder="Descripcion" >
                     </div>
                     <div class="col-md-2">
                         <label for="superfice" class="form-label">Superficie</label>
-                        <input type="number" step='0.01' class="form-control" name="superfice" id="superfice" required placeholder="Superficie" >
+                        <input type="number" step='0.01' class="form-control" name="superfice" id="superfice"  placeholder="Superficie" >
                     </div>
                     <div class="col-md-3">
                         <label for="horario" class="form-label">Horario</label>
-                        <input type="text"  class="form-control" name="horario" id="horario" required placeholder="horario" >
+                        <input type="text"  class="form-control" name="horario" id="horario"  placeholder="horario" >
                     </div>
 
                     <div class="col-md-3">
                         <label for="nit" class="form-label">NIT</label>
-                        <input type="text"  class="form-control" name="nit" id="nit" required placeholder="horario" >
+                        <input type="text"  class="form-control" name="nit" id="nit"  placeholder="horario" >
                     </div>
 
                     <div class="col-md-3">
                         <label for="act_zona" class="form-label">zona Activ</label>
-                        <input type="text"  class="form-control" name="act_zona" id="act_zona" required placeholder="zona" >
+                        <input type="text"  class="form-control" name="act_zona" id="act_zona"  placeholder="zona" >
                     </div>
 
 
                     <div class="col-md-3">
                         <label for="act_barrio" class="form-label">barrio Activ</label>
-                        <input type="text"  class="form-control" name="act_barrio" id="act_barrio" required placeholder="barrio" >
+                        <input type="text"  class="form-control" name="act_barrio" id="act_barrio"  placeholder="barrio" >
                     </div>
                     <div class="col-md-3">
                         <label for="act_fono" class="form-label">Act fono</label>
-                        <input type="text"  class="form-control" name="act_fono" id="act_fono" required placeholder="barrio" >
+                        <input type="text"  class="form-control" name="act_fono" id="act_fono"  placeholder="barrio" >
                     </div>
 
                     
                     <div class="col-md-6">
                         <label for="act_c_av" class="form-label">Calle/AV</label>
-                        <input type="text"  class="form-control" name="act_c_av" id="act_c_av" required placeholder="calle/av" maxlength=40>
+                        <input type="text"  class="form-control" name="act_c_av" id="act_c_av"  placeholder="calle/av" maxlength=40>
                     </div>
                     
                     <div class="col-md-6">
                         <label for="act_e_ca" class="form-label">Entre Calles</label>
-                        <input type="text"  class="form-control" name="act_e_ca" id="act_e_ca" required placeholder="calles"  maxlength=40>
+                        <input type="text"  class="form-control" name="act_e_ca" id="act_e_ca"  placeholder="calles"  maxlength=40>
                     </div>
                     <div class="col-md-4">
                         <label for="n_medidor_a" class="form-label">Medidor A</label>
-                        <input type="number"  class="form-control" name="n_medidor_a" id="n_medidor_a" required placeholder="calles" >
+                        <input type="number"  class="form-control" name="n_medidor_a" id="n_medidor_a"  placeholder="calles" >
                     </div>   
                     <div class="col-md-4">
                         <label for="n_medidor_e" class="form-label">Medidor E</label>
-                        <input type="number"  class="form-control" name="n_medidor_e" id="n_medidor_e" required placeholder="calles" >
+                        <input type="number"  class="form-control" name="n_medidor_e" id="n_medidor_e"  placeholder="calles" >
                     </div>
 
                     <div class="col-md-2">
                         <label for="comp" class="form-label">Comp</label>
-                        <input type="number"  class="form-control" name="comp" id="comp" required placeholder="comp" >
+                        <input type="number"  class="form-control" name="comp" id="comp"  placeholder="comp" >
                     </div>
 
                     <div class="col-md-2">
                         <label for="zona_trib" class="form-label">Zona trib</label>
-                        <input type="number"  class="form-control" name="zona_trib" id="zona_trib" required placeholder="comp" max=9>
+                        <input type="number"  class="form-control" name="zona_trib" id="zona_trib"  placeholder="comp" max=9>
                     </div>
                     <div class="col-md-4">
                         <label for="fecha_iniac" class="form-label">Fecha Ini</label>
-                        <input type="date"  class="form-control" name="fecha_iniac" id="fecha_iniac" required >
+                        <input type="date"  class="form-control" name="fecha_iniac" id="fecha_iniac"  >
                     </div>
                     <div class="col-md-2">
                         <label for="in_ge_trib" class="form-label">Ini Gestion Trib</label>
-                        <input type="number"  class="form-control" name="in_ge_trib" id="in_ge_trib" required placeholder="comp" max=9999>
+                        <input type="number"  class="form-control" name="in_ge_trib" id="in_ge_trib"  placeholder="comp" max=9999>
                     </div>
                     <div class="col-md-2">
                         <label for="n_pmc_for" class="form-label">N PMC</label>
-                        <input type="text"  class="form-control" name="n_pmc_for" id="n_pmc_for" required >
+                        <input type="text"  class="form-control" name="n_pmc_for" id="n_pmc_for"  >
                     </div>
                     <div class="col-md-2">
                         <label for="n_res_tec" class="form-label">N Res Tec</label>
-                        <input type="text"  class="form-control" name="n_res_tec" id="n_res_tec" required >
+                        <input type="text"  class="form-control" name="n_res_tec" id="n_res_tec"  >
                     </div>
 <br>
                     <div class="col-md-12">

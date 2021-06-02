@@ -65,9 +65,12 @@ class VtramiteController extends Controller
             );
         return DB::connection('vutrat')->table('v_tramites')->where('CodAut',$id)->update($tram);
          
+ 
+    }
 
-            
-        
+    public function verseguim($ntramite,$aa){
+        $tram=$ntramite.'/'.$aa;
+        return DB::connection('vutrat')->table('v_seguim')->where('n_tramite',$tram)->get();
     }
 
     /**

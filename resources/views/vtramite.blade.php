@@ -86,7 +86,35 @@
                         </div>
                     </div>
 
+
                 </table>
+                <div class="modal fade" id="seguiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Seguimiento Tramite <label for="" id="numtram2" name="numtram2"></label></h5>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                        <th>C_tramite</th>
+                                        <th>C_Proce</th>
+                                        <th>C_uni</th>
+                                        <th>Fecha Ini</th>
+                                        <th>Fecha Fin</th>
+                                        <th>Operador</th>
+                                        <th>Estado</th>
+                                        <th>Obs</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="lsegui">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
             </div>
 
@@ -124,7 +152,8 @@
                         else
                         cadena+='<td>'+((r.fech_dest).substr(0,10))+'</td>';
                         cadena+='<td>'+r.tramitador+'</td>';
-                        cadena+='<td><button type="button" class="btn btn-primary" data-id="'+r.CodAut+'"data-toggle="modal" data-target="#exampleModal">Modificar</button></td>';
+                        cadena+='<td><button type="button" class="btn btn-primary" data-id="'+r.CodAut+'" data-toggle="modal" data-target="#exampleModal">Modificar</button></td>';
+                        cadena+='<td><button type="button" class="btn btn-warning" data-ntram="'+r.n_tramite+'" data-toggle="modal" data-target="#seguiModal">Ver Seg</button></td>';
                         cadena+='</tr>';
                         });
                         $('#list').html(cadena);
@@ -132,6 +161,35 @@
                     }
                 })
                 return false;
+            });
+
+            $('#seguiModal').on('show.bs.modal', function(e) {    
+                var ntram = $(e.relatedTarget).data().ntram;
+                console.log(ntram);
+                $.ajax({
+                    url:'/vertram/'+ntram,
+                    type:'POST',
+                    data:{'_token': "{{ csrf_token() }}", 'ntramite':ntram},
+                    success:function (t){
+                        cadena2='';
+                        $('#numtram2').html(ntram);
+                        $.each(t, function(index,rr) {
+                            cadena2+='<tr>';
+                            cadena2+='<td>'+rr.c_tramite+'</td>';
+                            cadena2+='<td>'+rr.c_proce+'</td>';
+                            cadena2+='<td>'+rr.c_uni+'</td>';
+                            cadena2+='<td>'+rr.fecha_ini+'</td>';
+                            cadena2+='<td>'+rr.fecha_fin+'</td>';
+                            cadena2+='<td>'+rr.operador+'</td>';
+                            cadena2+='<td>'+rr.estado+'</td>';
+                            cadena2+='<td>'+rr.obs+'</td>';
+                            cadena2+='</tr>';
+                        })
+
+                        $('#lsegui').html(cadena2);
+
+                    }
+                    })
             });
 
             $('#exampleModal').on('show.bs.modal', function(e) {    
@@ -157,7 +215,8 @@
                     }
                
                 
-                })
+                });
+                
                 $('#modificar').submit(function(){
                     let data={
                     '_token': "{{ csrf_token() }}",
