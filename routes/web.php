@@ -57,6 +57,7 @@ Route::group(['middleware'=>'auth'],function (){
     Route::get('/datosindustriaj/{comun}', [App\Http\Controllers\IndcomController::class, 'indexj']);
     Route::get('/datosrec/{comun}', [App\Http\Controllers\ContribController::class, 'datosrec']);
     Route::get('/gestiones/{comun}/{cantidad}', [App\Http\Controllers\ContribController::class, 'gestiones']);
+    Route::get('/barchi/{cantidad}', [App\Http\Controllers\ContribController::class, 'barchi']);
     Route::get('/pagosinmu/{comun}', [App\Http\Controllers\IndcomController::class, 'pagosinmu']);
     Route::get('/inmuebles/{comun}', [App\Http\Controllers\ContribController::class, 'inmuebles']);
     Route::get('/ultimages/{comun}', [App\Http\Controllers\ContribController::class, 'ultimages']);
@@ -70,7 +71,8 @@ Route::group(['middleware'=>'auth'],function (){
     Route::put('/modjuridico/{comun}', [App\Http\Controllers\IndcomController::class, 'updatej']);
     Route::post('/cambiogesind',[App\Http\Controllers\IndcomController::class, 'cambiogesind']);
     Route::post('/cambioges',[App\Http\Controllers\ContribController::class, 'cambioges']);
-    Route::post('/actualizararchi', [App\Http\Controllers\ContribController::class, 'actualizararchi']);
+    Route::post('/actualizararchic', [App\Http\Controllers\ContribController::class, 'actualizararchic']);
+    Route::post('/creararchi', [App\Http\Controllers\ContribController::class, 'creararchi']);
     Route::apiResource('/ufv', App\Http\Controllers\UfvController::class);
     Route::apiResource('/patente', App\Http\Controllers\PatenteController::class);
     Route::apiResource('/vnatural', App\Http\Controllers\VnaturalController::class,['except'=>'show']);

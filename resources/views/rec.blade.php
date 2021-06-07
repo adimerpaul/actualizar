@@ -271,15 +271,13 @@
             $('#inmuebles').change(function (){
                 $('#gestion').val('');
                 $('#descrip').html('');
-                $('#bandera').html('');
-                $('#control').html('');
-                $('#superficie').html('');
-                $('#sup_const').html('');
-
+                $('#bandera').val('');
+                $('#control').val('');
+                $('#superficie').val('');
+                $('#sup_const').val('');
+                $('#var1').val('');
                 document.getElementById("pre").textContent="";
-
                 mostrar($('#comun1').val(),$(this).val());
-
                 $.ajax({
                     url: "/ultimages/"+$('#inmuebles').val(),
                     success:function (re){

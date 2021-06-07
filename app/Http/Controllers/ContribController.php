@@ -16,6 +16,112 @@ class ContribController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function creararchi(Request $request){
+        $b=substr($request->gest,2,2);
+        DB::connection('tasas')->table('archi'.$b)
+            ->insert([
+                "compro"=>$request->compro,
+                "flag_tasas"=>$request->flag_tasas,
+                "comun"=>$request->comun,
+                "cantidad"=>$request->cantidad,
+                "distrito"=>$request->distrito,
+                "manzano"=>$request->manzano,
+                "lote"=>$request->lote,
+                "sublote"=>$request->sublote,
+                "codigo"=>$request->codigo,
+                "tipo"=>$request->tipo,
+                "Habdep"=>$request->Habdep,
+                "nf"=>$request->nf,
+                "Frente"=>$request->Frente,
+                "gest"=>$request->gest,
+                "Item1"=>$request->Item1,
+                "Item2"=>$request->Item2,
+                "Item3"=>$request->Item3,
+                "Item4"=>$request->Item4,
+                "Item5"=>$request->Item5,
+                "Item6"=>$request->Item6,
+                "Item7"=>$request->Item7,
+                "Item8"=>$request->Item8,
+                "Item9"=>$request->Item9,
+                "Item10"=>$request->Item10,
+                "Pagado"=>$request->Pagado,
+                "Inter"=>$request->Inter,
+                "mMora"=>$request->mMora,
+                "Minclu"=>$request->Minclu,
+                "Formu"=>$request->Formu,
+                "nomb"=>$request->nomb,
+                "descuento"=>$request->descuento,
+                "fecha"=>$request->fecha,
+                "oper"=>$request->oper,
+                "pagado_en"=>$request->pagado_en,
+                "hora"=>$request->hora,
+                "descriphab"=>$request->descriphab,
+            ]);
+        return 1;
+    }
+    public function actualizararchic(Request $request){
+        $b=substr($request->gest,2,2);
+        DB::connection('tasas')->table('archi'.$b)
+            ->where('comun',$request->comun)
+            ->where('cantidad',$request->cantidad)
+            ->where('CodAut',$request->CodAut)
+            ->update([
+                "compro"=>$request->compro,
+                "flag_tasas"=>$request->flag_tasas,
+                "comun"=>$request->comun,
+                "cantidad"=>$request->cantidad,
+                "distrito"=>$request->distrito,
+                "manzano"=>$request->manzano,
+                "lote"=>$request->lote,
+                "sublote"=>$request->sublote,
+                "codigo"=>$request->codigo,
+                "tipo"=>$request->tipo,
+                "Habdep"=>$request->Habdep,
+                "nf"=>$request->nf,
+                "Frente"=>$request->Frente,
+                "gest"=>$request->gest,
+                "Item1"=>$request->Item1,
+                "Item2"=>$request->Item2,
+                "Item3"=>$request->Item3,
+                "Item4"=>$request->Item4,
+                "Item5"=>$request->Item5,
+                "Item6"=>$request->Item6,
+                "Item7"=>$request->Item7,
+                "Item8"=>$request->Item8,
+                "Item9"=>$request->Item9,
+                "Item10"=>$request->Item10,
+                "Pagado"=>$request->Pagado,
+                "Inter"=>$request->Inter,
+                "mMora"=>$request->mMora,
+                "Minclu"=>$request->Minclu,
+                "Formu"=>$request->Formu,
+                "nomb"=>$request->nomb,
+                "descuento"=>$request->descuento,
+                "fecha"=>$request->fecha,
+                "oper"=>$request->oper,
+                "pagado_en"=>$request->pagado_en,
+                "hora"=>$request->hora,
+                "descriphab"=>$request->descriphab,
+            ]);
+        return 1;
+    }
+    public function barchi($cantidad){
+        $month = strtotime("1992-01-01");
+        $end = strtotime(date('Y-m-d', strtotime("-1 year")));
+        $gestiones=array();
+        while($month <= $end)
+        {
+//            echo date('y', $month)."----- <br>";
+            $query=DB::connection('tasas')->table('archi'.date('y', $month))->where('cantidad','like','%'.$cantidad.'%');
+            if ($query->count()>0){
+//                echo date('y',$month)."---<br>";
+//                array_push($gestiones,['gestion'=>date('Y',$month)]);
+                array_push($gestiones,$query->get());
+            }
+            $month = strtotime("+1 year", $month);
+        }
+        return $gestiones;
+    }
     public function index()
     {
         //
