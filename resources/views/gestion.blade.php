@@ -48,12 +48,12 @@
                     <label for="nombre">Nombre Completo</label>
                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Completo" >
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-1">
                     <label for="telefono">Celular</label>
                     <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Celular" >
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="inmuebles">Imuebles</label>
+                    <label for="inmuebles">Imuebles <i id="spinner" class="fa fa-spinner"></i></label>
                     <select name="inmuebles" id="inmuebles" name="inmuebles" class="form-control" required >
                     </select>
                 </div>
@@ -68,6 +68,10 @@
                 <div class="form-group col-md-2">
                     <label for="descrip">Direccion</label>
                     <p id="descrip" name="descrip" >
+                </div>
+                <div class="form-group col-md-">
+                    <label for="bandera">Bandera</label>
+                    <p id="bandera" name="bandera" >
                 </div>
                 <div class="form-group col-12">
                     <h2>Gestiones acumuladas</h2>
@@ -100,6 +104,7 @@
     </div>
     <script>
         window.onload=function (){
+            $('#spinner').hide();
             $('#cambio').click(function (){
                 if ($('#inmuebles').val()==undefined || $('#inmuebles').val()==''){
                     alert('debes seleccionar inmuebles')
@@ -148,6 +153,7 @@
             });
             function mostrar(comun,cantidad){
                 $('#contenido').html('');
+                $('#spinner').show('fast');
                 $.ajax({
                     url: "/gestiones/"+comun+'/'+cantidad,
                     success: function (res) {
@@ -173,6 +179,7 @@
                                     '</tr>';
                             })
                         });
+                        $('#spinner').hide('fast');
                         $('#contenido').html(t);
                     }
                 });
@@ -180,6 +187,7 @@
             $('#inmuebles').change(function (){
                 $('#gestion').val('');
                 $('#descrip').html('');
+                $('#bandera').html('');
                 mostrar($('#comun1').val(),$(this).val());
 
                 $.ajax({
@@ -188,6 +196,10 @@
                         // console.log(re);
                         $('#gestion').val(re[0].gestion);
                         $('#descrip').html(re[0].descrip);
+                        if (re[0].bandera==2)
+                            $('#bandera').html('<span class="badge badge-danger">'+re[0].bandera+'</span>');
+                        else
+                            $('#bandera').html('<span class="badge badge-success">'+re[0].bandera+'</span>');
                     }
                 });
             })
@@ -202,7 +214,7 @@
                         let t='<option value="">Seleccionar</option>';
                         re.forEach(r=>{
                             // console.log(r);
-                            t+='<option value="'+r.cantidad+'" >'+r.cantidad+'</option>';
+                            t+='<option value="'+r.CodAut+'" >'+r.cantidad+'</option>';
                         })
                         $('#inmuebles').html(t);
                     }

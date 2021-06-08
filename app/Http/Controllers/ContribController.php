@@ -171,7 +171,7 @@ class ContribController extends Controller
     public function cambioges(Request $request){
 
         DB::table('pm01inmu')
-            ->where('cantidad',$request->cantidad)
+            ->where('CodAut',$request->cantidad)
             ->update(['gestion'=>$request->gestion]);
         $log=new Log();
         $log->actividad='Inmueble actualizado '.$request->cantidad.' en la gestion '.$request->gestion;
@@ -336,7 +336,8 @@ class ContribController extends Controller
         while($month <= $end)
         {
 //            echo date('y', $month)."----- <br>";
-            $query=DB::connection('tasas')->table('archi'.date('y', $month))->where('comun','like','%'.$comun.'%')->where('cantidad','like','%'.$dat->cantidad.'%');
+            $query=DB::connection('tasas')->table('archi'.date('y', $month))->where('cantidad','like','%'.trim($dat->cantidad).'%');
+//            echo $query->get();
             if ($query->count()>0){
 //                echo date('y',$month)."---<br>";
 //                array_push($gestiones,['gestion'=>date('Y',$month)]);
