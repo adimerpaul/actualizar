@@ -44,21 +44,21 @@
                             <div class="modal-body">
                                 <form id="actualizararchi">
                                     <div class="form-group row">
-                                        <label for="oper" class="col-sm-2 col-form-label">Oper</label>
+                                        <label for="oper2" class="col-sm-2 col-form-label">Oper</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="oper" value="Oper" required>
+                                            <input type="text" class="form-control" id="oper2" value="Oper" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="pagado_en" class="col-sm-2 col-form-label">Pagado en</label>
+                                        <label for="pagado_en2" class="col-sm-2 col-form-label">Pagado en</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="pagado_en" value="Pagado en" required>
+                                            <input type="text" class="form-control" id="pagado_en2" value="Pagado en" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="hora" class="col-sm-2 col-form-label">Hora</label>
+                                        <label for="hora2" class="col-sm-2 col-form-label">Hora</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="hora" value="Hora" required>
+                                            <input type="text" class="form-control" id="hora2" value="Hora" required>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -362,7 +362,7 @@
                 // console.log( $(this).attr('id-datos'));
                 // $('#actualizar').modal('show');
                 let dat= JSON.parse($(this).attr('id-datos'));
-                // console.log(dat);
+                console.log(dat);
                 $('#ver').modal('show');
                     CodAut=dat.CodAut;
                     $('#compro').val(dat.compro);
@@ -413,9 +413,9 @@
             $('#contenido').on("click",".cambiar",function (e){
                 // console.log('a');
                 $('#actualizar').modal('show');
-                $('#oper').val($(this).attr('id-oper'));
-                $('#pagado_en').val($(this).attr('id-pagado_en'));
-                $('#hora').val($(this).attr('id-hora'));
+                $('#oper2').val($(this).attr('id-oper'));
+                $('#pagado_en2').val($(this).attr('id-pagado_en'));
+                $('#hora2').val($(this).attr('id-hora'));
                 gestion=$(this).attr('id-gest');
                 cantidad=$(this).attr('id-cantidad');
                 $('#actualizarLabel').html('Gestion: '+gestion );
@@ -424,9 +424,9 @@
             $('#actualizararchi').submit(function (e){
                 var data={
                     "_token": "{{ csrf_token() }}",
-                    "oper":$('#oper').val(),
-                    "pagado_en":$('#pagado_en').val(),
-                    "hora":$('#hora').val(),
+                    "oper":$('#oper2').val(),
+                    "pagado_en":$('#pagado_en2').val(),
+                    "hora":$('#hora2').val(),
                     "cantidad":cantidad,
                     "comun":$('#comun').val(),
                     "gest":gestion,
