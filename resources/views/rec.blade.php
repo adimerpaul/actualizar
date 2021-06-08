@@ -61,11 +61,11 @@
 {{--                    </select>--}}
 {{--                </div>--}}
                 <div class="form-group col-md-3">
-                    <label for="nombre">Nombre Completo</label>
+                    <label for="nombre">Nombre Completo </label>
                     <label type="text" id="nombre" name="nombre" placeholder="Nombre Completo" ></label>
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="inmuebles">Imuebles</label>
+                    <label for="inmuebles">Inmuebles <i id="spinner" class="fa fa-spinner"></i></label>
                     <select name="inmuebles" id="inmuebles" name="inmuebles" class="form-control" required >
                     </select>
                 </div>
@@ -143,6 +143,7 @@
     </div>
     <script>
         window.onload=function (){
+            $('#spinner').hide();
             $('#cantidadactualizar').keyup(function (){
                 let resta=parseFloat($(this).val())-parseFloat($('#sup_const').val());
                 // console.log(resta)
@@ -276,11 +277,13 @@
                 $('#superficie').val('');
                 $('#sup_const').val('');
                 $('#var1').val('');
+                $('#spinner').show('fast');
                 document.getElementById("pre").textContent="";
-                mostrar($('#comun1').val(),$(this).val());
+                mostrar($('#comun1').val(),$('#inmuebles').val());
                 $.ajax({
                     url: "/ultimages/"+$('#inmuebles').val(),
                     success:function (re){
+                        $('#spinner').hide('fast');
                         document.getElementById("pre").textContent = JSON.stringify(re[0], undefined, 2);
                         // console.log(re);
                         $('#gestion').val(re[0].gestion);
@@ -310,7 +313,7 @@
                         let t='<option value="">Seleccionar</option>';
                         re.forEach(r=>{
                             // console.log(r);
-                            t+='<option value="'+r.cantidad+'" >'+r.cantidad+'</option>';
+                            t+='<option value="'+r.CodAut+'" >'+r.cantidad+'</option>';
                         })
                         $('#inmuebles').html(t);
                     }

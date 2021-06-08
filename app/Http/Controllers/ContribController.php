@@ -150,16 +150,16 @@ class ContribController extends Controller
     public function bandera(Request $request)
     {
         DB::table('pm01inmu')
-            ->where('cantidad',$request->cantidad)
-            ->where('comun',$request->comun)
+            ->where('CodAut',$request->cantidad)
+//            ->where('comun',$request->comun)
             ->update(['bandera'=>$request->bandera,'control'=>$request->control,'var1'=>$request->var1]);
         echo 1;
     }
     public function cambiorec(Request $request){
 
         DB::table('pm01inmu')
-            ->where('cantidad',$request->cantidad)
-            ->where('comun',$request->comun)
+            ->where('CodAut',$request->cantidad)
+//            ->where('comun',$request->comun)
             ->update(['superficie'=>$request->superficie,'gestion'=>$request->gestion,'docex'=>$request->docex,'sup_const'=>$request->sup_const]);
                 $log=new Log();
                 $log->actividad='Contribuyente rectificado  '.$request->comun;
@@ -325,17 +325,18 @@ class ContribController extends Controller
         return Contrib::where('comun',$comun)->get();
     }
     public function ultimages($comun){
-        return DB::table('pm01inmu')->where('cantidad',$comun)->get();
+        return DB::table('pm01inmu')->where('CodAut',$comun)->get();
     }
 
-    public function gestiones($comun,$cantidad){
+    public function gestiones($comun,$CodAut){
         $month = strtotime("1992-01-01");
         $end = strtotime(date('Y-m-d', strtotime("-1 year")));
         $gestiones=array();
+        $dat=DB::table('pm01inmu')->where('CodAut',$CodAut)->first();
         while($month <= $end)
         {
 //            echo date('y', $month)."----- <br>";
-            $query=DB::connection('tasas')->table('archi'.date('y', $month))->where('comun','like','%'.$comun.'%')->where('cantidad','like','%'.$cantidad.'%');
+            $query=DB::connection('tasas')->table('archi'.date('y', $month))->where('comun','like','%'.$comun.'%')->where('cantidad','like','%'.$dat->cantidad.'%');
             if ($query->count()>0){
 //                echo date('y',$month)."---<br>";
 //                array_push($gestiones,['gestion'=>date('Y',$month)]);
