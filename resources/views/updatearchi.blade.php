@@ -1,7 +1,7 @@
 @extends('layouts.principal')
 @section('content')
     <div class="container">
-        <h2 class="bg-info text-center text-white">Actualizar archi</h2>
+        <h2 class="bg-info text-center text-white">Actualizacion archivos tasas por servicio</h2>
         <form class="row g-3" id="formulario">
             <div class="col-md-2">
                 <label for="cantidad" class="form-label">Cantidad</label>

@@ -95,6 +95,7 @@ Route::group(['middleware'=>'auth'],function (){
     Route::get('/vertram/{ntram}/{aa}',[\App\Http\Controllers\VtramiteController::class,'verseguim']);
     Route::apiResource('/vuincom', App\Http\Controllers\VuincomController::class);
     Route::apiResource('/utasas', App\Http\Controllers\UtasasController::class);
+    Route::apiResource('/transferencia', App\Http\Controllers\TransferenciaController::class);
 });
 
 

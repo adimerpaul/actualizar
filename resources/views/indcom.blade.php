@@ -1,7 +1,7 @@
 @extends('layouts.principal')
 @section('content')
     <div class="container">
-        <h1 class="bg-info text-center text-white">Actividades economicas natural</h1>
+        <h1 class="bg-info text-center text-white">Actividades Economicas-Natural</h1>
         <form class="row g-3" id="formulario">
             <div class="col-md-4">
                 <label for="padron" class="form-label">Padron</label>

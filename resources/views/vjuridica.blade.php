@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="bg-cyan text-white text-center">Vutrat Juridica</h1>
+                <h1 class="bg-cyan text-white text-center">Vutrat Juridico</h1>
                 <form class="row" id="fomulario">
 {{--                    @csrf--}}
                     <div class="col-md-4">
@@ -112,12 +112,12 @@
                         <input type="text"  class="form-control" name="act_fono" id="act_fono"  placeholder="barrio" >
                     </div>
 
-                    
+
                     <div class="col-md-6">
                         <label for="act_c_av" class="form-label">Calle/AV</label>
                         <input type="text"  class="form-control" name="act_c_av" id="act_c_av"  placeholder="calle/av" maxlength=40>
                     </div>
-                    
+
                     <div class="col-md-6">
                         <label for="act_e_ca" class="form-label">Entre Calles</label>
                         <input type="text"  class="form-control" name="act_e_ca" id="act_e_ca"  placeholder="calles"  maxlength=40>
@@ -125,7 +125,7 @@
                     <div class="col-md-4">
                         <label for="n_medidor_a" class="form-label">Medidor A</label>
                         <input type="number"  class="form-control" name="n_medidor_a" id="n_medidor_a"  placeholder="calles" >
-                    </div>   
+                    </div>
                     <div class="col-md-4">
                         <label for="n_medidor_e" class="form-label">Medidor E</label>
                         <input type="number"  class="form-control" name="n_medidor_e" id="n_medidor_e"  placeholder="calles" >
@@ -160,7 +160,7 @@
                     <div class="col-md-12">
                         <button class="btn btn-warning" type="submit" id='btna'><i class="fa fa-check-circle"></i> Actualizar</button>
                     </div>
-                    
+
                 </form>
             </div>
 
@@ -195,7 +195,7 @@
                         $('#descrip').val(r.descrip);
                         $('#superfice').val(r.superfice);
                         $('#horario').val(r.horario);
-                        $('#cod_sector').val(r.cod_sector); 
+                        $('#cod_sector').val(r.cod_sector);
                         $('#fono_dom').val(r.fono_dom);
                         $('#fono_of').val(r.fono_of);
                         $('#act_zona').val(r.act_zona);

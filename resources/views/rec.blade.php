@@ -2,7 +2,7 @@
 @extends('layouts.principal')
 @section('content')
     <div class="container">
-        <h1 class="bg-warning text-center">Rectificaciones</h1>
+        <h1 class="bg-warning text-center">Rectificaciones tasas por servicio</h1>
         <form class="row g-3" id="formulario">
             <div class="col-md-4">
                 <label for="comun1" class="form-label">N documento</label>
