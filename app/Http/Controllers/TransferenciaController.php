@@ -48,6 +48,7 @@ class TransferenciaController extends Controller
      */
     public function update(Request $request, $id)
     {
+//        return $request;
         return DB::table('ufv')->whereDate('fecha',$request->fecha)->get();
     }
 
