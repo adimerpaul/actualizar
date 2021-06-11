@@ -75,7 +75,7 @@
                         <div class="form-group row">
                             <label for="tasapare" class="col-sm-5 text-end control-label col-form-label">Tasapare</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control" id="tasapare" placeholder="Tasapare" value="9.99">
+                                <input type="text" class="form-control" id="tasapare" placeholder="Tasapare" >
                             </div>
                         </div>
                         <div class="form-group row">
@@ -101,8 +101,10 @@
             $.ajax({
                 url:'transferencia/1',
                 success:function (e){
-                    // console.log(e);
-                    $('#ufv').val(e[0].coti)
+                    console.log(e);
+                    // $('#ufv').val(e[0].coti)
+                    $('#ufv').val(e[0].coti);
+                    $('#tasapare').val(e[1].tasa);
                 }
             })
             $('#imt,#pagado').keyup(function (){
@@ -134,8 +136,11 @@
                             let fecha1 = moment($('#fechaminuta').val());
                             let fecha2 = moment('{{date('Y-m-d')}}');
                             $('#diasmora').val(fecha2.diff(fecha1, 'days'))
-                            let diasmora=$('#diasmora').val();
-                            let i= ((((diasmora/360))*($('#tasapare').val()/100))*$('#saldo').val())+$('#mantenimiento').val();
+                            let diasmora= parseFloat( $('#diasmora').val());
+                            let tasapare= parseFloat( $('#tasapare').val());
+                            let saldo= parseFloat( $('#saldo').val());
+                            let mantenimiento= parseFloat( $('#mantenimiento').val());
+                            let i= ((diasmora/360)*(tasapare/100))*(saldo+mantenimiento);
                             $('#interes').val(i);
                         }else{
                             $('#ufvdia').val('');

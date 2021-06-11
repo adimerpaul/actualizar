@@ -42,33 +42,117 @@
                     <input type="text" class="form-control" id="jdiractiv" name="jdiractiv" placeholder="Diractiv" >
                 </div>
                 <div class="form-group col-md-2">
+                    <label for="jsector">jsector</label>
+                    <input type="text" class="form-control" id="jsector" name="jsector" placeholder="jsector" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="jfechainic">jfechainic</label>
+                    <input type="text" class="form-control" id="jfechainic" name="jfechainic" placeholder="jfechainic" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="sucursales">sucursales</label>
+                    <input type="text" class="form-control" id="sucursales" name="sucursales" placeholder="sucursales" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="nomreplega">nomreplega</label>
+                    <input type="text" class="form-control" id="nomreplega" name="nomreplega" placeholder="nomreplega" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="numdociden">numdociden</label>
+                    <input type="text" class="form-control" id="numdociden" name="numdociden" placeholder="numdociden" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="cargo">cargo</label>
+                    <input type="text" class="form-control" id="cargo" name="cargo" placeholder="cargo" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="jzona">jzona</label>
+                    <input type="text" class="form-control" id="jzona" name="jzona" placeholder="jzona" >
+                </div>
+                <div class="form-group col-md-2">
                     <label for="jmts2">MTS 2</label>
                     <input type="text" class="form-control" id="jmts2" name="jmts2" placeholder="MTS 2" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="numform">numform</label>
+                    <input type="text" class="form-control" id="numform" name="numform" placeholder="numform" >
                 </div>
                 <div class="form-group col-md-2">
                     <label for="gest">Gestion</label>
                     <input type="text" class="form-control" id="gest" name="gest" placeholder="Gestion" >
                 </div>
-                <style>
-                    pre {
-                        height: auto;
-                        max-height: 200px;
-                        overflow: auto;
-                        background-color: #eeeeee;
-                        word-break: normal !important;
-                        word-wrap: normal !important;
-                        white-space: pre !important;
-                    }
-                </style>
+                <div class="form-group col-md-2">
+                    <label for="oper">oper</label>
+                    <input type="text" class="form-control" id="oper" name="oper" placeholder="oper" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="fed">fed</label>
+                    <input type="text" class="form-control" id="fed" name="fed" placeholder="fed" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="nufed">nufed</label>
+                    <input type="text" class="form-control" id="nufed" name="nufed" placeholder="nufed" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="adeuda">adeuda</label>
+                    <input type="text" class="form-control" id="adeuda" name="adeuda" placeholder="adeuda" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="l07">l07</label>
+                    <input type="text" class="form-control" id="l07" name="l07" placeholder="l07" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="l259">l259</label>
+                    <input type="text" class="form-control" id="l259" name="l259" placeholder="l259" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="categoria">categoria</label>
+                    <input type="text" class="form-control" id="categoria" name="categoria" placeholder="categoria" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="horario">horario</label>
+                    <input type="text" class="form-control" id="horario" name="horario" placeholder="horario" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="lf_ini">lf_ini</label>
+                    <input type="text" class="form-control" id="lf_ini" name="lf_ini" placeholder="lf_ini" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="lf_fin">lf_fin</label>
+                    <input type="text" class="form-control" id="lf_fin" name="lf_fin" placeholder="lf_fin" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="l07jmts2">l07jmts2</label>
+                    <input type="text" class="form-control" id="l07jmts2" name="l07jmts2" placeholder="l07jmts2" >
+                </div>
                 <div class="form-group col-md-2">
                     <label for="l080">l080</label>
                     <input type="text" class="form-control" id="l080" name="l080" placeholder="l080" >
                 </div>
-                <div class="form-group col-md-8">
-                    <pre id="pre" >
-
-                    </pre>
+                <div class="form-group col-md-2">
+                    <label for="hab">hab</label>
+                    <input type="text" class="form-control" id="hab" name="hab" placeholder="hab" >
                 </div>
+{{--                <style>--}}
+{{--                    pre {--}}
+{{--                        height: auto;--}}
+{{--                        max-height: 200px;--}}
+{{--                        overflow: auto;--}}
+{{--                        background-color: #eeeeee;--}}
+{{--                        word-break: normal !important;--}}
+{{--                        word-wrap: normal !important;--}}
+{{--                        white-space: pre !important;--}}
+{{--                    }--}}
+{{--                </style>--}}
+{{--                <div class="form-group col-md-2">--}}
+{{--                    <label for="l080">l080</label>--}}
+{{--                    <input type="text" class="form-control" id="l080" name="l080" placeholder="l080" >--}}
+{{--                </div>--}}
+{{--                <div class="form-group col-md-8">--}}
+{{--                    <pre id="pre" >--}}
+
+{{--                    </pre>--}}
+{{--                </div>--}}
                 <div class="form-group col-md-2">
                     <label for="">Cambiar</label>
                     <button  type="submit" class="btn btn-warning btn-block"><i class="fa fa-edit"></i> Actualizar</button>
@@ -293,39 +377,98 @@
             })
             $('#formulario').submit(function(e){
                 // mostrar($('#comun1').val());
-                $('#razon').val('');
-                $('#jdireccion').val('');
-                $('#jtelefono').val('');
-                $('#jruc').val('');
-                $('#jactdescri').val('');
-                $('#jdiractiv').val('');
-                // $('#nruc').val('');
-                // $('#nsector').val('');
-                // $('#apeesposo').val('');
-                $('#jmts2').val('');
-                // $('#ndiract').val('');
-                $('#gest').val('');
-                document.getElementById("pre").textContent = "";
+                // $('#razon').val('');
+                // $('#jdireccion').val('');
+                // $('#jtelefono').val('');
+                // $('#jruc').val('');
+                // $('#jactdescri').val('');
+                // $('#jdiractiv').val('');
+                // // $('#nruc').val('');
+                // // $('#nsector').val('');
+                // // $('#apeesposo').val('');
+                // $('#jmts2').val('');
+                // // $('#ndiract').val('');
+                // $('#gest').val('');
+                    $('#razon').val('')
+                    $('#jdireccion').val('')
+                    $('#jtelefono').val('')
+                    $('#jruc').val('')
+                    $('#jactdescri').val('')
+                    $('#jdiractiv').val('')
+                    $('#jsector').val('')
+                    $('#jfechainic').val('')
+                    $('#sucursales').val('')
+                    $('#nomreplega').val('')
+                    $('#numdociden').val('')
+                    $('#cargo').val('')
+                    $('#jzona').val('')
+                    $('#jmts2').val('')
+                    $('#numform').val('')
+                    $('#gest').val('')
+                    $('#oper').val('')
+                    $('#fed').val('')
+                    $('#nufed').val('')
+                    $('#adeuda').val('')
+                    $('#l07').val('')
+                    $('#l259').val('')
+                    $('#categoria').val('')
+                    $('#horario').val('')
+                    $('#lf_ini').val('')
+                    $('#lf_fin').val('')
+                    $('#l07jmts2').val('')
+                    $('#l080').val('')
+                    $('#hab').val('')
+                // document.getElementById("pre").textContent = "";
                 $.ajax({
                     url: "/datosindustriaj/"+$('#comun1').val(),
                     success:function (re){
                         // console.log(re.length);
                         if (re.length>0){
                             $('#mod1').attr('action',"/modjuridico/"+re[0].jpadron);
-                            $('#razon').val(re[0].razon);
-                            $('#jdireccion').val(re[0].jdireccion);
-                            $('#jtelefono').val(re[0].jtelefono);
-                            $('#jruc').val(re[0].jruc);
-                            $('#jactdescri').val(re[0].jactdescri);
-                            $('#jdiractiv').val(re[0].jdiractiv);
-                            // $('#nruc').val(re[0].nruc);
-                            // $('#nsector').val(re[0].nsector);
-                            // $('#apeesposo').val(re[0].apeesposo);
-                            $('#jmts2').val(re[0].jmts2);
-                            // $('#ndiract').val(re[0].ndiract);
-                            $('#gest').val(re[0].gest);
-                            $('#l080').val(re[0].l080);
-                            document.getElementById("pre").textContent = JSON.stringify(re[0], undefined, 2);
+                            console.log(re[0])
+                            // $('#razon').val(re[0].razon);
+                            // $('#jdireccion').val(re[0].jdireccion);
+                            // $('#jtelefono').val(re[0].jtelefono);
+                            // $('#jruc').val(re[0].jruc);
+                            // $('#jactdescri').val(re[0].jactdescri);
+                            // $('#jdiractiv').val(re[0].jdiractiv);
+                            // // $('#nruc').val(re[0].nruc);
+                            // // $('#nsector').val(re[0].nsector);
+                            // // $('#apeesposo').val(re[0].apeesposo);
+                            // $('#jmts2').val(re[0].jmts2);
+                            // // $('#ndiract').val(re[0].ndiract);
+                            // $('#gest').val(re[0].gest);
+                            // $('#l080').val(re[0].l080);
+                            // document.getElementById("pre").textContent = JSON.stringify(re[0], undefined, 2);
+                            $('#razon').val(re[0].razon)
+                            $('#jdireccion').val(re[0].jdireccion)
+                            $('#jtelefono').val(re[0].jtelefono)
+                            $('#jruc').val(re[0].jruc)
+                            $('#jactdescri').val(re[0].jactdescri)
+                            $('#jdiractiv').val(re[0].jdiractiv)
+                            $('#jsector').val(re[0].jsector)
+                            $('#jfechainic').val(re[0].jfechainic)
+                            $('#sucursales').val(re[0].sucursales)
+                            $('#nomreplega').val(re[0].nomreplega)
+                            $('#numdociden').val(re[0].numdociden)
+                            $('#cargo').val(re[0].cargo)
+                            $('#jzona').val(re[0].jzona)
+                            $('#jmts2').val(re[0].jmts2)
+                            $('#numform').val(re[0].numform)
+                            $('#gest').val(re[0].gest)
+                            $('#oper').val(re[0].oper)
+                            $('#fed').val(re[0].fed)
+                            $('#nufed').val(re[0].nufed)
+                            $('#adeuda').val(re[0].adeuda)
+                            $('#l07').val(re[0].l07)
+                            $('#l259').val(re[0].l259)
+                            $('#categoria').val(re[0].categoria)
+                            $('#horario').val(re[0].horario)
+                            $('#lf_ini').val(re[0].lf_ini)
+                            $('#lf_fin').val(re[0].lf_fin)
+                            $('#l07jmts2').val(re[0].l07jmts2)
+                            $('#l080').val(re[0].l080)
+                            $('#hab').val(re[0].hab)
                         }
                         // let t='<option value="">Seleccionar</option>';
                         // re.forEach(r=>{

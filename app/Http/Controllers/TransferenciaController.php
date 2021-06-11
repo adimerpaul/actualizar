@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
 class TransferenciaController extends Controller
@@ -12,6 +13,12 @@ class TransferenciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function reporte()
+    {
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML('<h1>Test</h1>');
+        return $pdf->stream();
+    }
     public function index()
     {
         return view('transferencia');
@@ -36,7 +43,12 @@ class TransferenciaController extends Controller
      */
     public function show($id)
     {
-        return DB::table('ufv')->whereDate('fecha',now())->get();
+        $ufv=DB::table('ufv')->whereDate('fecha',now())->first();
+        $tasapare=DB::table('tasapare')->orderByDesc('CodAut')->first();
+        $dat=array();
+        array_push($dat,$ufv);
+        array_push($dat,$tasapare);
+        return $dat;
     }
 
     /**
@@ -48,7 +60,6 @@ class TransferenciaController extends Controller
      */
     public function update(Request $request, $id)
     {
-//        return $request;
         return DB::table('ufv')->whereDate('fecha',$request->fecha)->get();
     }
 

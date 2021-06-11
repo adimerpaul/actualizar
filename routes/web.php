@@ -96,6 +96,7 @@ Route::group(['middleware'=>'auth'],function (){
     Route::apiResource('/vuincom', App\Http\Controllers\VuincomController::class);
     Route::apiResource('/utasas', App\Http\Controllers\UtasasController::class);
     Route::apiResource('/transferencia', App\Http\Controllers\TransferenciaController::class);
+    Route::get('/reporte', [App\Http\Controllers\TransferenciaController::class,'reporte']);
 });
 
 
