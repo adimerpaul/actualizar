@@ -102,6 +102,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/utasas" id="" >
+                                <i class="mdi mdi-chart-bar"></i>Usuario Simat
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/tramiteic" id="" >
                                 <i class="mdi mdi-move-resize"></i>Tramite_ic
                             </a>
