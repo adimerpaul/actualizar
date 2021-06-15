@@ -228,6 +228,7 @@ class ContribController extends Controller
     }
     public function limpiar(Request $request)
     {
+//        return $request;
         $b=substr($request->gest,2,2);
         $cont=array(
             'oper'=>'',
@@ -237,6 +238,7 @@ class ContribController extends Controller
         DB::connection('tasas')->table('archi'.$b)
             ->where('comun',$request->comun)
             ->where('cantidad',$request->cantidad)
+            ->where('CodAut',$request->CodAut)
             ->where('gest',$request->gest)
             ->update($cont);
         $log=new Log();

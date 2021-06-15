@@ -138,6 +138,7 @@
                         "_token": "{{ csrf_token() }}",
                         "gest":$(this).attr('id-gest'),
                         "cantidad":$(this).attr('id-cantidad'),
+                        "CodAut":$(this).attr('id-CodAut'),
                         "comun":$('#comun1').val(),
                     }
                     $.ajax({
@@ -145,7 +146,7 @@
                         type:'POST',
                         data:data,
                         success:function (r){
-                            // console.log(r);
+                            console.log(r);
                             mostrar($('#comun1').val(),$('#inmuebles').val());
                         }
                     });
@@ -174,7 +175,7 @@
                                     '<td>'+r.pagado_en+'</td>' +
                                     '<td>'+r.hora+'</td>' +
                                     '<td>' +
-                                    '<button  class=" limpiar btn btn-danger btn-sm" type="button" id-cantidad="'+r.cantidad+'" id-gest="'+r.gest+'"><i class="fa fa-trash"></i> Limpiar</button>' +
+                                    '<button  class=" limpiar btn btn-danger btn-sm" type="button" id-cantidad="'+r.cantidad+'" id-gest="'+r.gest+'" id-CodAut="'+r.CodAut+'"><i class="fa fa-trash"></i> Limpiar</button>' +
                                     '</td>' +
                                     '</tr>';
                             })
