@@ -12,7 +12,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <title>Sistema de actualizacion</title>
     <!-- Custom CSS -->
+{{--    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />--}}
+
     <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
+    <link href="assets/dist/css/select2.min.css" rel="stylesheet">
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
@@ -254,7 +257,7 @@
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/home" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Inicio</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/actualiza" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Act. Contribu</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/gestion" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Anulacion tasas por servcicio</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/gestion" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Anulacion tasas por servicios</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/rec" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Rectificaciones</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/updatearchi" aria-expanded="false"><i class="mdi mdi-radio"></i><span class="hide-menu">Actualizar archi-tasas</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/indcom" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Indcom Natutal</span></a></li>
@@ -369,6 +372,8 @@
     <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="dist/js/pages/chart/chart-page-init.js"></script>
     <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
+    <script src="assets/dist/js/select2.min.js"></script>
+
 </body>
 
 </html>

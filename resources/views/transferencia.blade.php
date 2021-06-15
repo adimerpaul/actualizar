@@ -3,11 +3,29 @@
     <div class="container">
         <h1 class="text-center bg-primary text-white mt-1">Impuesto municipales a las tranferencias bienes inmuebles</h1>
         <div class="row">
+            <div class="col-sm-12">
+                <form class="form-horizontal">
+                    <div class="card-body">
+                        <h4 class="card-title">Determinacion IMT</h4>
+                        <div class="form-group row">
+                            <label for="imt" class="col-sm-2 text-end control-label col-form-label">Deuda del IMT</label>
+                            <div class="col-sm-6">
+                                <select class="js-example-basic-single form-control" >
+                                    <option value="AL">Alabama</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="row">
             <div class="col-sm-6">
                 <form class="form-horizontal">
                     <div class="card-body">
                         <h4 class="card-title">Determinacion IMT</h4>
-
                         <div class="form-group row">
                             <label for="imt" class="col-sm-5 text-end control-label col-form-label">Deuda del IMT</label>
                             <div class="col-sm-7">
@@ -97,6 +115,8 @@
     </div>
     <script>
         window.onload=function (){
+            $('.js-example-basic-single').select2();
+
             $('#fl').hide();
             $.ajax({
                 url:'transferencia/1',
