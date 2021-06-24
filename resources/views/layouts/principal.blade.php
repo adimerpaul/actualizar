@@ -124,10 +124,14 @@
                                 <i class="mdi mdi-pen"></i>Vutrat a Indcom
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/transferencia" id="" >
-                                <i class="mdi mdi-alert-box"></i>Impuesto Transferencia
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-alert-box"></i>Impuesto
                             </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item " href="/transferencia" id="" ><i class="mdi mdi-alert-box"></i>Impuesto Transferencia</a>
+                                <a class="dropdown-item" href="/rectificacion" id="" ><i class="mdi mdi-alert-box"></i>Impuesto Rectificacion</a>
+                            </div>
                         </li>
                         <!-- ============================================================== -->
                         <!-- Search -->
