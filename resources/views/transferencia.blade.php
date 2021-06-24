@@ -3,6 +3,7 @@
     <div class="container">
         <h1 class="text-center bg-primary text-white mt-1">Impuesto municipales a las tranferencias bienes inmuebles</h1>
         <div class="row">
+            <form id="formulario" method="POST">
             <div class="col-sm-12">
                 <h5 class="card-title mb-0">Inmueble</h5>
             </div>
@@ -11,7 +12,7 @@
                     <div class="col-sm-2">
                         <div class="form-group">
                             <label for="inmueble">Reg inmueble <small class="text-muted"><i id="spinner"  class="fa fa-spinner"></i></small></label>
-                            <input type="text" class="form-control " id="inmueble" placeholder="inmueble">
+                            <input type="text" class="form-control " id="inmueble" placeholder="inmueble" required name="cantidad">
                         </div>
                     </div>
                     <div class="col-sm-2">
@@ -23,31 +24,31 @@
                     <div class="col-sm-2">
                         <div class="form-group">
                             <label for="nombrecall">Nombre <small class="text-muted"></small></label>
-                            <input disabled type="text" class="form-control " id="nombrecall" placeholder="nombrecall">
+                            <input disabled type="text" class="form-control " id="nombrecall" placeholder="nombrecall" name="nombrecall">
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="form-group">
                             <label for="numcasa">Numero <small class="text-muted"></small></label>
-                            <input disabled type="text" class="form-control " id="numcasa" placeholder="numcasa">
+                            <input disabled type="text" class="form-control " id="numcasa" placeholder="numcasa" name="numcalle">
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="form-group">
                             <label for="cod_ham">Alcaldia <small class="text-muted"></small></label>
-                            <input disabled type="text" class="form-control " id="cod_ham" placeholder="cod_ham">
+                            <input disabled type="text" class="form-control " id="cod_ham" placeholder="cod_ham" name="cod_ham">
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="form-group">
                             <label for="manzano">manzano <small class="text-muted"></small></label>
-                            <input disabled type="text" class="form-control " id="manzano" placeholder="manzano">
+                            <input disabled type="text" class="form-control " id="manzano" placeholder="manzano" name="manzano">
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="form-group">
                             <label for="distrito">distrito <small class="text-muted"></small></label>
-                            <input disabled type="text" class="form-control " id="distrito" placeholder="distrito">
+                            <input disabled type="text" class="form-control " id="distrito" placeholder="distrito" name="distrito">
                         </div>
                     </div>
                     <div class="col-sm-2">
@@ -174,14 +175,81 @@
                             <input disabled type="text" class="form-control " id="liquitacion" value="0" placeholder="liquitacion">
                         </div>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <div class="form-group">
-                            <label for="fechminuta">fechminuta <button id="veficardias" class="btn btn-danger btn-sm"><i class="fa fa-plus-square"></i></button> <small id="dias" class="text-muted"></small></label>
+                            <label for="fechminuta">fechminuta <button id="veficardias" type="button" class="btn btn-danger btn-sm"><i class="fa fa-plus-square"></i></button> <span id="dias" class="text-muted"></span></label>
                             <input  type="date" class="form-control" value="{{date('Y-m-d')}}" id="fechminuta" value="0" placeholder="fechminuta">
+                        </div>
+                    </div>
+                    <div class="col-sm-1">
+                        <div class="form-group">
+                            <label for="fechminuta">Corresponde?  <span id="dias" class="text-muted"></span></label>
+                            <button id="corresponde" type="button" class="btn btn-warning"><i class="fa fa-trash"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-sm-12">
+                <div class="row" id="accesorios">
+                    <div class="col-sm-12">
+                        <h5 class="card-title mb-0">ACCESORIOS</h5>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label for="ufv">Ufv {{date('Y-m-d')}}<small class="text-muted"></small></label>
+                                    <input type="text" disabled class="form-control " id="ufv" value="0" placeholder="ufv">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="fechalimite">fecha limite minuta <button type="button" id="buscarminuta"  class="btn btn-sm btn-success"><i class="fa fa-plus-circle"></i></button> <small class="text-muted"></small></label>
+                                    <input type="date" class="form-control " value="{{date('Y-m-d')}}" id="fechalimite" value="0" placeholder="fechalimite">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label for="ufvdia">ufvdia <small class="text-muted"></small></label>
+                                    <input disabled type="text" class="form-control " id="ufvdia" value="0" placeholder="ufvdia">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group text-danger">
+                                    <label for="mantenimiento ">Mantenimiento Valor <small class="text-muted"></small></label>
+                                    <input disabled type="text" class="form-control " id="mantenimiento" value="0" placeholder="mantenimiento">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label for="diasmora">diasmora<small class="text-muted"></small></label>
+                                    <input type="text" disabled class="form-control " id="diasmora" value="0" placeholder="diasmora">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group">
+                                    <label for="tasapare">tasapare <small class="text-muted"></small></label>
+                                    <input type="text" class="form-control "  id="tasapare" value="0" placeholder="tasapare">
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-group text-danger">
+                                    <label for="interes ">Interes <small class="text-muted"></small></label>
+                                    <input disabled type="text" class="form-control " id="interes" value="0" placeholder="interes">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <button  type="submit" class="btn btn-success btn-block"><i class="fa fa-plus-circle"></i> Registrar </button>
+            </div>
+            </form>
         </div>
 {{--        <div  class="row">--}}
 {{--            <div class="col-sm-6">--}}
@@ -276,16 +344,30 @@
     </div>
     <script>
         window.onload=function (){
+            $('#accesorios').hide();
+            $('#corresponde').hide();
+
+            var deudas=false;
+            $('#corresponde').click(function (){
+                deudas=false;
+                $('#accesorios').hide();
+                $('#corresponde').hide();
+            });
             $('#veficardias').click(function (e){
                 let fecha1 = moment($('#fechminuta').val());
                 let fecha2 = moment('{{date('Y-m-d')}}');
                 let dias=fecha2.diff(fecha1, 'days');
                 if (dias>10){
                     $('#dias').html("<span class='badge badge-danger text-white'>mas de 10 dias</span>")
+                    deudas=true;
+                    $('#accesorios').show();
+                    $('#corresponde').show();
                 }else{
                     $('#dias').html("<span class='badge badge-success text-white'>menos de 10 dias</span>")
+                    deudas=false;
+                    $('#accesorios').hide();
+                    $('#corresponde').hide();
                 }
-
             });
             // console.log('a');
             $('#spinner').hide('fast');
@@ -382,40 +464,42 @@
                 // $('#saldo').val(parseFloat($('#imt').val())-parseFloat($('#pagado').val()));
             });
             $('#buscarminuta').click(function (){
-                if ($('#imt').val()==''){
-                    alert('Selecionar IMT');
-                    return false;
-                }
+                // if ($('#imt').val()==''){
+                //     alert('Selecionar IMT');
+                //     return false;
+                // }
                 $('#fl').show('fast');
+                $('#ufvdia').val('');
+                $('#mantenimiento').val('');
+                $('#diasmora').val('');
                 // console.log($(this).val());
                 let data={
                     '_token':"{{ csrf_token() }}",
                     '_method':'PUT',
-                    'fecha':$('#fechaminuta').val()
+                    'fecha':$('#fechalimite').val()
                 };
                 $.ajax({
                     url:'transferencia/1',
                     type:'POST',
                     data:data,
                     success:function (e){
-                        // console.log(e);
+                        //console.log(e);
                         $('#fl').hide('fast');
-                        if (  e.length>0){
+                        if (e.length>0){
                             $('#ufvdia').val(e[0].coti)
-                            $('#mantenimiento').val( ((parseFloat($('#ufv').val())/parseFloat($('#ufvdia').val()))-1)* parseFloat($('#saldo').val()) );
-                            let fecha1 = moment($('#fechaminuta').val());
+                            let mv=(parseFloat($('#ufv').val()/parseFloat($('#ufvdia').val()))-1)* parseFloat($('#liquitacion').val()) ;
+                            // return false;
+                            // console.log(mv)
+                            $('#mantenimiento').val(mv.toFixed(2));
+                            let fecha1 = moment($('#fechalimite').val());
                             let fecha2 = moment('{{date('Y-m-d')}}');
                             $('#diasmora').val(fecha2.diff(fecha1, 'days'))
                             let diasmora= parseFloat( $('#diasmora').val());
                             let tasapare= parseFloat( $('#tasapare').val());
-                            let saldo= parseFloat( $('#saldo').val());
+                            let saldo= parseFloat( $('#liquitacion').val());
                             let mantenimiento= parseFloat( $('#mantenimiento').val());
                             let i= ((diasmora/360)*(tasapare/100))*(saldo+mantenimiento);
-                            $('#interes').val(i);
-                        }else{
-                            $('#ufvdia').val('');
-                            $('#mantenimiento').val('');
-                            $('#diasmora').val('');
+                            $('#interes').val(i.toFixed(2));
                         }
                     }
                 })
