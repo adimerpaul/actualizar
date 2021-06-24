@@ -97,6 +97,8 @@ Route::group(['middleware'=>'auth'],function (){
     Route::apiResource('/utasas', App\Http\Controllers\UtasasController::class);
     Route::apiResource('/transferencia', App\Http\Controllers\TransferenciaController::class);
     Route::get('/reporte', [App\Http\Controllers\TransferenciaController::class,'reporte']);
+    Route::get('/inmueble/{cantidad}', [App\Http\Controllers\TransferenciaController::class,'inmueble']);
+    Route::get('/contribuyente/{ci}', [App\Http\Controllers\TransferenciaController::class,'contribuyente']);
 });
 
 

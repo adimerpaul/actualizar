@@ -50,6 +50,22 @@ class TransferenciaController extends Controller
         array_push($dat,$tasapare);
         return $dat;
     }
+    public function inmueble($cantidad){
+        $inmueble=DB::table('pm01inmu')->where('cantidad',$cantidad)->where('bandera',1)->get();
+        if ($inmueble->count()>0) {
+            $contribuyente=DB::table('pm01cont')->where('comun',$inmueble[0]->comun)->first();
+            $array=array();
+            $array[]=$inmueble[0];
+            $array[]=$contribuyente;
+            return $array;
+//            return ['contributente'=>$contribuyente,'inmueble'=>$inmueble];
+        }
+            return [];
+    }
+    public function contribuyente($ci){
+        $contribuyente=DB::table('pm01cont')->where('comun',$ci)->get();
+        return $contribuyente;
+    }
 
     /**
      * Update the specified resource in storage.
@@ -69,8 +85,9 @@ class TransferenciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($comun)
     {
-        //
+//        return DB::table('pm01cont')->limit(10)->get();
+        return DB::table('pm01cont')->where('comun',$comun)->get();
     }
 }
