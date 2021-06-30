@@ -58,7 +58,7 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="nfechainic">nfechainic</label>
-                    <input type="text" class="form-control" id="nfechainic" name="nfechainic" placeholder="nfechainic" >
+                    <input type="date" class="form-control" id="nfechainic" name="nfechainic" placeholder="nfechainic" >
                 </div>
                 <div class="form-group col-md-2">
                     <label for="apeesposo">Ap. esposo</label>
