@@ -57,6 +57,10 @@
                     <input type="text" class="form-control" id="nsector" name="nsector" placeholder="Nsector" >
                 </div>
                 <div class="form-group col-md-2">
+                    <label for="nfechainic">nfechainic</label>
+                    <input type="text" class="form-control" id="nfechainic" name="nfechainic" placeholder="nfechainic" >
+                </div>
+                <div class="form-group col-md-2">
                     <label for="apeesposo">Ap. esposo</label>
                     <input type="text" class="form-control" id="apeesposo" name="apeesposo" placeholder="Ap. esposo" >
                 </div>
@@ -453,6 +457,7 @@
                    $('#lfini').val('');
                    $('#l080').val('');
                    $('#hab').val('');
+                $('#nfechainic').val('');
 
                 // document.getElementById("pre").textContent = "";
                 $.ajax({
@@ -514,6 +519,7 @@
                             $('#lfini').val(re[0].lfini)
                             $('#l080').val(re[0].l080)
                             $('#hab').val(re[0].hab)
+                            $('#nfechainic').val(re[0].nfechainic);
                             // document.getElementById("pre").textContent = JSON.stringify(re[0], undefined, 2);
                         }
                         // let t='<option value="">Seleccionar</option>';

@@ -148,6 +148,7 @@ class IndcomController extends Controller
                             'nruc'=>$request->nruc,
                             'nactdescri'=>$request->nactdescri,
                             'nsector'=>$request->nsector,
+                            'nfechainic'=>$request->nfechainic,
                             'apeesposo'=>$request->apeesposo,
                             'nzona'=>$request->nzona,
                             'nmts2'=>$request->nmts2,

@@ -21,6 +21,7 @@
     <link href="dist/css/style.min.css" rel="stylesheet">
     <script src='https://code.jquery.com/jquery-3.6.0.js'></script>
     <script src="js/moment.min.js"></script>
+    <script src="dist/jspdf.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

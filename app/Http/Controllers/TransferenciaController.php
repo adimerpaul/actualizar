@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Luecano\NumeroALetras\NumeroALetras;
 
 class TransferenciaController extends Controller
 {
@@ -32,7 +34,51 @@ class TransferenciaController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+
+        $request->manzano==null?$manzano=0:$manzano=$request->manzano;
+        $request->distrito==null?$distrito=0:$distrito=$request->distrito;
+        $request->lote==null?$lote=0:$lote=$request->lote;
+        $request->l080=="false"?$l080=false:$l080=true;
+        $formatter = new NumeroALetras();
+        $texto= $formatter->toWords($request->liquido+2+$request->mantenimiento+$request->interes);
+        $tranferencias=DB::connection('basesin')->table('tranferencias')->insertGetId([
+            'form1800'=>$request->form1800,
+            'l080'=>$l080,
+            'cantidad'=>$request->cantidad,
+            'calle'=>$request->nombrecall.' '.$request->numcasa,
+            'alcaldia'=>$request->cod_ham,
+            'codigocatastral'=>$manzano.'-'.$distrito.'-'.$lote,
+            'superficie'=>$request->superficie,
+            'supcontruida'=>$request->sup_const,
+            'tipo'=>$request->var1,
+            'civendedor'=>$request->comun1,
+            'nombrevendedor'=>$request->paterno1.' '.$request->materno1.' '.$request->nombre1,
+            'domiciliovendedor'=>$request->domicilio1,
+            'cicomprador'=>$request->comun2,
+            'nombrecomprador'=>$request->paterno2.' '.$request->materno2.' '.$request->nombre2,
+            'domiciliocomprador'=>$request->domicilio2,
+            'baseimponible'=>$request->baseimponible,
+            'venta'=>$request->importeventa,
+            'cotizacion'=>0,
+            'liquido'=>$request->liquitacion,
+            'totalpagar'=>$request->liquitacion+2+$request->mantenimiento+$request->interes,
+            'texto'=>$texto,
+            'fechaminuta'=>$request->fechminuta,
+            'mantenimientovalor'=>$request->mantenimiento,
+            'interes'=>$request->interes,
+            'multamora'=>0,
+            'multaincum'=>0,
+            'multaadmin'=>0,
+            'fechamulta'=>$request->fechalimite,
+            'usuario'=>Auth::user()->name,
+            'fecha'=>date('Y-m-d'),
+            'hora'=>date('H:i:s'),
+            "montodeterminado"=>$request->liquitacion,
+            "pagoanterior"=>0,
+            "tipocambio"=>0,
+            "formapago"=>"CONTADOR ORIGINAL"
+        ]);
+        return DB::connection('basesin')->table('tranferencias')->where('id',$tranferencias)->get();
     }
 
     /**
