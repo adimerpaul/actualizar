@@ -87,6 +87,7 @@
                                         <div class="col-sm-4">
                                             <input type="text" class="form-control" id="compro">
                                         </div>
+
                                         <label for="flag_tasas" class="col-sm-2 col-form-label">flag_tasas</label>
                                         <div class="col-sm-4">
                                             <input type="text" class="form-control" id="flag_tasas">
@@ -95,9 +96,9 @@
                                         <div class="col-sm-4">
                                             <input type="text" class="form-control" id="comun">
                                         </div>
-                                        <label for="cantidad" class="col-sm-2 col-form-label">cantidad</label>
+                                        <label for="cantidadv" class="col-sm-2 col-form-label">cantidadv</label>
                                         <div class="col-sm-4">
-                                            <input type="text" class="form-control" id="cantidad">
+                                            <input type="text" class="form-control" id="cantidadv">
                                         </div>
                                         <label for="distrito" class="col-sm-2 col-form-label">distrito</label>
                                         <div class="col-sm-4">
@@ -251,7 +252,7 @@
                         compro:$('#compro').val(),
                         flag_tasas:$('#flag_tasas').val(),
                         comun:$('#comun').val(),
-                        cantidad:$('#cantidad').val(),
+                        cantidad:$('#cantidadv').val(),
                         distrito:$('#distrito').val(),
                         manzano:$('#manzano').val(),
                         lote:$('#lote').val(),
@@ -368,7 +369,7 @@
                     $('#compro').val(dat.compro);
                     $('#flag_tasas').val(dat.flag_tasas);
                     $('#comun').val(dat.comun);
-                    $('#cantidad').val(dat.cantidad);
+                    $('#cantidadv').val(dat.cantidad);
                     $('#distrito').val(dat.distrito);
                     $('#manzano').val(dat.manzano);
                     $('#lote').val(dat.lote);
@@ -465,9 +466,15 @@
                                 //     let datos='';
                                 // }
                                 c++;
+                                let te="";
+                                if (r.cantidad.includes('R')){
+                                   te="<span class='badge badge-danger'>"+r.cantidad+"</span>";
+                                }else{
+                                   te=r.cantidad;
+                                }
                                 t+='<tr>' +
                                     '<td>'+c+'</td>' +
-                                    '<td>'+r.cantidad+'</td>' +
+                                    '<td>'+te+'</td>' +
                                     '<td>'+r.Pagado+'</td>' +
                                     '<td>'+r.gest+'</td>' +
                                     '<td>'+r.fecha+'</td>' +
