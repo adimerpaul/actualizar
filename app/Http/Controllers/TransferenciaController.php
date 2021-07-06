@@ -39,8 +39,9 @@ class TransferenciaController extends Controller
         $request->distrito==null?$distrito=0:$distrito=$request->distrito;
         $request->lote==null?$lote=0:$lote=$request->lote;
         $request->l080=="false"?$l080=false:$l080=true;
+//        $totalpagar=
         $formatter = new NumeroALetras();
-        $texto= $formatter->toWords($request->liquido+2+$request->mantenimiento+$request->interes);
+        $texto= $formatter->toWords($request->liquitacion+2+$request->mantenimiento+$request->interes);
         $tranferencias=DB::connection('basesin')->table('tranferencias')->insertGetId([
             'form1800'=>$request->form1800,
             'l080'=>$l080,

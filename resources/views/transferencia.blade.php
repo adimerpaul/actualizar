@@ -417,7 +417,7 @@
                         console.log(dat);
                         doc.setFont("courier");
                         doc.setFontSize(11);
-                        var x=1.2,y=-0.5;
+                        var x=1.2,y=0;
                         // doc.text(1, 1, "UNO");
                         // doc.text(2, 2, "DOS");
                         // doc.text(3, 3, "TRES");
@@ -461,7 +461,7 @@
                         doc.text(x+16.5, y+6.5, dat.fechaminuta.toString());
                         /*fin parte uno*/
                         x=1.2;
-                        y=8.3-0.5;
+                        y=8.3;
                         doc.text(x+1, y+2.5, dat.calle.toString());
                         doc.text(x+6, y+2.5, dat.alcaldia.toString());
                         doc.text(x+8, y+2.5, dat.codigocatastral.toString());
@@ -500,7 +500,7 @@
                         doc.text(x+16.5, y+6.5, dat.fechaminuta.toString());
                         // /*fin parte dos*/
                         x=1.2;
-                        y=16.8-0.5;
+                        y=16.8;
                         doc.text(x+1, y+2.5, dat.calle.toString());
                         doc.text(x+6, y+2.5, dat.alcaldia.toString());
                         doc.text(x+8, y+2.5, dat.codigocatastral.toString());
@@ -539,7 +539,7 @@
                         doc.text(x+16.5, y+6.5, dat.fechaminuta.toString());
                         // /*fin parte tres*/
                         x=1.2;
-                        y=25.2-0.5;
+                        y=25.2;
 
                         doc.text(x+1, y+2.5, dat.cantidad.toString());
                         doc.text(x+4, y+2.5, dat.codigocatastral.toString());
