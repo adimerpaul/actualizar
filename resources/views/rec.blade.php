@@ -104,7 +104,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="docex" class="badge-warning">Doc ex</label>
-                    <input type="text" class="form-control" id="docex" name="docex" placeholder="Doc ex" >
+                    <textarea type="text" class="form-control" id="docex" name="docex" placeholder="Doc ex" ></textarea>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="cantidadactualizar">Cant. Sup_con</label>
