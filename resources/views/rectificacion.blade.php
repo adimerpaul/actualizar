@@ -352,14 +352,16 @@
     <script>
         window.onload=function (){
             function totpagar(){
-                let totalpagar2=parseFloat($('#saldo').val())+2 + parseFloat( $('#mantenimiento').val())+parseFloat($('#interesr').val());
-                console.log( $('#totalpagar2').html());
+                // let totalpagar2=parseFloat($('#saldo').val())+2 + parseFloat( $('#mantenimiento').val())+parseFloat($('#interesr').val());
+                let totalpagar2=parseFloat(parseFloat( $('#mantenimiento').val()));
+                // console.log( $('#totalpagar2').html());
                 $('#totalpagar2').html( 'TOTAL   A  PAGAR: '+ totalpagar2);
             }
 
             $('#l080r').change(function (){
                 if ($(this).val()=='true'){
                     $('#interesr').val(0);
+                    totpagar();
                 }
             });
             $('#formulario').submit(function (e){
@@ -390,11 +392,13 @@
                         'baseimponible':$('#baseimponibler').val(),
                         'venta':$('#venta').val(),
                         'liquido':$('#liquitacion').val(),
-                        'montodeterminado':$('#saldo').val(),
+                        // 'montodeterminado':$('#saldo').val(),
+                        'montodeterminado':0,
                         'pagoanterior':$('#montodeterminado').val(),
                         'liquitacion':$('#liquitacion').val(),
                         'mantenimientovalor':$('#mantenimiento').val(),
-                        'interes':$('#interesr').val(),
+                        // 'interes':$('#interesr').val(),
+                        'interes':0,
                         'tranferencia_id':$('#tranferencia_id').val(),
                     }
                     // console.log(data);

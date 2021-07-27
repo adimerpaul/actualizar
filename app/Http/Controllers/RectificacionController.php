@@ -36,7 +36,7 @@ class RectificacionController extends Controller
         $request->l080=="false"?$l080=false:$l080=true;
 
         $formatter = new NumeroALetras();
-        $texto= $formatter->toWords($request->liquido+2+$request->mantenimiento+$request->interes);
+        $texto= $formatter->toWords((int)$request->montodeterminado+2+(int)$request->mantenimientovalor+(int)$request->interes);
 
         $tranferencias=DB::connection('basesin')->table('rectificaciones')->insertGetId([
             'form1800'=>$request->form1800,
@@ -58,7 +58,7 @@ class RectificacionController extends Controller
             'venta'=>$request->venta,
             'cotizacion'=>0,
             'liquido'=>$request->liquitacion,
-            'totalpagar'=>$request->liquido+2+$request->mantenimiento+$request->interes,
+            'totalpagar'=>$request->montodeterminado+2+$request->mantenimientovalor+$request->interes,
             'texto'=>$texto,
             'fechaminuta'=>$request->fechaminuta,
             'mantenimientovalor'=>$request->mantenimientovalor,

@@ -147,7 +147,7 @@
                         data:data,
                         success:function (r){
                             console.log(r);
-                            mostrar($('#comun1').val(),$('#inmuebles').val());
+                            // mostrar($('#comun1').val(),$('#inmuebles').val());
                         }
                     });
                 }
