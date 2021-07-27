@@ -27,7 +27,6 @@
                         type:'POST',
                         data:{'_token': "{{ csrf_token() }}",'fecha':$('#fecha').val()},
                         success:function (res){
-                            console.log(res);
                             function header(fec1){
                             doc.setFont(undefined,'bold')
                             doc.setFontSize(6);
@@ -35,35 +34,35 @@
 
                             doc.text(8, 2.5, 'RESUMEN FORMULARIO 2001')
                             doc.text(8, 3, 'TASAS POR SERVICIO A INMUEBLES URBANOS')
-                            doc.text(0.5, 4, 'RESUMEN CORRESPONDIENTE AL DIA : '+ fec1 +' CAJERO: ')
+                            doc.text(8.5, 3.5, 'RESUMEN CORRESPONDIENTE AL DIA : '+ fec1 +' CAJERO: ')
                             doc.setFontSize(8);
                             doc.text(0.5, 4, 'No')
                             doc.text(3, 4, 'INMUEBLE')
-                            doc.text(5, 4, 'COD CATASTRAL')
-                            doc.text(7, 4, 'IMPORTE Bs.')
-                            doc.text(16, 4, 'MINUTA')
-                            doc.text(18, 4, 'TIPO')
+                            doc.text(5.5, 4, 'COD CATASTRAL')
+                            doc.text(8, 4, 'IMPORTE Bs.')
+                            doc.text(10, 4, 'MINUTA')
+                            doc.text(16, 4, 'TIPO')
                             doc.setFont(undefined,'normal')
                             doc.setFontSize(9);
                              }
                             // console.log(e)
                             let dat=res;
-                            var doc = new jsPDF('p','cm','legal')
+                            var doc = new jsPDF('p','cm','letter')
                             // console.log(dat);
                             doc.setFont("courier");
-                            doc.setFontSize(11);
                             header($('#fecha').val());
                             var x=0.5,y=4, i=0,total=0;
                             console.log(dat);
                             dat.forEach(r => {
-                                y+=1;
+                                y+=1.5;
                                 total+=r.totalpagar;
-                                doc.text(0.5, y, i++)
-                                doc.text(3, y, r.cantidad)
-                                doc.text(5, y, r.codigocatastral)
-                                doc.text(7, y, r.totalpagar)
-                                doc.text(16, y, r.fechaminuta)
-                                doc.text(18, y, r.formapago)
+                                i=i+1;
+                                doc.text(0.5, y, i+"");
+                                doc.text(3, y, r.cantidad);
+                                doc.text(5.5, y, r.codigocatastral);
+                                doc.text(8, y, r.totalpagar+"");
+                                doc.text(10, y, r.fechaminuta);
+                                doc.text(16, y, r.formapago);
                             });
                             /*inicio parte uno*/
                             doc.text(1, y+1.5, 'TOTAL RECAUDADO (en bolivianos)'+ total);
