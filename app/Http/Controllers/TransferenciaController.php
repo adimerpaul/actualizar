@@ -137,4 +137,21 @@ class TransferenciaController extends Controller
 //        return DB::table('pm01cont')->limit(10)->get();
         return DB::table('pm01cont')->where('comun',$comun)->get();
     }
+    public function cobro(){
+        return view('cobro');
+    }
+    public function buscar($id){
+//        return view('cobro');
+//        echo $id;
+        return DB::connection('basesin')->table('rectificaciones')->where('cantidad',$id)->where('cajero','')->get();
+    }
+    public function cobraracaja($id){
+//        return $id;
+        DB::connection('basesin')->table('rectificaciones')->where('id',(int)$id)->update([
+            "cajero"=>Auth::user()->name,
+            "fechacobro"=>date("Y-m-d"),
+            "horacobro"=>date("H:i:s"),
+        ]);
+        return DB::connection('basesin')->table('rectificaciones')->where('id',$id)->get();
+    }
 }

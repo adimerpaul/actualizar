@@ -557,6 +557,7 @@
                         // doc.addPage();
                         // doc.text(20, 20, 'Do you like that?');
                         doc.save('Tranferencia.pdf');
+
                     },fail:function (e){
                         // console.log(e);
                         alert('eror:',e);
