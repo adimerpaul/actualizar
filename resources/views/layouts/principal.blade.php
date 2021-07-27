@@ -132,6 +132,8 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item " href="/transferencia" id="" ><i class="mdi mdi-alert-box"></i>Impuesto Transferencia</a>
                                 <a class="dropdown-item" href="/rectificacion" id="" ><i class="mdi mdi-alert-box"></i>Impuesto Rectificacion</a>
+                                <a class="dropdown-item" href="/cobro" id="" ><i class="mdi mdi-alert-box"></i>Cobro</a>
+                                <a class="dropdown-item" href="/reporte" id="" ><i class="mdi mdi-alert-box"></i>Reporte</a>
                             </div>
                         </li>
                         <!-- ============================================================== -->
