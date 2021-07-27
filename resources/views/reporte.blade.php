@@ -1,12 +1,17 @@
 @extends('layouts.principal')
 @section('content')
     <div class="container">
-        <h1 class="text-center bg-primary text-white mt-1">Reporte Rectificacion</h1>
         <div class="row">
-            <form id="formulario" method="GET">
-                <input type="date" name="fecha" id="fecha">
-                <button type="button" class="btn btn-primary" id='buscar'>Imprimir</button>
-            </form>
+            <div class="col-12">
+                <h1 class="text-center bg-primary text-white mt-1">Reporte Rectificacion</h1>
+            </div>
+            <div class="col-12">
+                <form id="formulario" method="GET">
+                    <input type="date" name="fecha" id="fecha" value="{{date('Y-m-d')}}">
+                    <button type="button" class="btn btn-primary" id='buscar'>Imprimir</button>
+                </form>
+            </div>
+
         </div>
     </div>
     <script>
@@ -70,6 +75,6 @@
                             alert('eror:',e);
                         }})
         });
-        
+
     </script>
 @endsection
