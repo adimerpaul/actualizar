@@ -414,10 +414,6 @@
                             doc.setFont("courier");
                             doc.setFontSize(11);
                             var x=0.2,y=0;
-                            // doc.text(1, 1, "UNO");
-                            // doc.text(2, 2, "DOS");
-                            // doc.text(3, 3, "TRES");
-                            // doc.text(4, 4, "CUATRO");
                             console.log(dat);
                             /*inicio parte uno*/
                             doc.text(x+1, y+2.5, dat.calle.toString());

@@ -113,4 +113,20 @@ class RectificacionController extends Controller
     {
         //
     }
+
+    public function reporte()
+    {
+        //$pdf = App::make('dompdf.wrapper');
+        //$pdf->loadHTML('<h1>Test</h1>');
+        //return $pdf->stream();
+        return view('reporte');
+    }
+    public function consulta(Request $request){
+        $cajero=Auth::user()->name;
+        $fecha=$request->fecha;
+
+        return DB::connection('basesin')->table('rectificaciones')->where('cajero',$cajero)
+        ->whereDate('fechacobro',$fecha)->get();
+
+    }
 }
