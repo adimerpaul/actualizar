@@ -15,19 +15,20 @@
         </div>
     </div>
     <script>
-        $('#buscar').click(function(e){
-            if($('#fecha').val()=='')
+        window.onload=function (){
+            $('#buscar').click(function(e){
+                if($('#fecha').val()=='')
                 {
                     alert('debes seleccionar fecha');
                     return false;
                 }
                 console.log($('#fecha').val());
-         $.ajax({
-                        url:'consulta',
-                        type:'POST',
-                        data:{'_token': "{{ csrf_token() }}",'fecha':$('#fecha').val()},
-                        success:function (res){
-                            function header(fec1){
+                $.ajax({
+                    url:'consulta',
+                    type:'POST',
+                    data:{'_token': "{{ csrf_token() }}",'fecha':$('#fecha').val()},
+                    success:function (res){
+                        function header(fec1){
                             doc.setFont(undefined,'bold')
                             doc.setFontSize(6);
                             doc.text(0.5, 1, 'H. GOBIERNO MUNICIPAL DE ORURO')
@@ -44,37 +45,39 @@
                             doc.text(16, 4, 'TIPO')
                             doc.setFont(undefined,'normal')
                             doc.setFontSize(9);
-                             }
-                            // console.log(e)
-                            let dat=res;
-                            var doc = new jsPDF('p','cm','letter')
-                            // console.log(dat);
-                            doc.setFont("courier");
-                            header($('#fecha').val());
-                            var x=0.5,y=4, i=0,total=0;
-                            console.log(dat);
-                            dat.forEach(r => {
-                                y+=1.5;
-                                total+=r.totalpagar;
-                                i=i+1;
-                                doc.text(0.5, y, i+"");
-                                doc.text(3, y, r.cantidad);
-                                doc.text(5.5, y, r.codigocatastral);
-                                doc.text(8, y, r.totalpagar+"");
-                                doc.text(10, y, r.fechaminuta);
-                                doc.text(16, y, r.formapago);
-                            });
-                            /*inicio parte uno*/
-                            doc.text(1, y+1.5, 'TOTAL RECAUDADO (en bolivianos)'+ total);
+                        }
+                        // console.log(e)
+                        let dat=res;
+                        var doc = new jsPDF('p','cm','letter')
+                        // console.log(dat);
+                        doc.setFont("courier");
+                        header($('#fecha').val());
+                        var x=0.5,y=4, i=0,total=0;
+                        console.log(dat);
+                        dat.forEach(r => {
+                            y+=1.5;
+                            total+=r.totalpagar;
+                            i=i+1;
+                            doc.text(0.5, y, i+"");
+                            doc.text(3, y, r.cantidad);
+                            doc.text(5.5, y, r.codigocatastral);
+                            doc.text(8, y, r.totalpagar+"");
+                            doc.text(10, y, r.fechaminuta);
+                            doc.text(16, y, r.formapago);
+                        });
+                        /*inicio parte uno*/
+                        doc.text(1, y+1.5, 'TOTAL RECAUDADO (en bolivianos)'+ total);
 
-                            // doc.addPage();
-                            // doc.text(20, 20, 'Do you like that?');
-                            doc.save('reporte.pdf');
-                        },fail:function (e){
-                            // console.log(e);
-                            alert('eror:',e);
-                        }})
-        });
+                        // doc.addPage();
+                        // doc.text(20, 20, 'Do you like that?');
+                        doc.save('reporte.pdf');
+                    },fail:function (e){
+                        // console.log(e);
+                        alert('eror:',e);
+                    }})
+            });
+        }
+
 
     </script>
 @endsection
