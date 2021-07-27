@@ -30,12 +30,13 @@
                             console.log(res);
                             function header(fec1){
                             doc.setFont(undefined,'bold')
+                            doc.setFontSize(6);
                             doc.text(0.5, 1, 'H. GOBIERNO MUNICIPAL DE ORURO')
 
                             doc.text(8, 2.5, 'RESUMEN FORMULARIO 2001')
                             doc.text(8, 3, 'TASAS POR SERVICIO A INMUEBLES URBANOS')
                             doc.text(0.5, 4, 'RESUMEN CORRESPONDIENTE AL DIA : '+ fec1 +' CAJERO: ')
-                            doc.setFontSize(9);
+                            doc.setFontSize(8);
                             doc.text(0.5, 4, 'No')
                             doc.text(3, 4, 'INMUEBLE')
                             doc.text(5, 4, 'COD CATASTRAL')
@@ -55,7 +56,7 @@
                             var x=0.5,y=4, i=0,total=0;
                             console.log(dat);
                             dat.forEach(r => {
-                                y+=0.5;
+                                y+=1;
                                 total+=r.totalpagar;
                                 doc.text(0.5, y, i++)
                                 doc.text(3, y, r.cantidad)
@@ -65,7 +66,7 @@
                                 doc.text(18, y, r.formapago)
                             });
                             /*inicio parte uno*/
-                            doc.text(1, y+1, 'TOTAL RECAUDADO (en bolivianos)'+ total);
+                            doc.text(1, y+1.5, 'TOTAL RECAUDADO (en bolivianos)'+ total);
 
                             // doc.addPage();
                             // doc.text(20, 20, 'Do you like that?');
