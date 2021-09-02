@@ -338,7 +338,7 @@ class ContribController extends Controller
         while($month <= $end)
         {
 //            echo date('y', $month)."----- <br>";
-            $query=DB::connection('tasas')->table('archi'.date('y', $month))->where('cantidad','like',''.trim($dat->cantidad).'');
+            $query=DB::connection('tasas')->table('archi'.date('y', $month))->where('cantidad','like','%'.trim($dat->cantidad).'%');
 //            echo $query->get();
             if ($query->count()>0){
 //                echo date('y',$month)."---<br>";
