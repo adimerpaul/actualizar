@@ -338,16 +338,21 @@ class ContribController extends Controller
         while($month <= $end)
         {
 //            echo date('y', $month)."----- <br>";
-            $query=DB::connection('tasas')->table('archi'.date('y', $month))->where('cantidad','like','%'.trim($dat->cantidad).'%');
+            $query=DB::connection('tasas')
+//                ->table('archi'.date('y', $month))
+//                ->where('cantidad','like','%'.trim($dat->cantidad).'%')
+//                ->where('comun','like','%'.trim($dat->comun).'%');
+                ->select("SELECT * FROM archi".date('y', $month)." WHERE cantidad like '".trim($dat->cantidad)."%' AND comun like '".trim($dat->comun)."%' ");
 //            echo $query->get();
-            if ($query->count()>0){
+            if (count($query)>0){
 //                echo date('y',$month)."---<br>";
 //                array_push($gestiones,['gestion'=>date('Y',$month)]);
-                array_push($gestiones,$query->get());
+                array_push($gestiones,$query);
             }
             $month = strtotime("+1 year", $month);
         }
         return $gestiones;
+
 //        return DB::connection('tasas')->table('archi92')->where('comun',$comun)->get();
     }
     public function inmuebles($comun){
@@ -365,6 +370,12 @@ class ContribController extends Controller
 
     public function codzona(){
         return DB::table('pmzona')->select('zona','descrip')->get();
-
+    }
+    public function datos20xx(){
+        $fechven= DB::connection('datos20xx')->table('fechven')->get();
+        foreach ($fechven as $f){
+            echo $f->gest.'----';
+//            var_dump($f);
+        }
     }
 }

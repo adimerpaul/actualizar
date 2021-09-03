@@ -135,6 +135,8 @@
                         <tbody id="contenido">
                         </tbody>
                     </table>
+
+{{--                    <button class="btn btn-success" id="boton">Click</button>--}}
                 </div>
             </div>
 {{--            <button type="submit" class="btn btn-success btn-block"  ><i class="fa fa-user-plus"></i>Modificar</button>--}}
@@ -143,6 +145,15 @@
     </div>
     <script>
         window.onload=function (){
+            $('#boton').click(function (){
+                //console.log('click')
+                $.ajax({
+                    url: "/datos20xx",
+                    success:function (r){
+                        console.log(r)
+                    }
+                });
+            });
             $('#spinner').hide();
             $('#cantidadactualizar').keyup(function (){
                 let resta=parseFloat($(this).val())-parseFloat($('#sup_const').val());

@@ -83,6 +83,8 @@ Route::group(['middleware'=>'auth'],function (){
     Route::put('/modvjurd',[\App\Http\Controllers\VjuridicaController::class,'modvjuridica']);
     Route::apiResource('/cjuridica', App\Http\Controllers\VjuridicaController::class);
 
+    Route::get('/datos20xx',[\App\Http\Controllers\ContribController::class,'datos20xx']);
+
     Route::get('/vutrat',[\App\Http\Controllers\VutratController::class,'index']);
     Route::get('/cobro',[\App\Http\Controllers\TransferenciaController::class,'cobro']);
     Route::get('/buscar/{id}',[\App\Http\Controllers\TransferenciaController::class,'buscar']);
