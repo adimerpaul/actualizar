@@ -68,21 +68,21 @@
                                 <div class="form-group col-md-2">
                                     <label for="cod_ham">cod_ham</label>
                                     <select  class="form-control"  name="cod_ham" id="cod_ham" required>
-                                        <?php 
+                                        <?php
                                             $re=DB::select('select codigo, alcaldia from pmcodham order By alcaldia desc');
                                             foreach($re as $row){
                                             echo '<option value="'.$row->codigo.'">'.$row->alcaldia.'</option>';}
-                                            ?> 
+                                            ?>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="cod_barrio">cod_barrio</label>
                                     <select  class="form-control"   name="cod_barrio" id="cod_barrio" required>
-                                    <?php 
+                                    <?php
                                             $re=DB::table('pmbarrio')->select('barrio','codigo')->get();
                                             foreach($re as $row){
                                             echo '<option value="'.$row->codigo.'">'.$row->barrio.'</option>';}
-                                            ?> 
+                                            ?>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-2">
@@ -114,12 +114,12 @@
                             <button type="submit" class="btn btn-success btn-block"  ><i class="fa fa-user-plus"></i>Modificar</button>
                         </form>
 
-    </div>  
+    </div>
     <script>
     $('#buscarcont').click(function(){
-        console.log($('#comun1').val());
+        // console.log($('#comun1').val());
         $.ajax({
-        url: "/datoscontrib/"+$('#comun1').val(),
+        url: "/datoscontrib2/"+$('#comun1').val(),
         success: function (response) {
             console.log(response);
             if(response.length!=0){
@@ -162,6 +162,6 @@
         }
     });
     })
-    
+
     </script>
     @endsection

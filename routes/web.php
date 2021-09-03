@@ -52,6 +52,7 @@ Route::post('/logeo', [App\Http\Controllers\user::class, 'consulta']);
 Route::get('/codham', [App\Http\Controllers\ContribController::class, 'codham'])->name('home');
 Route::group(['middleware'=>'auth'],function (){
     Route::get('/datoscontrib/{comun}', [App\Http\Controllers\ContribController::class, 'buscarcont']);
+    Route::get('/datoscontrib2/{comun}', [App\Http\Controllers\ContribController::class, 'buscarcont2']);
     Route::get('/dpadron/{comun}', [App\Http\Controllers\IndcomController::class, 'dpadron']);
     Route::get('/datosindustria/{comun}', [App\Http\Controllers\IndcomController::class, 'index']);
     Route::get('/datosindustriaj/{comun}', [App\Http\Controllers\IndcomController::class, 'indexj']);

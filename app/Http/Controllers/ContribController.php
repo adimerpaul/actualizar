@@ -334,6 +334,18 @@ class ContribController extends Controller
         }
 
     }
+    public function buscarcont2($comun){
+//        if (Contrib::where('comun',$comun)->get()->count()>0){
+//            $contribuyente= Contrib::where('comun',$comun)->get();
+//            return $contribuyente[0]->paterno.' '.$contribuyente[0]->materno.' '.$contribuyente[0]->nombre.'<div class="badge badge-success">N</div>';
+//        }else{
+//            $contribuyente=DB::table('pmjucont')->where('comun',$comun)->get();
+////            $dat[]=$contribuyente['comun'];
+//            return $contribuyente[0]->razon_soc.'<div class="badge badge-warning">J</div>';
+//        }
+        return Contrib::where('comun',$comun)->get();
+    }
+
     public function ultimages($comun){
         return DB::table('pm01inmu')->where('CodAut',$comun)->get();
     }
