@@ -330,6 +330,7 @@
                         $('#inmuebles').html(t);
                     }
                 });
+                $('#nombre').html('');
                 $.ajax({
                     url: "/datosrec/"+$('#comun1').val(),
                     success: function (response) {

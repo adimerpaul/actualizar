@@ -186,7 +186,7 @@ class ContribController extends Controller
 //        exit;
         if ($query[0]->flag_inmu=='J'){
             $q=DB::table('pmjucont')->where('comun',$comun)->first();
-            return $q->paterno.' '.$q->materno.' '.$q->nombre.' <span class="badge badge-warning">J</span>';
+            return $q->razon_soc.' <span class="badge badge-warning">J</span>';
         }else{
             $q = DB::table('pm01cont')->where('comun',$comun)->first();
             return $q->paterno.' '.$q->materno.' '.$q->nombre.' <span class="badge badge-success">N</span>';
@@ -324,7 +324,15 @@ class ContribController extends Controller
     }
 
     public function buscarcont($comun){
-        return Contrib::where('comun',$comun)->get();
+        if (Contrib::where('comun',$comun)->get()->count()>0){
+            $contribuyente= Contrib::where('comun',$comun)->get();
+            return $contribuyente[0]->paterno.' '.$contribuyente[0]->materno.' '.$contribuyente[0]->nombre.'<div class="badge badge-success">N</div>';
+        }else{
+            $contribuyente=DB::table('pmjucont')->where('comun',$comun)->get();
+//            $dat[]=$contribuyente['comun'];
+            return $contribuyente[0]->razon_soc.'<div class="badge badge-warning">J</div>';
+        }
+
     }
     public function ultimages($comun){
         return DB::table('pm01inmu')->where('CodAut',$comun)->get();

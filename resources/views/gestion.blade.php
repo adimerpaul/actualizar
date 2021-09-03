@@ -44,14 +44,15 @@
 {{--                        <option value="C">SUCRE</option>--}}
 {{--                    </select>--}}
 {{--                </div>--}}
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-4">
                     <label for="nombre">Nombre Completo</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Completo" >
+{{--                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre Completo" >--}}
+                    <div id="datcon"></div>
                 </div>
-                <div class="form-group col-md-1">
-                    <label for="telefono">Celular</label>
-                    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Celular" >
-                </div>
+{{--                <div class="form-group col-md-1">--}}
+{{--                    <label for="telefono">Celular</label>--}}
+{{--                    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Celular" >--}}
+{{--                </div>--}}
                 <div class="form-group col-md-2">
                     <label for="inmuebles">Imuebles <i id="spinner" class="fa fa-spinner"></i></label>
                     <select name="inmuebles" id="inmuebles" name="inmuebles" class="form-control" required >
@@ -211,7 +212,7 @@
                 $.ajax({
                     url: "/inmuebles/"+$('#comun1').val(),
                     success:function (re){
-                        // console.log(r);
+                        // console.log(re);
                         let t='<option value="">Seleccionar</option>';
                         re.forEach(r=>{
                             // console.log(r);
@@ -220,47 +221,44 @@
                         $('#inmuebles').html(t);
                     }
                 });
+                $('#datcon').html('');
                 $.ajax({
                     url: "/datoscontrib/"+$('#comun1').val(),
                     success: function (response) {
                         console.log(response);
-                        if(response.length!=0){
-                            var row=response[0];
-                            // console.log(row);
-                            // $('#tipodocumento').val(row['tipodocum']);
-                            $('#ci').val(row['comun']);
-                            // $('#mod1').attr('action',"/modificar/"+row['comun']);
-                            $('#expedido').val(row['expedido']);
-                            // $('#paterno').val(row['paterno']);
-                            // $('#materno').val(row['materno']);
-                            // $('#nombre').val(row['nombre']);
-                            $('#nombre').val(row['paterno'].trim()+' '+row['materno'].trim()+' '+row['nombre'].trim())
-                            $('#telefono').val(row['telefono']);
-
-                            // $('#cod_ham').val(row['cod_ham']);
-                            // $('#cod_barrio').val(row['cod_barrio']);
-                            // $('#tipocalle').val(row['tipocalle']);
-                            // $('#nombrecall').val(row['nombrecall']);
-                            // $('#numcasa').val(row['numcasa']);
-                            // $('#descrip').val(row['descrip']);
-                            // $('#nacimient').val(row['nacimient'].substr(0,10));
-                        }
-                        else{
-                            $('#tipodocumento').val('');
-                            $('#ci').val('');
-                            $('#mod1').attr('action',"");
-                            $('#expedido').val('');
-                            $('#paterno').val('');
-                            $('#materno').val('');
-                            $('#nombre').val('');
-                            $('#telefono').val('');
-                            $('#cod_ham').val('');
-                            $('#cod_barrio').val('');
-                            $('#tipocalle').val('');
-                            $('#nombrecall').val('');
-                            $('#numcasa').val('');
-                            $('#descrip').val('');
-                            $('#nacimient').val('');}
+                        $('#datcon').html(response)
+                        //
+                        // if(response.length!=0){
+                        //     var row=response[0];
+                        //     // $('#ci').val(row['comun']);
+                        //     // $('#expedido').val(row['expedido']);
+                        //     $('#nombre').val(row['paterno'].trim()+' '+row['materno'].trim()+' '+row['nombre'].trim())
+                        //     $('#telefono').val(row['telefono']);
+                        //
+                        //     // $('#cod_ham').val(row['cod_ham']);
+                        //     // $('#cod_barrio').val(row['cod_barrio']);
+                        //     // $('#tipocalle').val(row['tipocalle']);
+                        //     // $('#nombrecall').val(row['nombrecall']);
+                        //     // $('#numcasa').val(row['numcasa']);
+                        //     // $('#descrip').val(row['descrip']);
+                        //     // $('#nacimient').val(row['nacimient'].substr(0,10));
+                        // }
+                        // else{
+                        //     $('#tipodocumento').val('');
+                        //     $('#ci').val('');
+                        //     $('#mod1').attr('action',"");
+                        //     $('#expedido').val('');
+                        //     $('#paterno').val('');
+                        //     $('#materno').val('');
+                        //     $('#nombre').val('');
+                        //     $('#telefono').val('');
+                        //     $('#cod_ham').val('');
+                        //     $('#cod_barrio').val('');
+                        //     $('#tipocalle').val('');
+                        //     $('#nombrecall').val('');
+                        //     $('#numcasa').val('');
+                        //     $('#descrip').val('');
+                        //     $('#nacimient').val('');}
                         // You will get response from your PHP page (what you echo or print)
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
