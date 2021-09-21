@@ -48,10 +48,20 @@ Route::get('/updatearchi', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/mercado', [App\Http\Controllers\HomeController::class, 'mercado'])->name('home');
+
 Route::post('/logeo', [App\Http\Controllers\user::class, 'consulta']);
 Route::get('/codham', [App\Http\Controllers\ContribController::class, 'codham'])->name('home');
 Route::group(['middleware'=>'auth'],function (){
     Route::get('/datoscontrib/{comun}', [App\Http\Controllers\ContribController::class, 'buscarcont']);
+    Route::get('/padrone/{padron}', [App\Http\Controllers\MercadoController::class, 'padrone']);
+    Route::get('/padronf/{padron}', [App\Http\Controllers\MercadoController::class, 'padronf']);
+
+    Route::get('/pagosmercados/{padron}', [App\Http\Controllers\MercadoController::class, 'pagosmercados']);
+    Route::post('/updatepadrone', [App\Http\Controllers\MercadoController::class, 'updatepadrone']);
+    Route::post('/updatepadronf', [App\Http\Controllers\MercadoController::class, 'updatepadronf']);
+    Route::post('/limpiarmercado', [App\Http\Controllers\MercadoController::class, 'limpiarmercado']);
+
     Route::get('/datoscontrib2/{comun}', [App\Http\Controllers\ContribController::class, 'buscarcont2']);
     Route::get('/dpadron/{comun}', [App\Http\Controllers\IndcomController::class, 'dpadron']);
     Route::get('/datosindustria/{comun}', [App\Http\Controllers\IndcomController::class, 'index']);
