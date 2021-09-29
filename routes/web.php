@@ -56,7 +56,7 @@ Route::group(['middleware'=>'auth'],function (){
     Route::get('/datoscontrib/{comun}', [App\Http\Controllers\ContribController::class, 'buscarcont']);
     Route::get('/padrone/{padron}', [App\Http\Controllers\MercadoController::class, 'padrone']);
     Route::get('/padronf/{padron}', [App\Http\Controllers\MercadoController::class, 'padronf']);
-
+    Route::get('/buscarmercado/{padron}',[\App\Http\Controllers\MercadoController::class,'buscarmercado']);
     Route::get('/pagosmercados/{padron}', [App\Http\Controllers\MercadoController::class, 'pagosmercados']);
     Route::post('/updatepadrone', [App\Http\Controllers\MercadoController::class, 'updatepadrone']);
     Route::post('/updatepadronf', [App\Http\Controllers\MercadoController::class, 'updatepadronf']);

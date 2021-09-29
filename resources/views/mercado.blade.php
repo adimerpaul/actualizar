@@ -17,9 +17,13 @@
                         <label for="padron" class="form-label">Padron</label>
                         <input type="text" class="form-control" id="padron" required >
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <label for="comun1" class="form-label">Buscar</label> <br>
-                        <button class="btn btn-primary" type="submit" id='buscarcont'><i class="fa fa-search"></i> Buscar</button>
+                        <button class="btn btn-primary" type="submit" id='buscarcont'><i id="lupa" class="fa fa-search"></i><i id="buscar" class="fa fa-spinner"></i> Buscar</button>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="nombrecompleto" class="form-label">Nombre completo</label> <br>
+                        <div id="nombrecompleto"></div>
                     </div>
                 </form>
             </div>
@@ -502,6 +506,8 @@
     </div>
     <script>
         window.onload=function (){
+            $('#buscar').hide()
+            $('#lupa').show()
             $('#spinnerpadrone').hide()
             $('#spinnerpadronf').hide()
             $('#updatepadrone').submit(function (e){
@@ -846,11 +852,15 @@
             function mostrar(padron){
                 $('#contenido').html('');
                 // console.log($('#comun1').val());
+                $('#buscar').show()
+                $('#lupa').hide()
                 $.ajax({
                     url: "/pagosmercados/"+padron,
                     success: function (res) {
                         let t='';
                         let c=0;
+                        $('#buscar').hide()
+                        $('#lupa').show()
                         // console.log(res);
                         res.forEach(re=>{
                             re.forEach(r=>{
@@ -881,17 +891,20 @@
                 // $('#nombres').html('');
                 // $('#gest').val('');
                 // $('#contenido').html('');
-                // $.ajax({
-                //     url: "/dpadron/"+$('#padron').val(),
-                //     success:function (re){
-                //         $('#nombres').html(re.nombres);
-                //         tipo=re.tipo;
-                //         $('#gest').val(re.gest);
-                //     },
-                //     error: function(jqXHR, textStatus, errorThrown) {
-                //         console.log(textStatus, errorThrown);
-                //     }
-                // });
+                $('#nombrecompleto').html('');
+                $.ajax({
+                    url: "/buscarmercado/"+$('#padron').val(),
+                    success:function (re){
+                        // $('#nombres').html(re.nombres);
+                        // tipo=re.tipo;
+                        // $('#gest').val(re.gest);
+                        console.log(re)
+                        $('#nombrecompleto').html(re);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log(textStatus, errorThrown);
+                    }
+                });
                 return false;
             })
         }

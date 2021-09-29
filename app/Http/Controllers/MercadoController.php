@@ -8,6 +8,20 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class MercadoController extends Controller{
+    public function buscarmercado($padron){
+        $padron=str_replace('-','',$padron);
+//        return $padron;
+        $eventual= DB::connection("merc20xx")->table("eventual")->where('padron',$padron)->get();
+        if (count($eventual)>0){
+            return trim($eventual[0]->paterno).' '.trim($eventual[0]->materno).' '.trim($eventual[0]->nombres).'<div class="badge badge-success">Eventual</div>';
+        }else{
+            $formal= DB::connection("merc20xx")->table("formales")->where('padron',$padron)->get();
+
+            if (count($formal)>0){
+                return trim($formal[0]->paterno).' '.trim($formal[0]->materno).' '.trim($formal[0]->nombres).'<div class="badge badge-warning">Formal</div>';
+            }
+        }
+    }
     public function limpiarmercado(Request $request){
 //        return $request;
         $b=substr($request->gest,2,2);
