@@ -93,9 +93,38 @@
                     </table>
                 </div>
 
+
+
             </div>
 {{--            <button type="submit" class="btn btn-success btn-block"  ><i class="fa fa-user-plus"></i>Modificar</button>--}}
         </form>
+        <div class="modal fade" id="controlModal" tabindex="-1" role="dialog" aria-labelledby="controlModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="controlModalLabel">Actualizar control</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formlariocontrol">
+                            <div class="form-group row">
+                                <label for="control" class="col-sm-2 col-form-label">Nuevo control</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="control" placeholder="Control">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-trash"></i> Cerrar</button>
+                                <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Actualizar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
     </div>
     <script>
@@ -150,6 +179,56 @@
                     });
                 }
             });
+            var gestion,padron
+            $("#contenido").on("click", ".control", function(){
+                // console.log($(this).attr('id-gest'));
+                $('#control').val($(this).attr('id-control'))
+                $('#controlModal').modal('show')
+                gestion=$(this).attr('id-gest')
+                padron=$(this).attr('id-padron')
+            {{--if (confirm('Seguro de limpiar?')){--}}
+                {{--    // alert('aun no');--}}
+                {{--    var data={--}}
+                {{--        "_token": "{{ csrf_token() }}",--}}
+                {{--        "gest":$(this).attr('id-gest'),--}}
+                {{--        "padron":$(this).attr('id-padron'),--}}
+                {{--        // "comun":$('#padron').val(),--}}
+                {{--    }--}}
+                {{--    $.ajax({--}}
+                {{--        url: "/limpiarp",--}}
+                {{--        type:'POST',--}}
+                {{--        data:data,--}}
+                {{--        success:function (r){--}}
+                {{--            // console.log(r);--}}
+                {{--            mostrar($('#padron').val());--}}
+                {{--        }--}}
+                {{--    });--}}
+                {{--}--}}
+            });
+
+            $('#formlariocontrol').submit(function (e){
+                e.preventDefault()
+                if (confirm('Seguro de actualizar control?')){
+                    // alert('aun no');
+                    var data={
+                        "_token": "{{ csrf_token() }}",
+                        "gest":gestion,
+                        "padron":padron,
+                        "control":$('#control').val(),
+                    }
+                    $.ajax({
+                        url: "/controlp",
+                        type:'POST',
+                        data:data,
+                        success:function (r){
+                            // console.log(r);
+                            $('#controlModal').modal('hide')
+                            mostrar($('#padron').val());
+                        }
+                    });
+                }
+                return false
+            })
             function mostrar(padron){
                 $('#contenido').html('');
                 // console.log($('#comun1').val());
@@ -175,7 +254,11 @@
                                     '<td>'+r.fech_pago+'</td>' +
                                     '<td>'+r.hora+'</td>' +
                                     '<td>' +
+                                    '<div class="btn btn-group">' +
                                     '<button  class=" limpiar btn btn-danger btn-sm" type="button" id-padron="'+r.padron+'" id-gest="'+r.gestion+'"><i class="fa fa-eye-slash"></i> Anular</button>' +
+                                    '<button  class=" control btn btn-warning btn-sm" type="button"  id-control="'+r.control+'"  id-padron="'+r.padron+'" id-gest="'+r.gestion+'"><i class="fa fa-file"></i> Control</button>' +
+                                    '</div>'+
+
                                     '</td>' +
                                     '</tr>';
                             })

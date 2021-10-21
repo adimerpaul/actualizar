@@ -114,7 +114,7 @@ class MercadoController extends Controller{
             ->table("formales")->where('padron',$request->padron)
             ->update([
                 "form23"=>$request->form23==null?'':$request->form23,
-                "pad1"=>$request->pad==null?'':$request->pad,
+                "pad1"=>$request->pad1==null?'':$request->pad1,
                 "pad2"=>$request->pad2==null?'':$request->pad2,
                 "pad3"=>$request->pad3==null?'':$request->pad3,
                 "paterno"=>$request->paterno==null?'':$request->paterno,

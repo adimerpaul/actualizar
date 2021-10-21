@@ -34,6 +34,23 @@ class IndcomController extends Controller
         $log->save();
         return 1;
     }
+
+    public function controlp(Request $request){
+        $b=substr($request->gest,2,2);
+        DB::connection('bases')->table('lidgic'.$b)
+            ->where('padron',$request->padron)
+//            ->where('cantidad',$request->cantidad)
+            ->where('gestion',$request->gest)
+            ->update([
+                'control'=>$request->control,
+            ]);
+        $log=new Log();
+        $log->actividad='Padron controlactualizado gestion '.$request->gest.' del  '.$request->padron;
+        $log->iduser=Auth::user()->id;
+        $log->nombre=Auth::user()->username;
+        $log->save();
+        return 1;
+    }
     public function cambiogesind(Request $request)
     {
         if ($request->tipo=='natur'){

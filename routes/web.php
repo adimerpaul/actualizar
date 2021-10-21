@@ -75,6 +75,7 @@ Route::group(['middleware'=>'auth'],function (){
     Route::post('/actualizarrec', [App\Http\Controllers\ContribController::class, 'actualizarrec']);
     Route::post('/limpiar', [App\Http\Controllers\ContribController::class, 'limpiar']);
     Route::post('/limpiarp', [App\Http\Controllers\IndcomController::class, 'limpiarp']);
+    Route::post('/controlp', [App\Http\Controllers\IndcomController::class, 'controlp']);
     Route::post('/cambiorec', [App\Http\Controllers\ContribController::class, 'cambiorec']);
     Route::post('/bandera', [App\Http\Controllers\ContribController::class, 'bandera']);
     Route::put('/modificar/{comun}', [App\Http\Controllers\ContribController::class, 'update']);
