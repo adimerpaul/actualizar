@@ -45,7 +45,7 @@ class IndcomController extends Controller
                 'control'=>$request->control,
             ]);
         $log=new Log();
-        $log->actividad='Padron controlactualizado gestion '.$request->gest.' del  '.$request->padron;
+        $log->actividad='Padron control actualizado gestion '.$request->gest.' del  '.$request->padron;
         $log->iduser=Auth::user()->id;
         $log->nombre=Auth::user()->username;
         $log->save();

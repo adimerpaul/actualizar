@@ -8,6 +8,22 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class MercadoController extends Controller{
+    public function controlm(Request $request){
+        $b=substr($request->gest,2,2);
+        DB::connection('bases')->table('lidgme'.$b)
+            ->where('padron',$request->padron)
+//            ->where('cantidad',$request->cantidad)
+            ->where('gestion',$request->gest)
+            ->update([
+                'control'=>$request->control,
+            ]);
+        $log=new Log();
+        $log->actividad='Mercado control actualizado gestion '.$request->gest.' del  '.$request->padron;
+        $log->iduser=Auth::user()->id;
+        $log->nombre=Auth::user()->username;
+        $log->save();
+        return 1;
+    }
     public function buscarmercado($padron){
         $padron=str_replace('-','',$padron);
 //        return $padron;
