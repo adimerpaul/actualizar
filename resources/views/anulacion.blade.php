@@ -6,7 +6,6 @@
             <div class="col-md-6">
                 <label for="padron" class="form-label">Padron</label>
                 <input type="text" class="form-control" id="padron" required >
-
             </div>
             <div class="col-md-6">
                 <label for="comun1" class="form-label">Buscar</label> <br>
