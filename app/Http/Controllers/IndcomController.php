@@ -274,7 +274,7 @@ class IndcomController extends Controller
         if ($query->count()>0){
 //            return $query->first();
             $q=$query->first();
-            $nombre=$q->paterno.' '.$q->materno.' '.$q->nombre.' <b>Direc:</b>'.$q->ndireccion.'<span class=" badge badge-success">Natural</span>';
+            $nombre=$q->paterno.' '.$q->materno.' '.$q->nombre.' <br><b>Direc:</b>'.$q->ndireccion.'<span class=" badge badge-success">Natural</span>';
             $re['nombre']=$nombre;
             $re['tipo']='natur';
             $re['gest']=$q->gest;
@@ -283,7 +283,7 @@ class IndcomController extends Controller
 //            return $q->paterno.' '.$q->materno.' '.$q->nombre.' <span class="badge badge-warning">J</span>';
         }else{
             $q=DB::connection('indcom')->table('jurid')->where('jpadron',$padron)->get()->first();
-            $nombre=$q->razon.' <b>Direc:</b>'.$q->jdireccion.' <b>Repre:</b>'.$q->nomreplega.'<span class=" badge badge-warning">Juridico</span>';
+            $nombre=$q->razon.' <br><b>Direc:</b>'.$q->jdireccion.' <br><b>Repre:</b>'.$q->nomreplega.'<span class=" badge badge-warning">Juridico</span>';
 //            $nombre=$q->paterno.' '.$q->materno.' '.$q->nombre.' '.$q->ndireccion.'<span class=" badge badge-success">Natural</span>';
             $re['nombre']=$nombre;
             $re['tipo']='jurid';
