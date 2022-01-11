@@ -362,7 +362,8 @@ class ContribController extends Controller
 //                ->table('archi'.date('y', $month))
 //                ->where('cantidad','like','%'.trim($dat->cantidad).'%')
 //                ->where('comun','like','%'.trim($dat->comun).'%');
-                ->select("SELECT * FROM archi".date('y', $month)." WHERE cantidad like '".trim($dat->cantidad)."%' AND comun like '".trim($dat->comun)."%' ");
+//                ->orderBy('pagado_en')
+                ->select("SELECT * FROM archi".date('y', $month)." WHERE cantidad like '".trim($dat->cantidad)."%' AND comun like '".trim($dat->comun)."%' ORDER BY pagado_en " );
 //            echo $query->get();
             if (count($query)>0){
 //                echo date('y',$month)."---<br>";
