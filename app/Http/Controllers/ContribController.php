@@ -352,7 +352,7 @@ class ContribController extends Controller
 
     public function gestiones($comun,$CodAut){
         $month = strtotime("1992-01-01");
-        $end = strtotime(date('Y-m-d', strtotime("-2 year")));
+        $end = strtotime(date('Y-m-d', strtotime("-1 year")));
         $gestiones=array();
         $dat=DB::table('pm01inmu')->where('CodAut',$CodAut)->first();
         while($month <= $end)
