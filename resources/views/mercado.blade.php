@@ -337,6 +337,31 @@
                                     <input type="text" class="form-control" id="control" placeholder="Control">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="cod_caja" class="col-sm-2 col-form-label">cod_caja</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="cod_caja" placeholder="cod_caja" name="cod_caja">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="fech_pago" class="col-sm-2 col-form-label">fech_pago</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="fech_pago" placeholder="fech_pago" name="fech_pago">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="fech_emis" class="col-sm-2 col-form-label">fech_emis</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="fech_emis" placeholder="fech_emis" name="fech_emis">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="horamercado" class="col-sm-2 col-form-label">horamercado</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="horamercado" placeholder="horamercado" name="horamercado">
+                                </div>
+                            </div>
+
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-trash"></i> Cerrar</button>
                                 <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Actualizar</button>
@@ -879,8 +904,12 @@
             });
             var gestion,padron
             $("#contenido").on("click", ".control", function(){
-                // console.log($(this).attr('id-gest'));
+                console.log($(this).attr('id-cod_caja'));
                 $('#control').val($(this).attr('id-control'))
+                $('#cod_caja').val($(this).attr('id-cod_caja'))
+                $('#fech_pago').val($(this).attr('id-fech_pago'))
+                $('#fech_emis').val($(this).attr('id-fech_emis'))
+                $('#horamercado').val($(this).attr('id-hora'))
                 $('#controlModal').modal('show')
                 gestion=$(this).attr('id-gest')
                 padron=$(this).attr('id-padron')
@@ -912,6 +941,10 @@
                         "gest":gestion,
                         "padron":padron,
                         "control":$('#control').val(),
+                        "cod_caja":$('#cod_caja').val(),
+                        "fech_pago":$('#fech_pago').val(),
+                        "fech_emis":$('#fech_emis').val(),
+                        "hora":$('#horamercado').val(),
                     }
                     $.ajax({
                         url: "/controlm",
@@ -956,7 +989,7 @@
                                     '<td>'+
                                     '<div class="btn btn-group">' +
                                     '<button  class=" limpiar btn btn-danger btn-sm" type="button" id-padron="'+r.padron+'" id-gest="'+r.gestion+'"><i class="fa fa-eye-slash"></i> Anular</button>' +
-                                    '<button  class=" control btn btn-warning btn-sm" type="button"  id-control="'+r.control+'"  id-padron="'+r.padron+'" id-gest="'+r.gestion+'"><i class="fa fa-file"></i> Control</button>' +
+                                    '<button  class=" control btn btn-warning btn-sm" type="button"  id-cod_caja="'+r.cod_caja+'"  id-fech_pago="'+r.fech_pago+'"  id-fech_emis="'+r.fech_emis+'"  id-hora="'+r.hora+'" id-control="'+r.control+'"  id-padron="'+r.padron+'" id-gest="'+r.gestion+'"><i class="fa fa-file"></i> Control</button>' +
                                     '</div>'+
                                     '</td>' +
                                     '</tr>';

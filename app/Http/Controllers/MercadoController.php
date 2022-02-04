@@ -16,6 +16,10 @@ class MercadoController extends Controller{
             ->where('gestion',$request->gest)
             ->update([
                 'control'=>$request->control,
+                'cod_caja'=>$request->cod_caja,
+                'fech_pago'=>$request->fech_pago,
+                'fech_emis'=>$request->fech_emis,
+                'hora'=>$request->hora,
             ]);
         $log=new Log();
         $log->actividad='Mercado control actualizado gestion '.$request->gest.' del  '.$request->padron;

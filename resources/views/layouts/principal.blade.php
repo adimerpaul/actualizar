@@ -274,7 +274,7 @@
 {{--                                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Form Wizard </span></a></li>--}}
 {{--                            </ul>--}}
 {{--                        </li>--}}
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/anulacion" aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span class="hide-menu">Indcom anulacion</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/anulacion" aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span class="hide-menu">Act eco anulacion</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/ufv" aria-expanded="false"><i class="mdi mdi-pencil"></i><span class="hide-menu">UFV</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/patente" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">Tasa de paridad</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/vnatural" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">V natural </span></a></li>
