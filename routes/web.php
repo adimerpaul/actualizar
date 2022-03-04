@@ -61,6 +61,7 @@ Route::group(['middleware'=>'auth'],function (){
     Route::post('/updatepadrone', [App\Http\Controllers\MercadoController::class, 'updatepadrone']);
     Route::post('/updatepadronf', [App\Http\Controllers\MercadoController::class, 'updatepadronf']);
     Route::post('/controlm', [App\Http\Controllers\MercadoController::class, 'controlm']);
+    Route::resource('/inmu', App\Http\Controllers\inmuebleController::class);
 
 
     Route::get('/datoscontrib2/{comun}', [App\Http\Controllers\ContribController::class, 'buscarcont2']);
