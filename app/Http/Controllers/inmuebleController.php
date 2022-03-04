@@ -27,8 +27,9 @@ class inmuebleController extends Controller
     {
         DB::table('pm01inmu')
             ->where('cantidad',$request->cantidad)
-            ->where('var1',$request->var1)
+            ->where("bandera",$request->bandera)
             ->update([
+                    'var1'=>$request->var1,
                     "flag_inmu"=>$request->flag_inmu,
                     "gestion"=>$request->gestion,
                     "cod_barrio"=>$request->cod_barrio,
@@ -62,7 +63,7 @@ class inmuebleController extends Controller
                     "cs_manz"=>$request->cs_manz,
                     "cs_lote"=>$request->cs_lote,
                     "cod_caja"=>$request->cod_caja,
-                    "bandera"=>$request->bandera,
+
                     "valor_ha"=>$request->valor_ha,
                     "fecha_reg"=>$request->fecha_reg,
                     "hora_reg"=>$request->hora_reg,

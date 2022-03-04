@@ -114,9 +114,10 @@
                 <label for="cantidad" class="form-label">cantidad</label>
                 <input type="text" class="form-control" id="cantidad" required >
             </div>
+
             <div class="col-md-2">
-                <label for="var1">var1</label>
-                <input type="text" class="form-control" id="var1" name="var1" placeholder="var1" >
+                <label for="bandera">bandera</label>
+                <input type="text" class="form-control" id="bandera" name="bandera" placeholder="bandera" >
             </div>
             <div class="col-md-6 ">
                 <label for="buscarcont" >Buscar</label><br>
@@ -226,6 +227,10 @@
             <div class="col-md-2">
                 <label for="sup_const">sup_const</label>
                 <input type="text" class="form-control" id="sup_const" name="sup_const" placeholder="sup_const" >
+            </div>
+            <div class="col-md-2">
+                <label for="var1">var1</label>
+                <input type="text" class="form-control" id="var1" name="var1" placeholder="var1" >
             </div>
             <div class="col-md-2">
                 <label for="var2">var2</label>
