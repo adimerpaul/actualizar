@@ -78,9 +78,13 @@
                     <label for="gestion" class="bg-warning">Superficie</label>
                     <input type="text" class="form-control" id="superficie" name="superficie" placeholder="Superficie" >
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-1">
                     <label for="gestion" class="bg-warning">Supe_const</label>
                     <input type="text" class="form-control" id="sup_const" name="sup_const" placeholder="Superficie Construcion" >
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="cs_lote" class="bg-warning">cs_lote</label>
+                    <input type="text" class="form-control" id="cs_lote" name="cs_lote" placeholder="cs_lote" >
                 </div>
                 <div class="form-group col-md-1">
                     <label for="cambiar">Cambiar</label>
@@ -198,6 +202,7 @@
                         "superficie":$('#superficie').val(),
                         "sup_const":$('#sup_const').val(),
                         "docex":$('#docex').val(),
+                        "cs_lote":$('#cs_lote').val(),
                     }
                     $.ajax({
                         url: "/cambiorec",
@@ -289,6 +294,7 @@
                 $('#superficie').val('');
                 $('#sup_const').val('');
                 $('#var1').val('');
+                $('#cs_lote').val('');
                 $('#spinner').show('fast');
                 document.getElementById("pre").textContent="";
                 mostrar($('#comun1').val(),$('#inmuebles').val());
@@ -305,6 +311,7 @@
                         $('#bandera').val(re[0].bandera);
                         $('#control').val(re[0].control);
                         $('#var1').val(re[0].var1);
+                        $('#cs_lote').val(re[0].cs_lote);
                         // $('#descrip').html(re[0].descrip);
 
                     }

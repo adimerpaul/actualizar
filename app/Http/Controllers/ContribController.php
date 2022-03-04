@@ -160,7 +160,13 @@ class ContribController extends Controller
         DB::table('pm01inmu')
             ->where('CodAut',$request->cantidad)
 //            ->where('comun',$request->comun)
-            ->update(['superficie'=>$request->superficie,'gestion'=>$request->gestion,'docex'=>$request->docex,'sup_const'=>$request->sup_const]);
+            ->update([
+                    'superficie'=>$request->superficie,
+                    'gestion'=>$request->gestion,
+                    'docex'=>$request->docex,
+                    'sup_const'=>$request->sup_const,
+                    'cs_lote'=>$request->cs_lote
+            ]);
                 $log=new Log();
                 $log->actividad='Contribuyente rectificado  '.$request->comun;
                 $log->iduser=Auth::user()->id;
