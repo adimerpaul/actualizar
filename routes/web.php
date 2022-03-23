@@ -47,6 +47,11 @@ Route::get('/vutratcontrol', function () {
     return view('vutratcontrol');
 })->middleware('auth');
 
+Route::get('/vutratcontrol2', function () {
+    return view('vutratcontrol2');
+})->middleware('auth');
+
+
 
 
 Auth::routes();
@@ -128,6 +133,7 @@ Route::group(['middleware'=>'auth'],function (){
     Route::resource('/vj', App\Http\Controllers\VutratjuridicaController::class);
     Route::resource('/vn', App\Http\Controllers\VutratnaturalController::class);
     Route::resource('/vs', App\Http\Controllers\VutratnseguimController::class);
+    Route::resource('/vseguim', App\Http\Controllers\Vseguimcontroller::class);
     Route::get('/reporte', [App\Http\Controllers\RectificacionController::class,'reporte']);
     Route::POST('/consulta', [App\Http\Controllers\RectificacionController::class,'consulta']);
     Route::get('/inmueble/{cantidad}', [App\Http\Controllers\TransferenciaController::class,'inmueble']);

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class VutratnaturalController extends Controller
+class Vseguimcontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class VutratnaturalController extends Controller
      */
     public function index()
     {
-        return DB::connection('vutrat')
-            ->table('v_naturales')
-            ->get();
+        //
     }
 
     /**
@@ -37,7 +35,7 @@ class VutratnaturalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return DB::connection('vutrat')->table('v_seguim')->where('n_tramite',$request->n_tramite)->get();
     }
 
     /**
@@ -48,7 +46,7 @@ class VutratnaturalController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -71,7 +69,16 @@ class VutratnaturalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::connection('vutrat')->table('v_seguim')->where('CodAut',$id)->update([
+            "n_tramite"=>$request->n_tramite,
+            "c_tramite"=>$request->c_tramite,
+            "c_proce"=>$request->c_proce,
+            "c_uni"=>$request->c_uni,
+            "fecha_ini"=>$request->fecha_ini,
+            "fecha_fin"=>$request->fecha_fin,
+            "operador"=>$request->operador,
+            "estado"=>$request->estado,
+        ]);
     }
 
     /**
@@ -82,6 +89,6 @@ class VutratnaturalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::connection('vutrat')->table('v_seguim')->where('CodAut',$id)->delete();
     }
 }
