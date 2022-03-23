@@ -22,12 +22,13 @@
     <script src='https://code.jquery.com/jquery-3.6.0.js'></script>
     <script src="js/moment.min.js"></script>
     <script src="dist/jspdf.min.js"></script>
+    <script src="js/dist/axios.min.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-
     <![endif]-->
 </head>
 
@@ -280,7 +281,7 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/vnatural" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">V natural </span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/vjuridica" aria-expanded="false"><i class="mdi mdi-account-star"></i><span class="hide-menu">V juridica</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/mercado" aria-expanded="false"><i class="mdi mdi-home"></i><span class="hide-menu">Mercados</span></a></li>
-
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/vutratcontrol" aria-expanded="false"><i class="mdi mdi-battery-90"></i><span class="hide-menu">Vutrat</span></a></li>
                         {{--                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Icons </span></a>--}}
 {{--                            <ul aria-expanded="false" class="collapse  first-level">--}}
 {{--                                <li class="sidebar-item"><a href="icon-material.html" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu"> Material Icons </span></a></li>--}}

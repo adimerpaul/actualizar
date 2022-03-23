@@ -43,6 +43,10 @@ Route::get('/updatearchi', function () {
     return view('updatearchi');
 })->middleware('auth');
 
+Route::get('/vutratcontrol', function () {
+    return view('vutratcontrol');
+})->middleware('auth');
+
 
 
 Auth::routes();
@@ -121,6 +125,9 @@ Route::group(['middleware'=>'auth'],function (){
     Route::apiResource('/utasas', App\Http\Controllers\UtasasController::class);
     Route::apiResource('/transferencia', App\Http\Controllers\TransferenciaController::class);
     Route::apiResource('/rectificacion', App\Http\Controllers\RectificacionController::class);
+    Route::resource('/vj', App\Http\Controllers\VutratjuridicaController::class);
+    Route::resource('/vn', App\Http\Controllers\VutratnaturalController::class);
+    Route::resource('/vs', App\Http\Controllers\VutratnseguimController::class);
     Route::get('/reporte', [App\Http\Controllers\RectificacionController::class,'reporte']);
     Route::POST('/consulta', [App\Http\Controllers\RectificacionController::class,'consulta']);
     Route::get('/inmueble/{cantidad}', [App\Http\Controllers\TransferenciaController::class,'inmueble']);
