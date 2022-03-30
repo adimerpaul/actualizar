@@ -53,6 +53,12 @@ Route::get('/vutratcontrol2', function () {
 Route::get('/vutratcontrol3', function () {
     return view('vutratcontrol3');
 })->middleware('auth');
+Route::get('/bajana', function () {
+    return view('bajana');
+})->middleware('auth');
+Route::get('/bajaju', function () {
+    return view('bajaju');
+})->middleware('auth');
 
 
 
@@ -140,6 +146,8 @@ Route::group(['middleware'=>'auth'],function (){
     Route::resource('/v_mod_ic', App\Http\Controllers\V_mod_icController::class);
     Route::resource('/v_requis', App\Http\Controllers\V_requisController::class);
     Route::resource('/v_tramites', App\Http\Controllers\V_tramitesController::class);
+    Route::resource('/natur_baja', App\Http\Controllers\natur_baja::class);
+    Route::resource('/jurid_baja', App\Http\Controllers\jurid_baja::class);
     Route::get('/reporte', [App\Http\Controllers\RectificacionController::class,'reporte']);
     Route::POST('/consulta', [App\Http\Controllers\RectificacionController::class,'consulta']);
     Route::get('/inmueble/{cantidad}', [App\Http\Controllers\TransferenciaController::class,'inmueble']);

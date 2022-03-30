@@ -137,6 +137,16 @@
                                 <a class="dropdown-item" href="/reporte" id="" ><i class="mdi mdi-alert-box"></i>Reporte</a>
                             </div>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-alert"></i>bajas
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item " href="/bajana" id="" ><i class="mdi mdi-alert-box"></i>Bajas Naturales</a>
+                                <a class="dropdown-item" href="/bajaju" id="" ><i class="mdi mdi-alert-box"></i>Bajas juridicas</a>
+
+                            </div>
+                        </li>
                         <!-- ============================================================== -->
                         <!-- Search -->
                         <!-- ============================================================== -->
