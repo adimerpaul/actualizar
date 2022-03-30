@@ -35,6 +35,10 @@ class natur_baja extends Controller
      */
     public function store(Request $request)
     {
+        DB::connection('indcom')->table('natur')->where('npadron',$request->npadron)->update([
+            "hab"=>1
+        ]);
+
         $num=DB::connection('indcom')->table('natur_baja')->where('npadron',$request->npadron)->get()->count();
 
         if($num>0){

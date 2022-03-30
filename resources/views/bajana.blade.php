@@ -94,7 +94,7 @@
     </div>
     <script>
         window.onload=function (){
-            $('#npadronb').val('1-129-16047')
+            // $('#npadronb').val('1-129-16047')
             $('#formulariocontrol').submit(function (e){
                 e.preventDefault()
                 if (confirm('Seguro de actualizar?')){

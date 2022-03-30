@@ -3,13 +3,13 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="bg-dark text-white text-center">Bajas juridicas</h1>
+                <h1 class="bg-cyan text-white text-center">Bajas juridico</h1>
             </div>
             <div class="col-12">
                 <form class="row g-3" id="formulario">
                     <div class="col-md-6">
-                        <label for="n_tramiteb" class="form-label">n_tramite</label>
-                        <input type="text" class="form-control" id="n_tramiteb" required>
+                        <label for="npadronb" class="form-label">npadron</label>
+                        <input type="text" class="form-control" id="npadronb" required>
                     </div>
                     <div class="col-md-6">
                         <label for="comun1" class="form-label">Buscar</label> <br>
@@ -18,119 +18,138 @@
                 </form>
             </div>
             <div class="col-12">
-                <table class="table">
-                    <thead>
-                    <tr class="thead-dark">
-                        <th>n_tramite</th>
-                        <th>c_tramite</th>
-                        <th>c_proce</th>
-                        <th>c_uni</th>
-                        <th>fecha_ini</th>
-                        <th>fecha_fin</th>
-                        <th>operador</th>
-                        <th>estado</th>
-                        <th>Opciones</th>
-                    </tr>
-                    </thead>
-                    <tbody id="contenido">
-                    </tbody>
-
-                </table>
-            </div>
-        </div>
-        <div class="modal fade" id="controlModal" tabindex="-1" role="dialog" aria-labelledby="controlModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="controlModalLabel">Actualizar control</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                <form id="formulariocontrol">
+                    <div class="form-group row">
+                        <label for="paterno" class="col-sm-1 col-form-label">paterno</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="paterno" placeholder1="paterno" name="paterno">
+                        </div>
+                        <label for="materno" class="col-sm-1 col-form-label">materno</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="materno" placeholder1="materno" name="materno">
+                        </div>
+                        <label for="nombre" class="col-sm-1 col-form-label">nombre</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="nombre" placeholder1="nombre" name="nombre">
+                        </div>
+                        <label for="ndireccion" class="col-sm-1 col-form-label">ndireccion</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="ndireccion" placeholder1="ndireccion" name="ndireccion">
+                        </div>
+                        <label for="cedula" class="col-sm-1 col-form-label">cedula</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="cedula" placeholder1="cedula" name="cedula">
+                        </div>
+                        <label for="ndiract" class="col-sm-1 col-form-label">ndiract</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="ndiract" placeholder1="ndiract" name="ndiract">
+                        </div>
+                        <label for="nactdescri" class="col-sm-1 col-form-label">nactdescri</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="nactdescri" placeholder1="nactdescri" name="nactdescri">
+                        </div>
+                        <label for="nsector" class="col-sm-1 col-form-label">nsector</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="nsector" placeholder1="nsector" name="nsector">
+                        </div>
+                        <label for="nzona" class="col-sm-1 col-form-label">nzona</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="nzona" placeholder1="nzona" name="nzona">
+                        </div>
+                        <label for="nmts2" class="col-sm-1 col-form-label">nmts2</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="nmts2" placeholder1="nmts2" name="nmts2">
+                        </div>
+                        <label for="gest" class="col-sm-1 col-form-label">gest</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="gest" placeholder1="gest" name="gest">
+                        </div>
+                        <label for="nfechainic" class="col-sm-1 col-form-label">nfechainic</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="nfechainic" placeholder1="nfechainic" name="nfechainic">
+                        </div>
+                        <label for="form_23" class="col-sm-1 col-form-label">form_23</label>
+                        <div class="col-sm-5">
+                            <input type="text" required class="form-control" id="form_23" placeholder1="form_23" name="form_23">
+                        </div>
+                        <label for="comp_baja" class="col-sm-1 col-form-label">comp_baja</label>
+                        <div class="col-sm-5">
+                            <input type="text" required class="form-control" id="comp_baja" placeholder1="comp_baja" name="comp_baja">
+                        </div>
+                        <label for="fe_baja" class="col-sm-1 col-form-label">fe_baja</label>
+                        <div class="col-sm-5">
+                            <input type="text" required class="form-control" id="fe_baja" placeholder1="fe_baja" name="fe_baja">
+                        </div>
+                        <label for="cau_baja" class="col-sm-1 col-form-label">cau_baja</label>
+                        <div class="col-sm-5">
+                            <input type="text" required class="form-control" id="cau_baja" placeholder1="cau_baja" name="cau_baja">
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <form id="formulariocontrol">
-                            <div class="form-group row">
-                                <label for="n_tramite" class="col-sm-2 col-form-label">n_tramite</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="n_tramite" placeholder="n_tramite" name="n_tramite">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="c_tramite" class="col-sm-2 col-form-label">c_tramite</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="c_tramite" placeholder="c_tramite" name="c_tramite">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="c_proce" class="col-sm-2 col-form-label">c_proce</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="c_proce" placeholder="c_proce" name="c_proce">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="c_uni" class="col-sm-2 col-form-label">c_uni</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="c_uni" placeholder="c_uni" name="c_uni">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="fecha_ini" class="col-sm-2 col-form-label">fecha_ini</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="fecha_ini" placeholder="fecha_ini" name="fecha_ini">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="fecha_fin" class="col-sm-2 col-form-label">fecha_fin</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="fecha_fin" placeholder="fecha_fin" name="fecha_fin">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="operador" class="col-sm-2 col-form-label">operador</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="operador" placeholder="operador" name="operador">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="estado" class="col-sm-2 col-form-label">estado</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="estado" placeholder="estado" name="estado">
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-trash"></i> Cerrar</button>
-                                <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Actualizar</button>
-                            </div>
-                        </form>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success btn-block"><i class="fa fa-save"></i> Dar de baja</button>
                     </div>
-
-                </div>
+                </form>
             </div>
         </div>
     </div>
     <script>
         window.onload=function (){
+            $('#npadronb').val('1-355-31707')
             $('#formulariocontrol').submit(function (e){
                 e.preventDefault()
                 if (confirm('Seguro de actualizar?')){
                     $.ajax({
-                        url: "/vseguim/"+CodAut,
-                        type:'PUT',
+                        url: "/natur_baja",
+                        type:'POST',
                         data:{
                             "_token": "{{ csrf_token() }}",
-                            // "CodAut":CodAut,
-                            "n_tramite":$('#n_tramite').val(),
-                            "c_tramite":$('#c_tramite').val(),
-                            "c_proce":$('#c_proce').val(),
-                            "c_uni":$('#c_uni').val(),
-                            "fecha_ini":$('#fecha_ini').val(),
-                            "fecha_fin":$('#fecha_fin').val(),
-                            "operador":$('#operador').val(),
-                            "estado":$('#estado').val(),
+                            npadron:$('#npadronb').val(),
+                            paterno:$('#paterno').val(),
+                            materno:$('#materno').val(),
+                            nombre:$('#nombre').val(),
+                            ndireccion:$('#ndireccion').val(),
+                            cedula:$('#cedula').val(),
+                            ndiract:$('#ndiract').val(),
+                            nactdescri:$('#nactdescri').val(),
+                            nsector:$('#nsector').val(),
+                            nzona:$('#nzona').val(),
+                            nmts2:$('#nmts2').val(),
+                            gest:$('#gest').val(),
+                            nfechainic:$('#nfechainic').val(),
+                            form_23:$('#form_23').val(),
+                            comp_baja:$('#comp_baja').val(),
+                            fe_baja:$('#fe_baja').val(),
+                            cau_baja:$('#cau_baja').val(),
+                            form22:form22,
+                            ntelefono:ntelefono,
+                            nacionalid:nacionalid,
+                            nruc:nruc,
+                            apeesposo:apeesposo,
+                            formcaja:formcaja,
+                            fed:fed,
+                            nufed:nufed,
+                            adeuda:adeuda,
+                            bandera:bandera,
+                            asociado:asociado,
+                            nro_asoc:nro_asoc,
+                            n_tug:n_tug,
+                            n_preim:n_preim,
+                            f_regi:f_regi,
+                            bloqueo:bloqueo,
+                            l07:l07,
+                            l07nmts2:l07nmts2,
+                            l259:l259,
+                            categtoria:categtoria,
+                            horario:horario,
+                            lfini:lfini,
                         },
                         success:function (r){
-                            $('#controlModal').modal('hide')
-                            mostrar($('#n_tramiteb').val());
+                            // $('#controlModal').modal('hide')
+                            // mostrar($('#n_tramiteb').val());
+                            if (r=='existe'){
+                                alert('existe el padron ya fue dado de baja!')
+                                return false
+                            }
                         }
                     });
                 }
@@ -138,7 +157,7 @@
             })
             $('#formulario').submit(function (e){
                 e.preventDefault()
-                mostrar($('#n_tramiteb').val())
+                mostrar($('#npadronb').val())
                 return false
             })
             var CodAut=''
@@ -171,47 +190,136 @@
                     });
                 }
             });
-            function mostrar(n_tramite){
-                $('#contenido').html('');
+            var form22
+            var ntelefono
+            var nacionalid
+            var nruc
+            var apeesposo
+            var formcaja
+            var fed
+            var nufed
+            var adeuda
+            var bandera
+            var asociado
+            var nro_asoc
+            var n_tug
+            var n_preim
+            var f_regi
+            var bloqueo
+            var l07
+            var l07nmts2
+            var l259
+            var categtoria
+            var horario
+            var lfini
+            function mostrar(n_padron){
+                $('#paterno').val('')
+                $('#materno').val('')
+                $('#nombre').val('')
+                $('#ndireccion').val('')
+                $('#cedula').val('')
+                $('#ndiract').val('')
+                $('#nactdescri').val('')
+                $('#nsector').val('')
+                $('#nzona').val('')
+                $('#nmts2').val('')
+                $('#gest').val('')
+                $('#nfechainic').val('')
                 $.ajax({
-                    url: "/vseguim",
-                    type:'POST',
-                    data:{
-                        "_token": "{{ csrf_token() }}",
-                        n_tramite:n_tramite
-                    },
+                    url: "/natur_baja/"+n_padron,
                     success: function (res) {
-                        let t='';
-                        console.log(res);
-                        res.forEach(r=>{
-                            t+='<tr>' +
-                                '<td>'+r.n_tramite+'</td>' +
-                                '<td>'+r.c_tramite+'</td>' +
-                                '<td>'+r.c_proce+'</td>' +
-                                '<td>'+r.c_uni+'</td>' +
-                                '<td>'+r.fecha_ini+'</td>' +
-                                '<td>'+r.fecha_fin+'</td>' +
-                                '<td>'+r.operador+'</td>' +
-                                '<td>'+r.estado+'</td>' +
-                                '<td>' +
-                                '<div class="btn btn-group">' +
-                                '<button  class=" control btn btn-warning btn-sm" type="button" ' +
-                                'id-CodAut="'+r.CodAut+'" ' +
-                                'id-n_tramite="'+r.n_tramite+'" ' +
-                                'id-c_tramite="'+r.c_tramite+'" ' +
-                                'id-c_proce="'+r.c_proce+'" ' +
-                                'id-c_uni="'+r.c_uni+'"  ' +
-                                'id-fecha_ini="'+r.fecha_ini+'" ' +
-                                'id-fecha_fin="'+r.fecha_fin+'" ' +
-                                'id-operador="'+r.operador+'" ' +
-                                'id-estado="'+r.estado+'" ' +
-                                '><i class="fa fa-edit"></i> Modificar</button>' +
-                                '<button  class=" limpiar btn btn-danger btn-sm" type="button" id-CodAut="'+r.CodAut+'" ><i class="fa fa-trash"></i> Eliminar</button>' +
-                                '</div>'+
-                                '</td>' +
-                                '</tr>';
-                        })
-                        $('#contenido').html(t);
+                        console.log(res)
+                        // return false
+                        let dat=res[0]
+                        $('#paterno').val(dat.paterno)
+                        $('#materno').val(dat.materno)
+                        $('#nombre').val(dat.nombre)
+                        $('#ndireccion').val(dat.ndireccion)
+                        $('#cedula').val(dat.cedula)
+                        $('#ndiract').val(dat.ndiract)
+                        $('#nactdescri').val(dat.nactdescri)
+                        $('#nsector').val(dat.nsector)
+                        $('#nzona').val(dat.nzona)
+                        $('#nmts2').val(dat.nmts2)
+                        $('#gest').val(dat.gest)
+                        $('#nfechainic').val(dat.nfechainic)
+                        form22=dat.form22
+                        ntelefono=dat.ntelefono
+                        nacionalid=dat.nacionalid
+                        nruc=dat.nruc
+                        apeesposo=dat.apeesposo
+                        formcaja=dat.formcaja
+                        fed=dat.fed
+                        nufed=dat.nufed
+                        adeuda=dat.adeuda
+                        bandera=dat.bandera
+                        asociado=dat.asociado
+                        nro_asoc=dat.nro_asoc
+                        n_tug=dat.n_tug
+                        n_preim=dat.n_preim
+                        f_regi=dat.f_regi
+                        bloqueo=dat.bloqueo
+                        l07=dat.l07
+                        l07nmts2=dat.l07nmts2
+                        l259=dat.l259
+                        categtoria=dat.categtoria
+                        horario=dat.horario
+                        lfini=dat.lfini
+                        // let t='';
+                        // // console.log(res);
+                        // res.forEach(r=>{
+                        //     t+='<tr>' +
+                        //         '<td>'+r.npadron+'</td>'+
+                        //         '<td>'+r.paterno+'</td>'+
+                        //         '<td>'+r.materno+'</td>'+
+                        //         '<td>'+r.nombre+'</td>'+
+                        //         '<td>'+r.cedula+'</td>'+
+                        //         '<td>'+r.ntelefono+'</td>'+
+                        //         '<td>'+r.ndireccion+'</td>'+
+                        //         '<td>'+r.nacionalid+'</td>'+
+                        //         '<td>'+r.nruc+'</td>'+
+                        //         '<td>'+r.nactdescri+'</td>'+
+                        //         '<td>'+r.nsector+'</td>'+
+                        //         '<td>'+r.nfechainic+'</td>'+
+                        //         '<td>'+r.apeesposo+'</td>'+
+                        //         '<td>'+r.nzona+'</td>'+
+                        //         '<td>'+r.nmts2+'</td>'+
+                        //         '<td>'+r.ndiract+'</td>'+
+                        //         '<td>'+r.formcaja+'</td>'+
+                        //         '<td>'+r.gest+'</td>'+
+                        //         '<td>'+r.form22+'</td>'+
+                        //         '<td>'+r.oper+'</td>'+
+                        //         '<td>'+r.fed+'</td>'+
+                        //         '<td>'+r.nufed+'</td>'+
+                        //         '<td>'+r.adeuda+'</td>'+
+                        //         '<td>'+r.bandera+'</td>'+
+                        //         '<td>'+r.asociado+'</td>'+
+                        //         '<td>'+r.nro_asoc+'</td>'+
+                        //         '<td>'+r.n_tug+'</td>'+
+                        //         '<td>'+r.n_preim+'</td>'+
+                        //         '<td>'+r.f_regi+'</td>'+
+                        //         '<td>'+r.bloqueo+'</td>'+
+                        //         '<td>'+r.l07+'</td>'+
+                        //         '<td>'+r.l07nmts2+'</td>'+
+                        //         '<td>'+r.l259+'</td>'+
+                        //         '<td>'+r.categtoria+'</td>'+
+                        //         '<td>'+r.horario+'</td>'+
+                        //         '<td>'+r.lfini+'</td>'+
+                        //         '<td>'+r.form_23+'</td>'+
+                        //         '<td>'+r.comp_baja+'</td>'+
+                        //         '<td>'+r.fe_baja+'</td>'+
+                        //         '<td>'+r.cau_baja+'</td>'+
+                        //         '<td>' +
+                        //         '<div class="btn btn-group">' +
+                        //         '<!-- button  class=" control btn btn-warning btn-sm" type="hidden" ' +
+                        //         'id-CodAut="'+r.CodAut+'" ' +
+                        //         '><i class="fa fa-edit"></i> Modificar</button>' +
+                        //         '<button  class=" limpiar btn btn-danger btn-sm" type="hidden" id-CodAut="'+r.CodAut+'" ><i class="fa fa-trash"></i> Eliminar</button-->' +
+                        //         '</div>'+
+                        //         '</td>' +
+                        //         '</tr>';
+                        // })
+                        // $('#contenido').html(t);
                     }
                 });
             }
