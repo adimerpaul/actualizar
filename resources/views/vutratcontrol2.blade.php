@@ -98,6 +98,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
+                                <button type="button" id="copiar" class="btn btn-warning"><i class="fa fa-copy"></i> Copiar</button>
                                 <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-trash"></i> Cerrar</button>
                                 <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Actualizar</button>
                             </div>
@@ -110,6 +111,37 @@
     </div>
     <script>
         window.onload=function (){
+            $('#copiar').click(function (e){
+                if (confirm('Seguro de crear?')){
+                    $.ajax({
+                        url: "/crearvseguim",
+                        type:'POST',
+                        data:{
+                            "_token": "{{ csrf_token() }}",
+                            // "CodAut":CodAut,
+                            "n_tramite":$('#n_tramite').val(),
+                            "c_tramite":$('#c_tramite').val(),
+                            "c_proce":$('#c_proce').val(),
+                            "c_uni":$('#c_uni').val(),
+                            "fecha_ini":$('#fecha_ini').val(),
+                            "fecha_fin":$('#fecha_fin').val(),
+                            "operador":$('#operador').val(),
+                            "estado":$('#estado').val(),
+                        },
+                        success:function (r){
+                            $('#controlModal').modal('hide')
+                            mostrar($('#n_tramiteb').val());
+                        },
+                        error: function(xhr, textStatus, error){
+                            alert("!!falla un tipo fecha¡¡");
+                            console.log(xhr.statusText);
+                            console.log(textStatus);
+                            console.log(error);
+                        }
+                    });
+                }
+                e.preventDefault()
+            })
             $('#formulariocontrol').submit(function (e){
                 e.preventDefault()
                 if (confirm('Seguro de actualizar?')){

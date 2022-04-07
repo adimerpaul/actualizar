@@ -37,6 +37,19 @@ class Vseguimcontroller extends Controller
     {
         return DB::connection('vutrat')->table('v_seguim')->where('n_tramite',$request->n_tramite)->get();
     }
+    public function crearvseguim(Request $request)
+    {
+        return DB::connection('vutrat')->table('v_seguim')->insert([
+            "n_tramite"=>$request->n_tramite,
+            "c_tramite"=>$request->c_tramite,
+            "c_proce"=>$request->c_proce,
+            "c_uni"=>$request->c_uni,
+            "fecha_ini"=>$request->fecha_ini,
+            "fecha_fin"=>$request->fecha_fin,
+            "operador"=>$request->operador,
+            "estado"=>$request->estado,
+        ]);
+    }
 
     /**
      * Display the specified resource.

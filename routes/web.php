@@ -142,6 +142,8 @@ Route::group(['middleware'=>'auth'],function (){
     Route::resource('/vn', App\Http\Controllers\VutratnaturalController::class);
     Route::resource('/vs', App\Http\Controllers\VutratnseguimController::class);
     Route::resource('/vseguim', App\Http\Controllers\Vseguimcontroller::class);
+
+    Route::post('/crearvseguim', [App\Http\Controllers\Vseguimcontroller::class,'crearvseguim']);
     Route::resource('/v_tram_ic', App\Http\Controllers\Vtramiccontroller::class);
     Route::resource('/v_mod_ic', App\Http\Controllers\V_mod_icController::class);
     Route::resource('/v_requis', App\Http\Controllers\V_requisController::class);
