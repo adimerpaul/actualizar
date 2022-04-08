@@ -56,6 +56,7 @@ class VnaturalController extends Controller
     {
         $vnat=array(
        "f_19"=>$request->f_19,
+       "n_tramite"=>$request->n_tramite,
        "cod_acti"=>$request->cod_acti,
        "cod_sector"=>$request->cod_sector,
        "nom_acti"=>$request->nom_acti,

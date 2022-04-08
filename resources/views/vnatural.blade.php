@@ -20,6 +20,10 @@
                 @csrf
                 @method('PUT')
                     <div class="col-md-2">
+                        <label for="n_tramite" class="form-label">n_tramite</label>
+                        <input type="text" class="form-control" name="n_tramite" id="n_tramite" placeholder="n_tramite" >
+                    </div>
+                    <div class="col-md-2">
                         <label for="f_19" class="form-label">f_19</label>
                         <input type="text" class="form-control" name="f_19" id="f_19" placeholder="f_19" >
                         <input type="hidden" name="CodAut" class="CodAut" required>
@@ -425,6 +429,7 @@
                         r=e[0];
                         $('.CodAut').val(r.CodAut);
                         $('#f_19').val(r.f_19)
+                        $('#n_tramite').val(r.n_tramite)
                         $('#cod_acti').val(r.cod_acti)
                         $('#cod_sector').val(r.cod_sector)
                         $('#nom_acti').val(r.nom_acti)
