@@ -112,8 +112,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/tramiteic" id="" >
-                                <i class="mdi mdi-move-resize"></i>Tramite_ic
+                            <a class="nav-link" href="/plandepago" id="" >
+                                <i class="mdi mdi-angularjs"></i> Planes de pago
                             </a>
                         </li>
                         <li class="nav-item">

@@ -61,6 +61,12 @@ Route::get('/bajaju', function () {
 })->middleware('auth');
 
 
+Route::get('/plandepago', function () {
+    return view('plandepago');
+})->middleware('auth');
+
+
+
 
 Auth::routes();
 
@@ -150,6 +156,7 @@ Route::group(['middleware'=>'auth'],function (){
     Route::resource('/v_tramites', App\Http\Controllers\V_tramitesController::class);
     Route::resource('/natur_baja', App\Http\Controllers\natur_baja::class);
     Route::resource('/jurid_baja', App\Http\Controllers\jurid_baja::class);
+    Route::resource('/p_cuotas', App\Http\Controllers\P_cuotas::class);
     Route::get('/reporte', [App\Http\Controllers\RectificacionController::class,'reporte']);
     Route::POST('/consulta', [App\Http\Controllers\RectificacionController::class,'consulta']);
     Route::get('/inmueble/{cantidad}', [App\Http\Controllers\TransferenciaController::class,'inmueble']);
