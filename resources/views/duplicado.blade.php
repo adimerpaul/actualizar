@@ -125,6 +125,7 @@
                             "_token": "{{ csrf_token() }}",
                         },
                         success:function (r){
+                            // console.log(r)
                             mostrar();
                         }
                     });
