@@ -59,6 +59,9 @@ Route::get('/bajana', function () {
 Route::get('/bajaju', function () {
     return view('bajaju');
 })->middleware('auth');
+Route::get('/duplicado', function () {
+    return view('duplicado');
+})->middleware('auth');
 
 
 Route::get('/plandepago', function () {
@@ -85,6 +88,7 @@ Route::group(['middleware'=>'auth'],function (){
     Route::post('/updatepadronf', [App\Http\Controllers\MercadoController::class, 'updatepadronf']);
     Route::post('/controlm', [App\Http\Controllers\MercadoController::class, 'controlm']);
     Route::resource('/inmu', App\Http\Controllers\inmuebleController::class);
+    Route::resource('/duplicadocontribuyente', App\Http\Controllers\DuplicadocontribuyenteController::class);
 
 
     Route::get('/datoscontrib2/{comun}', [App\Http\Controllers\ContribController::class, 'buscarcont2']);

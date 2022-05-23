@@ -177,7 +177,7 @@
                                 '<th>'+r.tramitador +'</th>'+
                                 '<td>' +
                                 '<div class="btn btn-group">' +
-                                '<button  class=" control2 btn btn-warning btn-sm" type="button" ' +
+                                '<button  class=" control btn btn-warning btn-sm" type="button" ' +
                                 'id-CodAut="'+r.CodAut+'" '+
                                 'id-n_tramite="'+r.n_tramite+'" '+
                                 'id-na_ju="'+r.na_ju+'" '+

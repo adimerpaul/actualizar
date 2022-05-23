@@ -147,6 +147,15 @@
 
                             </div>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-refresh"></i> Duplicados
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item " href="/duplicado" id="" ><i class="mdi mdi-bookmark"></i>Duplicado contribuyente</a>
+{{--                                <a class="dropdown-item" href="/bajaju" id="" ><i class="mdi mdi-alert-box"></i>Bajas juridicas</a>--}}
+                            </div>
+                        </li>
                         <!-- ============================================================== -->
                         <!-- Search -->
                         <!-- ============================================================== -->
@@ -291,7 +300,7 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/vnatural" aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">V natural </span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/vjuridica" aria-expanded="false"><i class="mdi mdi-account-star"></i><span class="hide-menu">V juridica</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/mercado" aria-expanded="false"><i class="mdi mdi-home"></i><span class="hide-menu">Mercados</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/vutratcontrol" aria-expanded="false"><i class="mdi mdi-battery-90"></i><span class="hide-menu">Vutrat</span></a></li>
+{{--                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/vutratcontrol" aria-expanded="false"><i class="mdi mdi-battery-90"></i><span class="hide-menu">Vutrat</span></a></li>--}}
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/vutratcontrol2" aria-expanded="false"><i class="mdi mdi-battery-90"></i><span class="hide-menu">Vutrat seguimiento</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/vutratcontrol3" aria-expanded="false"><i class="mdi mdi-battery-90"></i><span class="hide-menu">Vutrat tramite ic</span></a></li>
                         {{--                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Icons </span></a>--}}
