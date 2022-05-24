@@ -29,6 +29,7 @@
                         <thead>
                         <tr class="thead-dark">
                             <th>padron </th>
+                            <th>control </th>
                             <th>cuota </th>
                             <th>fec_term </th>
                             <th>imp_pagar </th>
@@ -41,6 +42,58 @@
                         <tbody id="contenido">
                         </tbody>
                     </table>
+                    <div class="modal fade" id="controlModal" tabindex="-1" role="dialog" aria-labelledby="controlModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="controlModalLabel">Actualizar control</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="formulariocontrol">
+{{--                                        <div class="form-group row">--}}
+{{--                                            <label for="control" class="col-sm-2 col-form-label">Nuevo control</label>--}}
+{{--                                            <div class="col-sm-10">--}}
+{{--                                                <input type="text" class="form-control" id="control" placeholder="Control">--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+                                        <div class="form-group row">
+                                            <label for="cod_caja" class="col-sm-2 col-form-label">cod_caja</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="cod_caja" placeholder="cod_caja" name="cod_caja">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="fec_term" class="col-sm-2 col-form-label">fec_term</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="fec_term" placeholder="fec_term" name="fec_term">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="control" class="col-sm-2 col-form-label">control</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="control" placeholder="control" name="control">
+                                            </div>
+                                        </div>
+{{--                                        <div class="form-group row">--}}
+{{--                                            <label for="horamercado" class="col-sm-2 col-form-label">horamercado</label>--}}
+{{--                                            <div class="col-sm-10">--}}
+{{--                                                <input type="text" class="form-control" id="horamercado" placeholder="horamercado" name="horamercado">--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-trash"></i> Cerrar</button>
+                                            <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Actualizar</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -117,12 +170,11 @@
                         type:'PUT',
                         data:{
                             "_token": "{{ csrf_token() }}",
-                            "padron":$('#padron').val(),
-                            "fec_term":$('#fec_term').val(),
-                            "imp_pagar":$('#imp_pagar').val(),
-                            "hora":$('#hora').val(),
                             "cod_caja":$('#cod_caja').val(),
-                            "fech_pago":$('#fech_pago').val(),
+                            "control":$('#control').val(),
+                            // "hora":$('#hora').val(),
+                            // "cod_caja":$('#cod_caja').val(),
+                            "fec_term":$('#fec_term').val(),
                         },
                         success:function (r){
                             $('#controlModal').modal('hide')
@@ -140,8 +192,10 @@
 
             $("#contenido").on("click", ".control", function(){
                 // console.log($(this).attr('id-n_tramite'));
+                // console.log('s')
                 id=$(this).attr('id-id')
                 $('#padron').val($(this).attr('id-padron')=="null"?'':$(this).attr('id-padron'))
+                $('#control').val($(this).attr('id-control')=="null"?'':$(this).attr('id-control'))
                 $('#fec_term').val($(this).attr('id-fec_term')=="null"?'':$(this).attr('id-fec_term'))
                 $('#imp_pagar').val($(this).attr('id-imp_pagar')=="null"?'':$(this).attr('id-imp_pagar'))
                 $('#hora').val($(this).attr('id-hora')=="null"?'':$(this).attr('id-hora'))
@@ -212,6 +266,7 @@
                         res.forEach(r=>{
                             t+='<tr>' +
                                 '<td>'+r.padron+'</td>'+
+                                '<td>'+r.control+'</td>'+
                                 '<td>'+r.cuota+'</td>'+
                                 '<td>'+r.fec_term+'</td>'+
                                 '<td>'+r.imp_pagar+'</td>'+
@@ -223,6 +278,7 @@
                                 '<button  class=" control btn btn-warning btn-sm" type="button" ' +
                                 'id-id="'+r.id+'" '+
                                 'id-padron="'+r.padron+'" '+
+                                'id-control="'+r.control+'" '+
                                 'id-fec_term="'+r.fec_term+'" '+
                                 'id-imp_pagar="'+r.imp_pagar+'" '+
                                 'id-hora="'+r.hora+'" '+

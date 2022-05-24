@@ -82,11 +82,8 @@ class DuplicadocontribuyenteController extends Controller
     {
         $contribuyente=DB::table("pm01cont")->where("Codauto",$Codauto)->get();
         $comun= trim($contribuyente[0]->comun).'A';
-//        $contribuyente->comun=$contribuyente->comun.'A';
-//        $contribuyente->save();
         DB::table("pm01cont")->where("Codauto",$Codauto)->update([
             "comun"=>$comun
         ]);
-//        DB::table("pm01cont")->where("Codauto",$Codauto)->update();
     }
 }

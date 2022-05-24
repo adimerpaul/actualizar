@@ -70,12 +70,14 @@ class P_cuotas extends Controller
     public function update(Request $request, $id)
     {
         DB::connection('bases')->table('p_cuotas')->where('id',$id)->update([
-            "padron"=>$request->padron,
+//            "padron"=>$request->padron,
             "fec_term"=>$request->fec_term,
-            "imp_pagar"=>$request->imp_pagar,
-            "hora"=>$request->hora,
+//            "imp_pagar"=>$request->imp_pagar,
+//            "hora"=>$request->hora,
+//            "cod_caja"=>$request->cod_caja,
+//            "fech_pago"=>$request->fech_pago,
             "cod_caja"=>$request->cod_caja,
-            "fech_pago"=>$request->fech_pago,
+            "control"=>$request->control,
         ]);
     }
 
